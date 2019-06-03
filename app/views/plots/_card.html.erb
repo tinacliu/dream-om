@@ -1,0 +1,25 @@
+
+<div class="card" style="width: 20rem;">
+  <%= image_tag plot.image_url, crop: :fill, class: 'card-img-top' %>
+  <div class="card-body">
+
+    <p class="card-subtitle underline blue"><%= plot.category %></p>
+    <h6 class="card-title mt-2"><%= link_to plot.title, plot_path(plot), class: "card-link grey"%></h6>
+<!--         <h5 class="card-title mt-2"><%#= truncate(plot.name,
+               omission: "", length: 40,  separator: " ")%></h5> -->
+  </div>
+  <div class="card-footer d-flex justify-content-around s_font">
+    <div class="card-foot-square">
+      <i class="fas fa-yen-sign blue mr-2"></i><%= plot.property_type %>
+    </div>
+    <div class="card-foot-square">|</div>
+    <div class="card-foot-square">
+      <i class="fas fa-bars blue mr-2"></i><%= truncate(plot.address, 20) %>
+    </div>
+    <div class="card-foot-square">|</div>
+    <div class="card-foot-square">
+      <i class="far fa-clock blue mr-2"></i><%= "#{plot.price}" %>
+    </div>
+</div>
+</div>
+
