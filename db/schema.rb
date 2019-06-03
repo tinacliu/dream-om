@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_02_082252) do
+ActiveRecord::Schema.define(version: 2019_06_03_041115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "shortlist_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shortlist_id"], name: "index_comments_on_shortlist_id"
+  end
+
+  create_table "plots", force: :cascade do |t|
+    t.integer "price"
+    t.string "address"
+    t.float "longtitude"
+    t.float "latitude"
+    t.string "property_type"
+    t.string "location"
+    t.integer "plot_size"
+    t.integer "floor_size"
+    t.integer "num_bathrooms"
+    t.integer "num_bedrooms"
+    t.integer "num_recepts"
+    t.integer "num_floors"
+    t.boolean "has_garden"
+    t.boolean "has_attic"
+    t.string "floor_plan_url"
+    t.string "image_url"
+    t.text "description"
+    t.datetime "first_published_date"
+    t.datetime "last_published_date"
+    t.string "agent_name"
+    t.string "agent_phone"
+    t.string "agent_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shortlists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "plot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plot_id"], name: "index_shortlists_on_plot_id"
+    t.index ["user_id"], name: "index_shortlists_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +71,7 @@ ActiveRecord::Schema.define(version: 2019_06_02_082252) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "shortlists"
+  add_foreign_key "shortlists", "plots"
+  add_foreign_key "shortlists", "users"
 end
