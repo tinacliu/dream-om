@@ -7,6 +7,11 @@ class ShortlistsController < ApplicationController
     authorize @shortlist
     @shortlist.user = current_user
     if @shortlist.save
+      flash[:notice] = "Shortlist created"
+      redirect_to shortlist_page(@shortlist)
+    else
+      flash[:warning] = "Shortlist couldn't be created"
+      redirect_to profile_path
   end
 
 
@@ -16,5 +21,12 @@ class ShortlistsController < ApplicationController
     @shortlist.destroy
     redirect_to profile_path
   end
+
+  private
+
+  def shortlist_params
+    params.require(:shortlist).permit(:owner_id, :plot_id)
+  end
+
 
 end
