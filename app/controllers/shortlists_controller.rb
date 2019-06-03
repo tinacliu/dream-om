@@ -1,0 +1,3 @@
+class ShortlistsController < ApplicationController
+
+end

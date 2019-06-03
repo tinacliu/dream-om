@@ -1,0 +1,4 @@
+class PlotsController < ApplicationController
+
+
+end
