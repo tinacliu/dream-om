@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_054724) do
+ActiveRecord::Schema.define(version: 2019_06_03_093033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_054724) do
   create_table "plots", force: :cascade do |t|
     t.integer "price"
     t.string "address"
-    t.float "longtitude"
+    t.float "longitude"
     t.float "latitude"
     t.string "property_type"
     t.string "location"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_06_03_054724) do
     t.integer "num_floors"
     t.boolean "has_garden"
     t.boolean "has_attic"
-    t.string "floor_plan_url"
     t.string "image_url"
     t.text "description"
     t.datetime "first_published_date"
@@ -51,6 +50,10 @@ ActiveRecord::Schema.define(version: 2019_06_03_054724) do
     t.string "title"
     t.boolean "plan_granted"
     t.string "ownership_type"
+    t.string "listing_id"
+    t.string "details_url"
+    t.string "price_change", default: [], array: true
+    t.string "floor_plan_url", default: [], array: true
   end
 
   create_table "shortlists", force: :cascade do |t|
