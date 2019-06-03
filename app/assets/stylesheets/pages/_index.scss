@@ -1,2 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
+
+// Applies to all pages
+.container-lg {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 8px 8px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;
+}
