@@ -1,3 +1,5 @@
+require 'json'
+
 puts 'This file will add some seeds to your aplication.'
 
 puts 'Adding new plots'
@@ -101,3 +103,14 @@ plot_attributes = [
   Plot.create!(plot_attributes)
 
   puts 'Done!'
+
+
+# This is how to acces data for the API
+
+# filepath = './app/assets/files/land_london_radius50_page1.json'
+
+# serialized_plots = File.read(filepath)
+
+# plots = JSON.parse(serialized_plots)
+
+# p plots['listing'][0]['agent_name']

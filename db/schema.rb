@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_054724) do
+ActiveRecord::Schema.define(version: 2019_06_03_083134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_054724) do
   create_table "plots", force: :cascade do |t|
     t.integer "price"
     t.string "address"
-    t.float "longtitude"
+    t.float "longitude"
     t.float "latitude"
     t.string "property_type"
     t.string "location"
