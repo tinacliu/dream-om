@@ -12,7 +12,11 @@ plot_attributes = [
     image_url:      'https://lc.zoocdn.com/ecca86633e46e92862ad20557a163b2ff623b4fc.jpg',
     agent_name:      'Auction House London',
     agent_phone:     '020-3641-1932',
-    ownership_type:   'Freehold'
+    ownership_type:   'Freehold',
+    location:         'Uxbridge',
+    plan_granted:     true,
+    plot_size:        2411,
+    has_garden:       true
   },
   {
     title:          'Land for sale',
@@ -23,7 +27,12 @@ plot_attributes = [
     image_url:      'https://lc.zoocdn.com/e0e65465ba71ffae54e2344caf8643ab0a54a9dd.jpg',
     agent_name:      'Xpert Agents',
     agent_phone:     '01843-306915',
-    ownership_type:   'Freehold'
+    ownership_type:   'Freehold',
+    location:         'Enfield',
+    plan_granted:     true,
+    num_bedrooms:     3,
+    num_recepts:      1,
+    has_garden:       true
   },
   {
     title:          'Land for sale',
@@ -43,7 +52,11 @@ plot_attributes = [
     agent_name:      'Accord Sales & Lettings',
     agent_phone:     '01708-629337',
     ownership_type:   'Vacant Possession',
-    floor_plan_url:  'https://lc.zoocdn.com/71f06a934a4328ef162873fcb19c0eef6013492e.jpg'
+    floor_plan_url:  'https://lc.zoocdn.com/71f06a934a4328ef162873fcb19c0eef6013492e.jpg',
+    location:         'Romford',
+    plan_granted:     true,
+    has_garden:       true,
+    plot_size:        17424
   },
   {
     title:          '2 bed end terrace house for sale',
@@ -57,7 +70,13 @@ plot_attributes = [
     agent_name:      'Paul Simon Residential Sales',
     agent_phone:     '020-8166-1812',
     ownership_type:   'Freehold',
-    floor_plan_url:   'https://lc.zoocdn.com/7c337c02900912c0c2f9efdadbb847720f973a1d.jpg'
+    floor_plan_url:   'https://lc.zoocdn.com/7c337c02900912c0c2f9efdadbb847720f973a1d.jpg',
+    location:         'London',
+    plan_granted:     false,
+    has_garden:       true,
+    num_bedrooms:     2,
+    num_bathrooms:    1,
+    num_recepts:      1
   },
   {
     title:          '3 bed property for sale',
@@ -68,7 +87,14 @@ plot_attributes = [
     image_url:      'https://lc.zoocdn.com/016ad1ce0ea13d1ce8d159001cd9877a386c3002.jpg',
     agent_name:      'Allsop LLP',
     agent_phone:     '020-3641-1750',
-    ownership_type:   'Freehold'
+    ownership_type:   'Freehold',
+    location:         'Kingston upon Thames',
+    plan_granted:     false,
+    has_garden:       true,
+    num_bedrooms:     3,
+    num_bathrooms:    1,
+    num_recepts:      2,
+    plot_size:        8276.4
   }
 ]
 
