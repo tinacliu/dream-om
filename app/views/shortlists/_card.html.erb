@@ -28,10 +28,23 @@
           </div>
         </div>
       </div>
-
+    <%= link_to "X", shortlist_path(shortlist), method: :delete %>
     </div>
 
   </div>
-  <%= link_to "X", shortlist_path(shortlist), method: :delete, class: "card-delete-link" %>
+
 </div>
 
+<% if shortlist.comments.any?%>
+  <%shortlist.comments.each do |comment| %>
+    <p> <%= comment.content %> </p>
+  <% end %>
+<% end %>
+<div>
+  <%= simple_form_for [shortlist, comment] do |f| %>
+    <%= f.input :content, placeholder: "Make a note about this plot" %>
+    <%= f.submit "Record note", class: "btn btn-primary" %>
+  <% end %>
+
+
+</div>

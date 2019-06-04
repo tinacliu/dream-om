@@ -37,7 +37,7 @@
         <div class="card-workshop-sm-gray border text-muted mb-3">None found</div>
       <% else %>
         <% @user.shortlists.each do |shortlist| %>
-          <%= render 'shortlists/card', shortlist: shortlist %>
+          <%= render 'shortlists/card', shortlist: shortlist, comment: @comment %>
         <% end %>
 
 

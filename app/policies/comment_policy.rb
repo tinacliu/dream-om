@@ -1,15 +1,15 @@
 class CommentPolicy < ApplicationPolicy
 
   def index?
-    record.user = user
+    true
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    user_signed_in?
+    true
   end
 
   def new?
