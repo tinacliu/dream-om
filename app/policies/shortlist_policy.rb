@@ -1,13 +1,13 @@
 class ShortlistPolicy < ApplicationPolicy
 
   def index?
-    true
-   # record.user = user
+   # true
+    record.user == user
   end
 
   def show?
-    true
-    #record.user = user
+  #  true
+    record.user == user
   end
 
   def create?
@@ -27,7 +27,7 @@ class ShortlistPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user = user
+    record.user == user
   end
 
   class Scope < Scope

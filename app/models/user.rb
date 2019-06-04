@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :shortlists
+  has_many :comments, through: :shortlists # remove if unnecessary f
 end

@@ -32,19 +32,20 @@
     </div>
 
   </div>
+  <% if shortlist.comments.any?%>
+    <%shortlist.comments.each do |comment| %>
+      <p> <%= comment.content %> </p>
+      <%= link_to "X", comment_path(comment), method: :delete %>
+    <% end %>
+  <% end %>
+  <div>
+    <%= simple_form_for [shortlist, comment] do |f| %>
+      <%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
+      <%= f.submit "Record note", class: "btn btn-primary" %>
+    <% end %>
+
+
+  </div>
 
 </div>
 
-<% if shortlist.comments.any?%>
-  <%shortlist.comments.each do |comment| %>
-    <p> <%= comment.content %> </p>
-  <% end %>
-<% end %>
-<div>
-  <%= simple_form_for [shortlist, comment] do |f| %>
-    <%= f.input :content, placeholder: "Make a note about this plot" %>
-    <%= f.submit "Record note", class: "btn btn-primary" %>
-  <% end %>
-
-
-</div>

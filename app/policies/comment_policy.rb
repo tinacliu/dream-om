@@ -17,7 +17,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user = user
+    record.shortlist.user == user
   end
 
   def edit?
@@ -25,7 +25,8 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user = user
+    # true
+    record.shortlist.user == user
   end
 
   class Scope < Scope
