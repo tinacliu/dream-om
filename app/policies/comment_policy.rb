@@ -1,15 +1,15 @@
 class CommentPolicy < ApplicationPolicy
 
   def index?
-    record.user = user
+    true
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    user_signed_in?
+    true
   end
 
   def new?
@@ -17,7 +17,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user = user
+    record.shortlist.user == user
   end
 
   def edit?
@@ -25,7 +25,8 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user = user
+    # true
+    record.shortlist.user == user
   end
 
   class Scope < Scope

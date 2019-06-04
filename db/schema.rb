@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_093033) do
+ActiveRecord::Schema.define(version: 2019_06_04_023528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,9 @@ ActiveRecord::Schema.define(version: 2019_06_03_093033) do
     t.string "details_url"
     t.string "price_change", default: [], array: true
     t.string "floor_plan_url", default: [], array: true
+    t.string "street_name"
+    t.string "post_town"
+    t.string "outcode"
   end
 
   create_table "shortlists", force: :cascade do |t|

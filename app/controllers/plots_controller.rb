@@ -10,7 +10,7 @@ class PlotsController < ApplicationController
   end
 
   def show
-    @plot = Plot.find(params[:index])
+    @plot = Plot.find(params[:id])
     authorize @plot
   end
 

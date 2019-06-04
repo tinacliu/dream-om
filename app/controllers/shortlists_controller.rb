@@ -12,12 +12,13 @@ class ShortlistsController < ApplicationController
     else
       flash[:warning] = "Shortlist couldn't be created"
       redirect_to profile_path
+    end
   end
 
 
   def destroy
     @shortlist = Shortlist.find(params[:id])
-    autorize @shortlist
+    authorize @shortlist
     @shortlist.destroy
     redirect_to profile_path
   end

@@ -5,3 +5,31 @@
 .grey {
   color: $dark-gray;
 }
+
+.s_font {
+  font-size: 14px;
+}
+
+.m_font {
+  font-size: 16px;
+}
+
+.l_font {
+  font-size: 20px;
+}
+
+.bold {
+  font-weight: 400;
+}
+
+.thin {
+  font-weight: 300;
+}
+
+.h_font {
+  font-family: $headers-font;
+}
+
+.highlight-blue {
+   background: linear-gradient(180deg, rgba(255,255,255,0) 65%, $op-blue 65%);
+}
