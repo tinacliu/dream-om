@@ -4,7 +4,8 @@
 
 // Define fonts for body and headers
 $body-font: "Source Sans Pro", "sans-serif";
-$headers-font: "Lato", "sans-serif";
+// $headers-font: "Lato", "sans-serif";
+
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -15,3 +16,52 @@ $headers-font: "Lato", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+@font-face {
+  font-family: "Gilroy";
+  src: font-url('Gilroy/Gilroy-Light.eot');
+  src: font-url('Gilroy/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
+       font-url('Gilroy/Gilroy-Light.woff') format('woff'),
+       font-url('Gilroy/Gilroy-Light.ttf') format('truetype');
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: font-url('Gilroy/Gilroy-Regular.eot');
+  src: font-url('Gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
+       font-url('Gilroy/Gilroy-Regular.woff') format('woff'),
+       font-url('Gilroy/Gilroy-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: font-url('Gilroy/Gilroy-Medium.eot');
+  src: font-url('Gilroy/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+       font-url('Gilroy/Gilroy-Medium.woff') format('woff'),
+       font-url('Gilroy/Gilroy-Medium.ttf') format('truetype');
+  font-weight: bold;
+}
+
+// @font-face {
+//   font-family: "Gilroy";
+//   src: font-url('Gilroy/Gilroy-SemiBold.eot');
+//   src: font-url('Gilroy/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'),
+//        font-url('Gilroy/Gilroy-SemiBold.woff') format('woff'),
+//        font-url('Gilroy/Gilroy-SemiBold.ttf') format('truetype');
+//   font-weight: bolder;
+// }
+
+@font-face {
+  font-family: "Gilroy";
+  src: font-url('Gilroy/Gilroy-MediumItalic.eot');
+  src: font-url('Gilroy/Gilroy-MediumItalic.eot?#iefix') format('embedded-opentype'),
+       font-url('Gilroy/Gilroy-MediumItalic.woff') format('woff'),
+       font-url('Gilroy/Gilroy-MediumItalic.ttf') format('truetype');
+  font-style: italic;
+}
+
+$base-font: "Gilroy";
+$headers-font: "Gilroy";
+
