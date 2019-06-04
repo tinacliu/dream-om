@@ -1,0 +1,25 @@
+
+<div class="card" style="width: 20rem;">
+  <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-img-top' %>
+  <div class="card-body">
+
+    <p class="card-subtitle underline blue"><%= shortlist.plot.property_type %></p>
+    <h6 class="card-title mt-2"><%= link_to shortlist.plot.title, plot_path(shortlist.plot), class: "card-link grey"%></h6>
+<!--         <h5 class="card-title mt-2"><%#= truncate(shortlist.name,
+               omission: "", length: 40,  separator: " ")%></h5> -->
+  </div>
+  <div class="card-footer d-flex justify-content-around s_font">
+    <div class="card-foot-square">
+      <i class="fas fa-yen-sign blue mr-2"></i><%= shortlist.plot.price %>
+    </div>
+    <div class="card-foot-square">|</div>
+    <div class="card-foot-square">
+      <i class="fas fa-bars blue mr-2"></i><%= shortlist.plot.plot_size %>
+    </div>
+    <div class="card-foot-square">|</div>
+    <div class="card-foot-square">
+      <i class="far fa-clock blue mr-2"></i><%= shortlist.plot.floor_size  %>
+    </div>
+</div>
+</div>
+
