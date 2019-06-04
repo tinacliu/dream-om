@@ -9,11 +9,14 @@
 
   <!-- the floorplan tab -->
   <div class="tab-pane fade" id="pills-floorplan" role="tabpanel" aria-labelledby="pills-floorplan-tab">
-  <% if @plot.floor_plan_url.blank? == false %>
-    <%= image_tag @plot.floor_plan_url, crop: :fill, class: 'card-img-top' %>
-  <% else %>
+  <% if @plot.floor_plan_url.blank? %>
     <h6 class="pl-5"><span class="highlight-blue">Sorry, no floorplan was uploaded by agent.</span></h6>
+  <% else %>
+    <% @plot.floor_plan_url.each do |floor_url| %>
+      <%= image_tag floor_url, crop: :fill, class: 'card-img-top p-3' %>
+    <% end %>
   <% end %>
+
   </div>
 
   <!-- the map tab -->

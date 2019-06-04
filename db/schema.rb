@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_023528) do
   create_table "plots", force: :cascade do |t|
     t.integer "price"
     t.string "address"
-    t.float "longtitude"
+    t.float "longitude"
     t.float "latitude"
     t.string "property_type"
     t.string "location"
