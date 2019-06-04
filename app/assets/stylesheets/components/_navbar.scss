@@ -1,17 +1,16 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  margin-top: 0px;
-  line-height: 2;
+  margin: 40px 24px 24px 24px;
+  line-height:  2;
   font-size: 16px;
+  color: $dark-gray;
+  font-weight: 400;
+  font-family: $headers-font;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 30px;
 }
 
 .logo_s {
@@ -19,7 +18,11 @@
   padding: 2px;
 }
 
-.nav_s_font {
-  font-size: 15px;
-  color: $dark-gray;
+.nav-link-blue {
+  text-decoration: none;
+  color: $duck-egg-blue;
+  &:hover {
+    text-decoration: none;
+    color: $dark-silver;
+  }
 }
