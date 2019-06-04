@@ -10,9 +10,16 @@
 
 .container-rt {
   min-height: 600px;
+  padding: 0px 80px 0px 0px;
 }
 
 .tab-show {
-  width: 100px;
+  width: 120px;
   text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.icons-col {
+  min-width: 150px;
 }
