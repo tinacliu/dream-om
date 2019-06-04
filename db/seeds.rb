@@ -1,116 +1,115 @@
 require 'json'
+start_time = Time.now
 
-puts 'This file will add some seeds to your aplication.'
+puts 'First we are going to add some land seeds...'
 
-puts 'Adding new plots'
+puts 'Adding new plots... please wait until the operation is completed'
+puts 'This could take some time....'
 
-plot_attributes = [
-  {
-    title:          'Land for sale',
-    description:    'A Freehold Cleared Site Measuring Approximately 2,411 sq m (0.5958 Acres) Offered with Planning Permission to Create a Four Bedroom Detached House (Works have Commenced and the Lodge has been Demolished).',
-    address:        'Old Orchard Lodge, Park Lane, Harefield, Uxbridge, Middlesex UB9',
-    price:          325000,
-    property_type:  'Land',
-    image_url:      'https://lc.zoocdn.com/ecca86633e46e92862ad20557a163b2ff623b4fc.jpg',
-    agent_name:      'Auction House London',
-    agent_phone:     '020-3641-1932',
-    ownership_type:   'Freehold',
-    location:         'Uxbridge',
-    plan_granted:     true,
-    plot_size:        2411,
-    has_garden:       true
-  },
-  {
-    title:          'Land for sale',
-    description:    'A 3 bedroom end of terrace house with an adjacent plot of land fronting on to Lavender Hill where a former approved planning application for a 2/3 bedroom detached house with associated car parking has lapsed. The property and land are being sold together and contracts will be on a subject to planning arrangement. The property is located within close proximity of Lavender Hill Main Line railway station.',
-    address:        'Hedge Hill, Enfield EN2',
-    price:          825000,
-    property_type:  'Land',
-    image_url:      'https://lc.zoocdn.com/e0e65465ba71ffae54e2344caf8643ab0a54a9dd.jpg',
-    agent_name:      'Xpert Agents',
-    agent_phone:     '01843-306915',
-    ownership_type:   'Freehold',
-    location:         'Enfield',
-    plan_granted:     true,
-    num_bedrooms:     3,
-    num_recepts:      1,
-    has_garden:       true
-  },
-  {
-    title:          'Land for sale',
-    description:    'Guide Price: £600,000 - £650,000, of interest to developers or self builders. A building plot for sale with full planning permission for a four/five bedroom detached property in the highly sought after Stapleford Abbotts.
+puts 'Preparing files for the operation...'
 
-                    This 0.4 acre site (stmls) is currently occupied by a detached bungalow and has full planning permission for a replacement four/five bedroom detached chalet style property.
-
-                    The site may suit a different scheme or development subject to planning permission.
-
-                    Planning reference epf/3329/18 (Epping Forest District Council).
-
-                    Further details and plans available on request.',
-    address:        'Tysea Hill, Stapleford Abbotts, Romford RM4',
-    price:          600000,
-    property_type:  'Land',
-    image_url:      'https://lc.zoocdn.com/21e88bd37010f5a62dee253c6e16a3f5df498706.jpg',
-    agent_name:      'Accord Sales & Lettings',
-    agent_phone:     '01708-629337',
-    ownership_type:   'Vacant Possession',
-    floor_plan_url:  'https://lc.zoocdn.com/71f06a934a4328ef162873fcb19c0eef6013492e.jpg',
-    location:         'Romford',
-    plan_granted:     true,
-    has_garden:       true,
-    plot_size:        17424
-  },
-  {
-    title:          '2 bed end terrace house for sale',
-    description:    'Occupying the corner plot is this striking End of Terrace two bedroom freehold cottage. Presented in excellent decorative order the property boasts plenty of natural light and enjoys a private east facing garden!
-
-                    Accommodation comprises; reception room, fitted kitchen diner, two upstairs double bedrooms and upstairs bathroom.',
-    address:        'Gospatrick Road, Tottenham, London N17',
-    price:          459950,
-    property_type:  'Terrace',
-    image_url:      'https://lc.zoocdn.com/d07d90d672137c9fdacc4269657eccef8e95885a.jpg',
-    agent_name:      'Paul Simon Residential Sales',
-    agent_phone:     '020-8166-1812',
-    ownership_type:   'Freehold',
-    floor_plan_url:   'https://lc.zoocdn.com/7c337c02900912c0c2f9efdadbb847720f973a1d.jpg',
-    location:         'London',
-    plan_granted:     false,
-    has_garden:       true,
-    num_bedrooms:     2,
-    num_bathrooms:    1,
-    num_recepts:      1
-  },
-  {
-    title:          '3 bed property for sale',
-    description:    'A 3 bedroom end of terrace house with an adjacent plot of land fronting on to Lavender Hill where a former approved planning application for a 2/3 bedroom detached house with associated car parking has lapsed. The property and land are being sold together and contracts will be on a subject to planning arrangement. The property is located within close proximity of Lavender Hill Main Line railway station.',
-    address:        '3 The Cottage, Lower Marsh Lane, Kingston Upon Thames KT1',
-    price:          450000,
-    property_type:  'Property',
-    image_url:      'https://lc.zoocdn.com/016ad1ce0ea13d1ce8d159001cd9877a386c3002.jpg',
-    agent_name:      'Allsop LLP',
-    agent_phone:     '020-3641-1750',
-    ownership_type:   'Freehold',
-    location:         'Kingston upon Thames',
-    plan_granted:     false,
-    has_garden:       true,
-    num_bedrooms:     3,
-    num_bathrooms:    1,
-    num_recepts:      2,
-    plot_size:        8276.4
-  }
+filepaths = [
+  './app/assets/files/land_london_radius50_page1.json',
+  './app/assets/files/land_london_radius50_page2.json'
 ]
 
-  Plot.create!(plot_attributes)
-
-  puts 'Done!'
+puts 'Initializing...'
 
 
-# This is how to acces data for the API
 
-# filepath = './app/assets/files/land_london_radius50_page1.json'
+def land_seeding(file_path)
+  plot_counter = 0
+  plot_index = 0
 
-# serialized_plots = File.read(filepath)
+  plotsfile = File.read(file_path)
 
-# plots = JSON.parse(serialized_plots)
+  plots = JSON.parse(plotsfile)
 
-# p plots['listing'][0]['agent_name']
+  puts 'Excluding plots without needed data...'
+
+  filtered_plots = plots['listing'].reject do |plot|
+    plot['description'] =~ /commercial/i ||
+    plot['description'] =~ /subject to planning permission/i ||
+    plot['description'] =~ /subject to planning/i ||
+    plot['short_description'] =~ /commercial/i ||
+    plot['short_description'] =~ /flat/i ||
+    plot['short_description'] =~ /apartment/i ||
+    plot['short_description'] =~ /subject to planning permission/i ||
+    plot['short_description'] =~ /subject to planning/i ||
+    plot['price'] == 0
+  end
+
+  puts 'Selecting other meta data'
+
+  filtered_plots.select do |plot|
+    p plot['description'].match?(/planning consent/i) || plot['description'].match?(/Planning Application Number/i)
+  end
+
+  puts 'Creating Plots and adding all data....'
+
+  filtered_plots.each do |plot|
+    # ownership_type = if plot['description'].match?(/share of freehold/i)
+    #   'Share of Freehold'
+    # elsif plot['description'].match?(/leasehold/i)
+    #   'Leasehold'
+    # elsif plot['description'].match?(/freehold/i)
+    #   'Freehold'
+    # else
+    #   nil
+    # end
+
+    ownership_type = case plot['description']
+    when /share of freehold/i
+      'Share of Freehold'
+    when /leasehold/i
+      'Leasehold'
+    when /freehold/i
+      'Freehold'
+    else
+      nil
+    end
+
+    Plot.create!(
+      num_floors:  plot['num_floors'],
+      num_bedrooms:  plot['num_bedrooms'],
+      property_type:  plot['property_type'],
+      description:  plot['description'],
+      post_town:  plot['post_town'],
+      details_url:  plot['details_url'],
+      outcode:  plot['outcode'],
+      image_url:  plot['image_645_430_url'],
+      price:  plot['price'],
+      listing_id:  plot['listing_id'],
+      agent_name:  plot['agent_name'],
+      num_recepts:  plot['num_recepts'],
+      first_published_date:  plot['first_published_date'],
+      address:  plot['displayable_address'],
+      floor_plan_url:  plot['floor_plan'],
+      street_name:  plot['street_name'],
+      num_bathrooms:  plot['num_bathrooms'],
+      price_change:  plot['price_change'],
+      agent_phone:  plot['agent_phone'],
+      last_published_date:  plot['last_published_date'],
+      location:  plot['county'],
+      latitude: plot['latitude'],
+      longitude: plot['longitude'],
+      plan_granted: plot['description'].match?(/planning consent/i)  ||
+      plot['description'].match?(/Planning Application Number/i),
+      ownership_type: ownership_type
+     )
+    plot_counter += 1
+    puts "Created #{plot_counter} plot/s "
+  end
+end
+
+filepaths.each do |f|
+  puts '=' * 30
+  puts "=== working on file #{f}... ==="
+  puts '=' * 30
+  land_seeding(f)
+end
+
+
+ending = Time.now
+elapsed = ending - start_time
+puts "Elapsed time: #{elapsed}/Seconds"
