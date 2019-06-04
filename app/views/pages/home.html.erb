@@ -1,10 +1,39 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
+<div class="banner">
+  <div class="flex-container">
 
-      <h1>PLACEHOLDER</h1>
-      <%= link_to "View All Plots", plots_path  %>
-
+    <div class="row">
+      <h2>Find Your New <span class="blue">Home</span></h2>
     </div>
+
+    <div class="row">
+      <input class="search-bar" type="search", placeholder="Postal Code Here" >
+      <i class="fas fa-map-marker-alt search-icon"></i>
+    </div>
+
+    <div class="row">
+      <%= link_to plots_path do %>
+      <input class="btn-banner" type="submit", value= "Get Started">
+      <% end %>
+    </div>
+
   </div>
 </div>
+
+
+
+<div class="container">
+ <div class="row flex-container-link">
+    <h3 class= >FEATURED PLOTS</h3>
+    <h3><%= link_to "View All", plots_path %></h4>
+  </div>
+</div>
+
+<div class="col-8">
+    <div class="index-grid">
+      <% @plots.each do |plot| %>
+        <%= render 'plots/card', plot: plot %>
+      <% end %>
+    </div>
+</div>
+
+

@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  margin: 40px 24px 24px 24px;
+  margin: 30px 24px 24px 24px;
   line-height:  2;
   font-size: 16px;
   color: $dark-gray;
@@ -14,8 +14,10 @@
 }
 
 .logo_s {
-  width: 70px;
-  padding: 2px;
+  width: 115px;
+  margin-left: 135px;
+  color:$duck-egg-blue;
+
 }
 
 .nav-link-blue {
@@ -26,3 +28,4 @@
     color: $dark-silver;
   }
 }
+
