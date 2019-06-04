@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:destroy]
 
-  get 'profile', to: 'profile#show', as: 'profile'
+  get 'profile', to: 'users#show', as: 'profile'
 end
