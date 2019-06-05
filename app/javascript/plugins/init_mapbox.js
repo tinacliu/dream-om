@@ -18,6 +18,16 @@ const addMarkersToMap = (map, markers) => {
   });
 };
 
+// const loadMapProperly = (map, markers) => {
+//   document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
+//     console.log("click tab")
+//     setTimeout(function() {
+//       map.resize();
+//       fitMapToMarkers(returnedMap, JSON.parse(document.getElementById("map").dataset.markers));
+//     }, 200);
+// };
+
+
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
@@ -31,7 +41,7 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.addControl(new mapboxgl.NavigationControl());
-    map.resize();
+   //  loadMapProperly(map, markers);
    // $(window).resize(function(){map.resize()});
     // const canvasElement = mapElement.querySelector(".mapboxgl-canvas")
     // mapElement.style.width = "100%";
