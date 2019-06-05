@@ -3,10 +3,27 @@
 // Plots index page
 .index-grid {
   display: grid;
-  padding: 0px 24px 0px 0px;
+  padding: 0px 24px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
+}
+
+.col-filter-bar {
+  background-color: white;
+  transition: 0.5s position ease;
+}
+
+.col-filter-bar-top {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1030;
+  height: 36px;
+  margin: auto 0px;
+  border-bottom: solid 2px $op-blue;
+  // padding: 0px 8px;
 }
 
 .filter-bar {
@@ -14,15 +31,11 @@
   justify-content: right;
   align-items: center;
   color: $dark-silver;
-  margin-right: 24px;
-  padding: 0px 16px;
+  padding: 0px 24px;
   height: 2rem;
   font-weight: 300;
   font-size: 15px;
   font-family: $headers-font;
-  // position: sticky;
-  // top: 0;
-
 }
 
 .filter-button {
