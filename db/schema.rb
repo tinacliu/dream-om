@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_023528) do
+ActiveRecord::Schema.define(version: 2019_06_05_051612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_023528) do
     t.float "latitude"
     t.string "property_type"
     t.string "location"
-    t.integer "plot_size"
-    t.integer "floor_size"
+    t.string "plot_size"
+    t.string "floor_size"
     t.integer "num_bathrooms"
     t.integer "num_bedrooms"
     t.integer "num_recepts"

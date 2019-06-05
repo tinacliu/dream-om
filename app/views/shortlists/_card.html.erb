@@ -1,51 +1,55 @@
-<div class = "container mr-0">
-  <div class = "row">
-    <div class = "col-12">
-      <div class="card" style="width: 20rem;">
-        <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-img-top' %>
-        <div class="card-body">
-          <div class= "card-info">
-            <h6 class="card-title mt-2"><%= link_to shortlist.plot.title, plot_path(shortlist.plot), class: "card-link grey"%></h6>
-            <h6 class= "mt-2"><%= shortlist.plot.property_type %></h6>
+<div class = "d-flex container mr-0">
+      <div class = "col-12">
+      <div class = "row">
+        <div class="card" style="width: 20rem;">
+          <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-img-top' %>
+          <div class="card-body">
+            <div class= "card-info">
+              <h6 class="card-title mt-2"><%= link_to shortlist.plot.title, plot_path(shortlist.plot), class: "card-link grey"%></h6>
+              <h6 class= "mt-2"><%= shortlist.plot.property_type %></h6>
+            </div>
+            <div class = "card-info">
+              <h6> <%= shortlist.plot.address.truncate(20, separator: ",", omission: "") %></h6>
+              <h6> &pound;<%= shortlist.plot.price %></h6>
+            </div>
           </div>
-          <div class = "card-info">
-            <h6> <%= shortlist.plot.address.truncate(20) %></h6>
-            <h6> <%= shortlist.plot.price %></h6>
-          </div>
+  <%= link_to "X", shortlist_path(shortlist), method: :delete %>
+    <!-- </div> -->
+      </div>
 
+  <div class="d-flex">
+    <div class="card">
+      <div class="card-center">
+        <div class="row">
+          <h6 class="class="card-title m-0 blue"">Plot size</h6>
         </div>
-        <div class="card-footer d-flex justify-content-around s_font">
-          <div class="card-foot-square">
-            <i class="fas fa-yen-sign blue mr-2"></i><%= shortlist.plot.price %>
-          </div>
-          <div class="card-foot-square">|</div>
-          <div class="card-foot-square">
-            <i class="fas fa-bars blue mr-2"></i><%= shortlist.plot.plot_size %>
-          </div>
-          <div class="card-foot-square">|</div>
-          <div class="card-foot-square">
-            <i class="fas fa-pound-sign mr-2"></i><%= shortlist.plot.price  %>
-          </div>
+        <div class="row">
+          <%= shortlist.plot.plot_size%>m&sup2;
+        </div>
+        <div class="row">
+          <h6 class="class="card-title m-0 grey"">Plot size</h6>
+        </div>
+        <div class="row">
+          <%= shortlist.plot.floor_size %>m&sup2;
+        </div>
+         <div class="row">
+          <%= shortlist.plot.ownership_type %>
         </div>
       </div>
-    <%= link_to "X", shortlist_path(shortlist), method: :delete %>
     </div>
-
   </div>
-  <% if shortlist.comments.any?%>
-    <%shortlist.comments.each do |comment| %>
-      <p> <%= comment.content %> </p>
-      <%= link_to "X", comment_path(comment), method: :delete %>
-    <% end %>
-  <% end %>
-  <div>
-    <%= simple_form_for [shortlist, comment] do |f| %>
-      <%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
-      <%= f.submit "Record note", class: "btn btn-primary" %>
-    <% end %>
-
-
-  </div>
-
 </div>
-
+  <!--   <#% if shortlist.comments.any?%>
+      <#%shortlist.comments.each do |comment| %>
+        <p> <#%= comment.content %> </p>
+        <#%= link_to "X", comment_path(comment), method: :delete %> -->
+      <%# end %>
+    <%# end %>
+    <!-- <div>
+      <#%= simple_form_for [shortlist, comment] do |f| %>
+        <#%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
+        <#%= f.submit "Record note", class: "btn btn-primary" %>
+      <% #end %>
+    </div> -->
+  </div>
+</div>

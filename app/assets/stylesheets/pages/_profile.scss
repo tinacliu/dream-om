@@ -1,6 +1,6 @@
 .container-profile {
-  margin: 80px;
-  padding: 24px;
+  margin: 40px;
+  // padding: 24px;
   display: flex;
   align-items: top;
   justify-content:center;
@@ -22,6 +22,17 @@
   text-align: left;
 }
 
+.profile-two-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content:left;
+  grid-column-gap: 16px;
+  grid-row-gap: 8px;
+  margin: 16px;
+  font-size: 13px;
+  text-align: left;
+}
+
 
 .profile-avatar {
   position:absolute;
@@ -35,3 +46,11 @@
 
 }
 
+.tab-bar {
+  justify-content: center
+}
+
+.tab-size {
+  width: 130px;
+  text-align: center;
+}
