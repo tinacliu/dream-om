@@ -6,14 +6,12 @@ class PlotsController < ApplicationController
     @plots = @plots.near(params[:address], 10) if params[:address]
     set_markers
 
-
   end
 
   def show
     @plot = Plot.find(params[:id])
     authorize @plot
   end
-
 
   private
 
@@ -27,5 +25,4 @@ class PlotsController < ApplicationController
       }
     end
   end
-
 end
