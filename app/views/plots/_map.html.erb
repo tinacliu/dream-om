@@ -1,7 +1,9 @@
 <div
   id="map"
-  style="width: 100%;
-  height: 705px;"
+  style="width: 100% !important;
+  height: 705px !important;
+  top:0;
+  bottom:0;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
