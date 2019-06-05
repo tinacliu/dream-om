@@ -2,8 +2,9 @@ class PlotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @plots = policy_scope(Plot)#.where.not(latitude: nil, longitude: nil)
+    @plots = policy_scope(Plot).paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
     @plots = @plots.near(params[:address], 10) if params[:address]
+   # @plots = @plots.paginate(page: params[:page], per_page: 30)
     set_markers
   end
 

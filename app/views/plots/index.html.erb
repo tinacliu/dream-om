@@ -21,6 +21,12 @@
     <div class="col-4" >
       <div class="bg-white" id="map-container">
         <%= render 'plots/map' %>
+        <div class="digg_pagination">
+          <div class="page_info">
+            <%#= page_entries_info @plots %>
+          </div>
+          <%= will_paginate @plots, :container => false %>
+        </div>
       </div>
     </div>
     <div class="col-8 px-2">
@@ -38,3 +44,4 @@
     </div>
   </div>
 </div>
+
