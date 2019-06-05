@@ -1,5 +1,5 @@
 class Plot < ApplicationRecord
-  TYPE = ["Garage", "House", "Land"]
+  TYPE = ["Bungalow", "Detached house", "End terrace house", "Farmhouse", "Houseboat", "Land", "Semi-detached house", "Terraced house"]
   has_many :shortlists
 
   validates :price, numericality: { only_integer: true }
