@@ -44,7 +44,11 @@
   </div>
 
   <hr>
-  <p class=""><%= @plot.description %></p>
+   <% ps = PragmaticSegmenter::Segmenter.new(text: @plot.description) %>
+
+    <% ps.segment.each_slice(3) do |slice| %>
+      <p><%= slice.join ' ' %></p>
+    <% end %>
   <hr>
 
   <!-- third section with publish dates -->
