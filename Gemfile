@@ -13,12 +13,15 @@ gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
-gem 'geocoder'
 gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+gem 'will_paginate', '~> 3.1.0'
+
 gem 'pragmatic_segmenter'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
