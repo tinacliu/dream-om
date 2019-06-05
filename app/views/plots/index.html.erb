@@ -1,7 +1,17 @@
 <div class="container-lg">
-  <div class="row">
-    <div class= "col-12">
-      <%#= render 'plots/filter_bar' %>
+  <div class="row mb-2">
+    <div class="col-4" >
+      <%= form_tag plots_path, method: :get do %>
+        <%= text_field_tag :location,
+          params[:location],
+          class: "form-control filter-search-bar",
+
+          placeholder: "London"
+        %>
+      <% end %>
+    </div>
+    <div class="col-8 px-2">
+      <%= render 'plots/filter_bar' %>
     </div>
   </div>
 </div>
