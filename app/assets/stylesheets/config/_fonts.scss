@@ -16,6 +16,14 @@ $body-font: "Source Sans Pro", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+@font-face {
+  font-family: "Gilroy";
+  src: font-url('Gilroy/Gilroy-UltraLight.eot');
+  src: font-url('Gilroy/Gilroy-UltraLight.eot?#iefix') format('embedded-opentype'),
+       font-url('Gilroy/Gilroy-UltraLight.woff') format('woff'),
+       font-url('Gilroy/Gilroy-UltraLight.ttf') format('truetype');
+  font-weight: lighter;
+}
 
 @font-face {
   font-family: "Gilroy";
@@ -23,7 +31,7 @@ $body-font: "Source Sans Pro", "sans-serif";
   src: font-url('Gilroy/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
        font-url('Gilroy/Gilroy-Light.woff') format('woff'),
        font-url('Gilroy/Gilroy-Light.ttf') format('truetype');
-  font-weight: lighter;
+  font-weight: normal;
 }
 
 @font-face {
@@ -32,7 +40,7 @@ $body-font: "Source Sans Pro", "sans-serif";
   src: font-url('Gilroy/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
        font-url('Gilroy/Gilroy-Regular.woff') format('woff'),
        font-url('Gilroy/Gilroy-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: bold;
 }
 
 @font-face {
@@ -41,17 +49,10 @@ $body-font: "Source Sans Pro", "sans-serif";
   src: font-url('Gilroy/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
        font-url('Gilroy/Gilroy-Medium.woff') format('woff'),
        font-url('Gilroy/Gilroy-Medium.ttf') format('truetype');
-  font-weight: bold;
+  font-weight: bolder;
 }
 
-// @font-face {
-//   font-family: "Gilroy";
-//   src: font-url('Gilroy/Gilroy-SemiBold.eot');
-//   src: font-url('Gilroy/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'),
-//        font-url('Gilroy/Gilroy-SemiBold.woff') format('woff'),
-//        font-url('Gilroy/Gilroy-SemiBold.ttf') format('truetype');
-//   font-weight: bolder;
-// }
+
 
 @font-face {
   font-family: "Gilroy";
