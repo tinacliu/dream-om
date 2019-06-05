@@ -9,22 +9,22 @@
             <h6 class= "mt-2"><%= shortlist.plot.property_type %></h6>
           </div>
           <div class = "card-info">
-            <h6> <%= shortlist.plot.address.truncate(20) %></h6>
-            <h6> <%= shortlist.plot.price %></h6>
+            <h6> <%= shortlist.plot.address.truncate(20, separator: ",", omission: "") %></h6>
+            <h6> &pound;<%= shortlist.plot.price %></h6>
           </div>
 
         </div>
         <div class="card-footer d-flex justify-content-around s_font">
           <div class="card-foot-square">
-            <i class="fas fa-yen-sign blue mr-2"></i><%= shortlist.plot.price %>
+            <i class="fas fa-chart-area blue mr-2"></i><%= shortlist.plot.plot_size%>m&sup2;
           </div>
           <div class="card-foot-square">|</div>
           <div class="card-foot-square">
-            <i class="fas fa-bars blue mr-2"></i><%= shortlist.plot.plot_size %>
+            <i class="fas fa-home   blue mr-2"></i><%= shortlist.plot.floor_size %>m&sup2;
           </div>
           <div class="card-foot-square">|</div>
           <div class="card-foot-square">
-            <i class="fas fa-pound-sign mr-2"></i><%= shortlist.plot.price  %>
+            <%= shortlist.plot.ownership_type %>
           </div>
         </div>
       </div>
