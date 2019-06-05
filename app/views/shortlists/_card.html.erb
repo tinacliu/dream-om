@@ -9,7 +9,7 @@
             <h6 class= "mt-2"><%= shortlist.plot.property_type %></h6>
           </div>
           <div class = "card-info">
-            <h6> <%= shortlist.plot.address.truncate(20) %></h6>
+            <h6> <%= shortlist.plot.address.truncate(20, separator: ",", omission: "") %></h6>
             <h6> &pound;<%= shortlist.plot.price %></h6>
           </div>
 
@@ -24,7 +24,7 @@
           </div>
           <div class="card-foot-square">|</div>
           <div class="card-foot-square">
-            <i class="fas fa-pound-sign blue mr-2"></i><%= shortlist.plot.property_type %>
+            <%= shortlist.plot.ownership_type %>
           </div>
         </div>
       </div>
