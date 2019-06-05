@@ -2,17 +2,20 @@
   <% if plot.image_url.blank? == false %>
     <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
   <% end %>
-  <div class="card-body bg-light d-flex justify-content-between align-items-center py-3">
+  <div class="card-body bg-light d-flex justify-content-between align-items-center py-3 px-2">
     <div class="card-left">
       <h6 class="m-0 grey" id="index-card-title">
         <%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %>
       </h6>
       <p class="mb-0 grey h_font s_font">
-        <%= "#{plot.post_town} #{plot.outcode}" %>
+        <% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>
+        <%= "#{post_town} #{plot.outcode}" %>
       </p>
     </div>
     <div class="card-right text-right">
-      <h6 class="card-subtitle blue bold"><%= plot.property_type %></h6>
+      <h6 class="card-subtitle blue bold s_font">
+        <%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %>
+      </h6>
       <% a = plot.price.to_s.size - 3 %>
       <p class="mb-0 grey bold h_font s_font">
         <% if a >= 4 %>

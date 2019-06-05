@@ -22,18 +22,19 @@
 
 
 <div class="container">
- <div class="row flex-container-link">
-    <h3 class= >FEATURED PLOTS</h3>
-    <h3><%= link_to "View All", plots_path %></h4>
+  <div class="row d-flex justify-content-between px-5 py-4">
+    <h5 class="blue mb-0">FEATURED PLOTS</h5>
+    <h5><%= link_to "View All", plots_path %></h5>
   </div>
-</div>
 
-<div class="col-8">
-    <div class="index-grid">
-      <% @plots.each do |plot| %>
-        <%= render 'plots/card', plot: plot %>
-      <% end %>
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <div class="index-grid">
+        <% @plots.each do |plot| %>
+          <%= link_to plot, class: "card-index-link" do  %>
+            <%= render 'plots/card', plot: plot %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
 </div>
-
-
