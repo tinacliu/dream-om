@@ -1,6 +1,6 @@
-<div class="card border-0">
+<div class="card card-index shadow-sm">
   <% if plot.image_url.blank? == false %>
-    <%= image_tag plot.image_url, crop: :fill, class: 'card-img-top' %>
+    <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
   <% end %>
   <div class="card-body bg-light d-flex justify-content-between align-items-center">
     <div class="card-left">
@@ -10,12 +10,12 @@
       <p class="mb-0"><%= "#{plot.post_town} #{plot.outcode}" %></p>
     </div>
     <div class="card-right text-right">
-      <p class="card-subtitle blue"><%= plot.property_type %></p>
+      <p class="card-subtitle blue bold"><%= plot.property_type %></p>
       <% a = plot.price.to_s.size - 3 %>
       <% if a >= 4 %>
-        <p class="mb-0">£ <%= "#{plot.price.to_s[0]},#{plot.price.to_s[1..3]},#{plot.price.to_s[4..7]}" %></p>
+        <p class="mb-0 bold">£ <%= "#{plot.price.to_s[0]},#{plot.price.to_s[1..3]},#{plot.price.to_s[4..7]}" %></p>
       <% else %>
-        <p class="mb-0">£ <%= "#{plot.price.to_s[0...a]},#{plot.price.to_s[a..-1]}" %></p>
+        <p class="mb-0 bold">£ <%= "#{plot.price.to_s[0...a]},#{plot.price.to_s[a..-1]}" %></p>
       <% end %>
     </div>
   </div>

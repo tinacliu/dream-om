@@ -3,6 +3,7 @@
 // Plots index page
 .index-grid {
   display: grid;
+  padding: 0px 24px 0px 0px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 24px;
   grid-row-gap: 24px;
