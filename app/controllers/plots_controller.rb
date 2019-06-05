@@ -5,13 +5,13 @@ class PlotsController < ApplicationController
     @plots = policy_scope(Plot)#.where.not(latitude: nil, longitude: nil)
     @plots = @plots.near(params[:address], 10) if params[:address]
     set_markers
-
   end
 
   def show
     @shortlist = Shortlist.new
     @plot = Plot.find(params[:id])
     authorize @plot
+    @shortlist.plot = @plot
     @markers = [
       {
         lat: @plot.latitude,
@@ -19,6 +19,8 @@ class PlotsController < ApplicationController
         infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot })
       }
     ]
+    @shortlisted = Shortlist.where(user: current_user, plot: @plot).first
+
   end
 
   private

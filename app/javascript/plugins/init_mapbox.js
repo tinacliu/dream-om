@@ -32,8 +32,13 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
     map.addControl(new mapboxgl.NavigationControl());
     map.resize();
-   // jQuery(window).resize(function(){map.resize()});
-  }
+   // $(window).resize(function(){map.resize()});
+    // const canvasElement = mapElement.querySelector(".mapboxgl-canvas")
+    // mapElement.style.width = "100%";
+    // mapElement.style.height = "700px";
+    // map.resize();
+    return map;
+ }
 };
 
-export { initMapbox };
+export { initMapbox, fitMapToMarkers };

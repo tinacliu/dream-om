@@ -11,12 +11,15 @@
       <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map" aria-selected="false">Map</a>
     </li>
   </ul>
-
-  <h4 class="text-muted"><i class="fas fa-bookmark">
-     <%#= simple_form_for [@plot, @shortlist] do |f| %>
-
-      <%#= f.submit %>
-    <%# end %>
-    <%= link_to "Placeholder", plot_shortlists_path(plot_id: @plot.id), :method => :post %>
-    </i></h4>
+  <% if @shortlisted %>
+    <%= link_to shortlist_path(@shortlisted), :method => :delete  do %>
+      <h4 class="text-muted"><i class="fas fa-bookmark blue ">
+      </i></h4>
+    <% end %>
+  <% else %>
+    <%= link_to plot_shortlists_path(plot_id: @plot.id), :method => :post  do %>
+      <h4 class="text-muted"><i class="fas fa-bookmark">
+      </i></h4>
+    <% end %>
+  <% end %>
 </div>

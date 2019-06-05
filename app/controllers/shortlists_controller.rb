@@ -3,6 +3,7 @@ class ShortlistsController < ApplicationController
 
 
   def create
+
     @plot = Plot.find(params[:plot_id])
     @shortlist = Shortlist.new
     authorize @shortlist
@@ -10,19 +11,25 @@ class ShortlistsController < ApplicationController
     @shortlist.plot = @plot
     if @shortlist.save
       flash[:notice] = "Plot added to shortlist"
-      render 'plots/show'
+      redirect_to plot_path(@plot)
     else
       flash[:warning] = "Shortlist couldn't be created"
-      render 'plots/show'
+      redirect_to plot_path(@plot)
     end
   end
 
-
   def destroy
     @shortlist = Shortlist.find(params[:id])
+    plot = @shortlist.plot
+    # binding.pry
     authorize @shortlist
     @shortlist.destroy
-    redirect_to profile_path
+    flash[:notice] = "Plot removed from shortlist"
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] == "users"
+      redirect_to profile_path
+    else
+      redirect_to plot_path(plot)
+    end
   end
 
   private
