@@ -17,7 +17,9 @@
       <% if @plots.size > 0 %>
         <div class="index-grid">
           <% @plots.each do |plot| %>
-            <%= render 'plots/card', plot: plot %>
+            <%= link_to plot, class: "card-index-link" do  %>
+              <%= render 'plots/card', plot: plot %>
+            <% end %>
           <% end %>
         </div>
       <% else %>
