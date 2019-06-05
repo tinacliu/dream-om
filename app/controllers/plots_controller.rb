@@ -5,6 +5,7 @@ class PlotsController < ApplicationController
     @plots = policy_scope(Plot)#.where.not(latitude: nil, longitude: nil)
     @plots = @plots.near(params[:address], 10) if params[:address]
 
+
     t_filter = params[:type].blank? ? Plot::TYPE : params[:type]
     min_p = params[:min_p].blank? ? 0 : params[:min_p]
     max_p = params[:max_p].blank? ? 1_000_000 : params[:max_p]
@@ -15,14 +16,25 @@ class PlotsController < ApplicationController
     "
     @plots = @plots.where(sql_query, t: t_filter, min_p: min_p, max_p: max_p)
 
+
     set_markers
   end
 
   def show
+    @shortlist = Shortlist.new
     @plot = Plot.find(params[:id])
     authorize @plot
-  end
+    @shortlist.plot = @plot
+    @markers = [
+      {
+        lat: @plot.latitude,
+        lng: @plotlongitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot })
+      }
+    ]
+    @shortlisted = Shortlist.where(user: current_user, plot: @plot).first
 
+  end
 
   private
 
@@ -36,5 +48,4 @@ class PlotsController < ApplicationController
       }
     end
   end
-
 end

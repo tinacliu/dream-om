@@ -11,7 +11,7 @@ class ShortlistPolicy < ApplicationPolicy
   end
 
   def create?
-    false
+    true
   end
 
   def new?
