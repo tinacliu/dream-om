@@ -2,15 +2,15 @@
   <div class="filter-bar">
 
     <%= link_to plots_path, id: "show-all" do %>
-      <div class="mr-3">Show All</div>
+      <div class="mr-4">Show All</div>
     <% end %>
 
-    <div class="div">-</div>
+    <div class="div"></div>
 
     <div class="dropdown">
       <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Price</div>
       <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-        <form action="/plots" method="get" class="mx-3 my-2">
+        <form action="/plots" method="get" class="mx-4 my-2">
           <div class="form-group">
             <input type="text" class="form-control" name="min_p" value="0" placeholder="Min Price">
             <input type="hidden" name="location" value="<%= params[:location] %>">
@@ -24,10 +24,10 @@
       </div>
     </div>
 
-    <div class="div">-</div>
+    <div class="div"></div>
 
     <div class="dropdown">
-      <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
+      <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
       <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
       <% Plot::TYPE.each do |type| %>
         <%= link_to plots_path(type: type, location: params[:location],min_p: params[:min_p], max_p: params[:max_p]) do  %>

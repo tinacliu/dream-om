@@ -5,7 +5,7 @@
   <div class="card-body bg-light d-flex justify-content-between align-items-center py-3">
     <div class="card-left">
       <h6 class="m-0 grey" id="index-card-title">
-        <%= plot.street_name %>
+        <%= truncate plot.street_name, length: 25, separator: /\s/, omission: '' %>
       </h6>
       <p class="mb-0 grey h_font s_font">
         <%= "#{plot.post_town} #{plot.outcode}" %>
@@ -24,3 +24,4 @@
     </div>
   </div>
 </div>
+
