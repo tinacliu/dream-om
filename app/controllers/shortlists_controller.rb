@@ -3,15 +3,17 @@ class ShortlistsController < ApplicationController
 
 
   def create
-    @shortlist = Shortlist.new(shortlist_params)
+    @plot = Plot.find(params[:plot_id])
+    @shortlist = Shortlist.new
     authorize @shortlist
     @shortlist.user = current_user
+    @shortlist.plot = @plot
     if @shortlist.save
-      flash[:notice] = "Shortlist created"
-      redirect_to shortlist_page(@shortlist)
+      flash[:notice] = "Plot added to shortlist"
+      render 'plots/show'
     else
       flash[:warning] = "Shortlist couldn't be created"
-      redirect_to profile_path
+      render 'plots/show'
     end
   end
 
@@ -26,7 +28,7 @@ class ShortlistsController < ApplicationController
   private
 
   def shortlist_params
-    params.require(:shortlist).permit(:owner_id, :plot_id)
+    params.require(:shortlist).permit(:plot_id)
   end
 
 

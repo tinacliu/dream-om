@@ -9,8 +9,16 @@ class PlotsController < ApplicationController
   end
 
   def show
+    @shortlist = Shortlist.new
     @plot = Plot.find(params[:id])
     authorize @plot
+    @markers = [
+      {
+        lat: @plot.latitude,
+        lng: @plotlongitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot })
+      }
+    ]
   end
 
   private
