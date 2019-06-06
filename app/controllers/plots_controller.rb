@@ -46,7 +46,6 @@ class PlotsController < ApplicationController
         lat: plot.latitude,
         lng: plot.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { plot: plot })
-
       }
     end
   end
