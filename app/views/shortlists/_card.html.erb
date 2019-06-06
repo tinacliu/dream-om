@@ -60,8 +60,8 @@
               <% end %>
             <% end %>
             <div>
-            <%= simple_form_for [shortlist, comment] do |f| %>
-              <%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
+              <%= simple_form_for [shortlist, comment] do |f| %>
+                <%= f.input :content, label: "", input_html: {value: shortlist.comment.content || ''}, placeholder: "Make a note about the plot" %>
                 <%= f.submit "Record note", class: "btn btn-primary" %>
               <% end %>
             </div>
@@ -71,7 +71,7 @@
     </div>
   </div>
  </div>
-
+  
 
   <div class="justify-content-center plot-profile">
   <!-- <div class="d-flex justify-content-center"> -->
@@ -109,6 +109,7 @@
     </div>
   </div>
 </div>
+
 
 
 

@@ -2,9 +2,9 @@ class PlotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @plots = policy_scope(Plot).paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
-    @plots = @plots.near(params[:address], 10) if params[:address]
 
+    @plots = policy_scope(Plot).paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
+    @plots = @plots.near(params[:address] || "London", params[:search_radius] || 2) unless params[:address] == ""
 
 
 
@@ -30,7 +30,7 @@ class PlotsController < ApplicationController
     @markers = [
       {
         lat: @plot.latitude,
-        lng: @plotlongitude,
+        lng: @plot.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot })
       }
     ]
@@ -46,7 +46,6 @@ class PlotsController < ApplicationController
         lat: plot.latitude,
         lng: plot.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { plot: plot })
-
       }
     end
   end
