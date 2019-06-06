@@ -4,10 +4,12 @@
     <div class="plot-note">
       <div class="row ">
         <%= link_to shortlist_path(shortlist), method: :delete, data: { confirm: "Are you sure?" } do %>
-          <i class="fas fa-times-circle xl_font f-shadow "></i>
+          <i class="fas fa-times-circle xl_font f-shadow text-light "></i>
         <% end %>
       </div>
     </div>
+
+
     <div class="">
       <% if shortlist.plot.image_url.blank? == false %>
         <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-index-img' %>
@@ -34,6 +36,8 @@
         </div>
       </div>
     </div>
+
+
     <div class="">
     <div class="accordion" id="accordionExample">
       <div class="comment-container">
@@ -69,34 +73,41 @@
  </div>
 
 
-<div class="justify-content-center plot-profile">
-<!-- <div class="d-flex justify-content-center"> -->
-  <div class="row grey justify-content-center">
-    <h6 class="card-title thin mb-0 pt-2">Plot size</h6>
+  <div class="justify-content-center plot-profile">
+  <!-- <div class="d-flex justify-content-center"> -->
+    <div class="row grey justify-content-center">
+      <h6 class="card-title thin mb-0 pt-2">Plot size</h6>
+    </div>
+    <div class="row blue justify-content-center mb-4 pb-1">
+      <% if shortlist.plot.plot_size.blank?%>
+        <h6>--</h6>
+      <% else %>
+        <%= shortlist.plot.plot_size%>m&sup2;
+      <% end %>
+    </div>
+    <div class="border-bottom"></div>
+    <div class="row grey justify-content-center mt-3 pt-2">
+      <h6 class= "card-title m-0 thin" >Floor size</h6>
+    </div>
+    <div class="row blue justify-content-center mb-3 pb-3">
+      <% if shortlist.plot.floor_size.blank?%>
+        <h6>--</h6>
+      <% elsif shortlist.plot.floor_size%>
+        <h6><%= shortlist.plot.floor_size.split(',').first%> sq.ft</h6>
+      <% end %>
+
+    </div>
+    <div class="border-bottom"></div>
+    <div class="row grey justify-content-center thin mt-3 pb-2">
+        <!-- <h6 class= "card-title thin m-0" ></h6> -->
+      <% if shortlist.plot.plan_granted == true %>
+        <h6 class= "card-title thin m-0">Planning<br>Granted</h6>
+      <% else %>
+      <h6><br></h6>
+
+      <% end %>
+    </div>
   </div>
-  <div class="row blue justify-content-center mb-4">
-    <%= shortlist.plot.plot_size%>m&sup2;
-  </div>
-  <div class="border-bottom"></div>
-  <div class="row grey justify-content-center mt-4 pt-2">
-    <h6 class= "card-title m-0 thin" >Floor size</h6>
-  </div>
-  <div class="row blue justify-content-center mb-4">
-    <%= shortlist.plot.floor_size %>m&sup2;
-  </div>
-  <div class="border-bottom"></div>
-  <div class="row grey justify-content-center thin mt-4 pt-1">
-      <h6 class= "card-title thin m-0" >Freehold</h6>
-    <!-- <#%= shortlist.plot.ownership_type %> -->
-  </div>
-</div>
-
-
-
-
-
-
-
 </div>
 
 
