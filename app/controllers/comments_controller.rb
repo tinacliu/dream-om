@@ -13,6 +13,8 @@ class CommentsController < ApplicationController
     redirect_to profile_path
   end
 
+
+
   def destroy
     @comment = Comment.find(params[:id])
     authorize @comment
