@@ -1,13 +1,23 @@
 <div class="container-lg">
   <div class="d-flex mb-2">
     <div class="col-4 p-0" >
-      <%= form_tag plots_path, method: :get do %>
-        <%= text_field_tag :location,
-          params[:location],
+      <%= form_tag plots_path, method: :get, class: "form-inline" do %>
+        <%= text_field_tag :address,
+          params[:address],
           class: "form-control filter-search-bar",
 
           placeholder: "London"
         %>
+        <%= number_field_tag :search_radius,
+        params[:search_radius],
+        label: "Search radius",
+        class: "form-control filter-search-bar",
+        id:"search-radius",
+        min: 1, max: 100, step: "1",
+        value: 2,
+        title:  "Search radius in kilometres"
+        %>
+       <%= submit_tag "Search for a plot", class: "btn btn-primary" %>
       <% end %>
     </div>
     <div class="col-8 px-2 col-filter-bar">
@@ -25,7 +35,7 @@
           <div class="page_info">
             <%#= page_entries_info @plots %>
           </div>
-          <%= will_paginate @plots, :container => false %>
+          <%#= will_paginate @plots, :container => false %>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 
   <div class="filter-bar">
 
-    <%= link_to plots_path(address: params[:address]), id: "show-all" do %>
+    <%= link_to plots_path(address: params[:address], search_radius: params[:search_radius]), id: "show-all" do %>
       <div class="mr-4">Show All</div>
     <% end %>
 
@@ -16,6 +16,7 @@
             <input type="hidden" name="location" value="<%= params[:location] %>">
             <input type="hidden" name="type" value="<%= params[:type] %>">
             <input type="hidden" name="address" value="<%= params[:address] %>">
+            <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" name="max_p" placeholder="Max Price">
@@ -31,7 +32,7 @@
       <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
       <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
       <% Plot::TYPE.each do |type| %>
-        <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p]) do  %>
+        <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]) do  %>
           <div class="dropdown-item"><%= type %></div>
         <% end %>
       <% end %>
