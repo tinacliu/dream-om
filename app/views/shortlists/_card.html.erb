@@ -51,27 +51,28 @@
           </h2>
         </div>
 
-        <div id="collapseOne-<%= shortlist.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <!-- <div id="collapseOne-<%= shortlist.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
-            <% if shortlist.comments.any?%>
-              <%shortlist.comments.each do |comment| %>
-                <p> <%= comment.content %> </p>
-                <%= link_to "X", comment_path(comment), method: :delete %> -->
-              <% end %>
-            <% end %>
+            <#% if shortlist.comment.any?%>
+              <#%shortlist.comment.each do |comment| %>
+                <p> <#%= comment.content %> </p>
+                <#%= link_to "X", comment_path(comment), method: :delete %>
+              <#% end %>
+            <#% end %>
             <div>
-              <%= simple_form_for [shortlist, comment] do |f| %>
-                <%= f.input :content, label: "", input_html: {value: shortlist.comment.content || ''}, placeholder: "Make a note about the plot" %>
-                <%= f.submit "Record note", class: "btn btn-primary" %>
-              <% end %>
+              <#%= simple_form_for [shortlist, comment] do |f| %>
+                <#%= f.input :content, label: "", input_html: {value: shortlist.comment.content || ''}, placeholder: "Make a note about the plot" %>
+                <#%= f.submit "Save Note", class: "btn btn-primary" %>
+              <#% end %>
             </div>
           </div>
-        </div>
+
+        </div> -->
       </div>
     </div>
   </div>
  </div>
-  
+
 
   <div class="justify-content-center plot-profile">
   <!-- <div class="d-flex justify-content-center"> -->
