@@ -1,12 +1,26 @@
 .card-index {
   border-bottom: 2px solid;
   height: calc(12rem + 75px);
+  position: relative;
 }
 
 .card-index-img {
   width: 100%;
   height: 12rem;
   object-fit: cover;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+
+.blue-bookmark {
+  color: $duck-egg-blue;
+  position: absolute;
+  top: 0;
+  right: 12px;
+  font-size: 22px;
 }
 
 .card-index-link {
