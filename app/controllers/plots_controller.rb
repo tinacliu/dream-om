@@ -4,7 +4,7 @@ class PlotsController < ApplicationController
   def index
 
     @plots = policy_scope(Plot).paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
-    @plots = @plots.near(params[:address] || "London", params[:search_radius] || 2) unless params[:address] == ""
+    # @plots = @plots.near(params[:address] || "London", params[:search_radius] || 2) unless params[:address] == ""
 
 
 
