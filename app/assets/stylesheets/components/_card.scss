@@ -10,6 +10,11 @@
   object-fit: cover;
 }
 
+.grayscale {
+  filter: grayscale(100%);
+}
+
+
 .blue-bookmark {
   color: $duck-egg-blue;
   position: absolute;
