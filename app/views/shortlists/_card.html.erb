@@ -16,7 +16,7 @@
         <div class="card-left">
           <h6 class="m-0 grey" id="index-card-title">
             <%= shortlist.plot.street_name %>
-          </h6>
+         </h6>
           <p class="mb-0 grey h_font s_font">
             <%= "#{shortlist.plot.post_town} #{shortlist.plot.outcode}" %>
           </p>
@@ -32,10 +32,41 @@
             <% end %>
           </p>
         </div>
+      </div>
+    </div>
+    <div class="">
+    <div class="accordion" id="accordionExample">
+      <div class="comment-container">
+
+        <div class="comment-card" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link text-light btn-none" type="button" data-toggle="collapse" data-target="#collapseOne-<%= shortlist.id %>" aria-expanded="true" aria-controls="collapseOne">
+              <!-- you can click anywhere to expand -->
+              <i class="fas fa-comment-alt white l_font pb-3"></i>
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne-<%= shortlist.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <% if shortlist.comments.any?%>
+              <%shortlist.comments.each do |comment| %>
+                <p> <%= comment.content %> </p>
+                <%= link_to "X", comment_path(comment), method: :delete %> -->
+              <% end %>
+            <% end %>
+            <div>
+            <%= simple_form_for [shortlist, comment] do |f| %>
+              <%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
+                <%= f.submit "Record note", class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-</div>
+ </div>
 
 
 <div class="justify-content-center plot-profile">
@@ -63,42 +94,9 @@
 
 
 
-</div>
-<!-- </div> -->
-<!-- </div>  -->
 
-<div class="row">
-  <div class="accordion" id="accordionExample">
-    <div class="comment-container ml-3">
 
-      <div class="comment-card" id="headingOne">
-        <h2 class="mb-0">
-          <button class="btn btn-link blue btn-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <!-- you can click anywhere to expand -->
-            <i class="fas fa-comment-alt white xl_font"></i>
-          </button>
-        </h2>
-      </div>
 
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-        <div class="card-body">
-          <% if shortlist.comments.any?%>
-            <%shortlist.comments.each do |comment| %>
-              <p> <%= comment.content %> </p>
-              <%= link_to "X", comment_path(comment), method: :delete %> -->
-            <% end %>
-          <% end %>
-          <div>
-          <%= simple_form_for [shortlist, comment] do |f| %>
-            <%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
-              <%= f.submit "Record note", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
 
 
