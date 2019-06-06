@@ -12,8 +12,7 @@
               </div> -->
             </div>
 
-
-            <% if shortlist.plot.image_url.blank? == false %>
+           <% if shortlist.plot.image_url.blank? == false %>
               <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-index-img' %>
             <% end %>
 
@@ -40,6 +39,7 @@
 
             </div>
           </div>
+
 
 
         <div class="justify-content-center plot-profile">
