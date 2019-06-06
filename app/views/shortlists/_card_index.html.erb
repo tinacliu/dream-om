@@ -25,3 +25,17 @@
 
             </div>
           </div>
+
+  <div class="col-8 px-2">
+    <% if current_user.shortlists.size > 0 %>
+      <div class="index-grid">
+        <% current_user.shortlists.each do |shortlist| %>
+          <%= link_to plot_path(shortlist.plot), class: "card-index-link" do  %>
+            <%= render 'shortlists/card_index', plot: shortlist.plot %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <h6 class="pl-4 none-msg"><span class="highlight-blue">Sorry, no plots match your query.</span></h6>
+    <% end %>
+  </div>
