@@ -86,15 +86,13 @@
 
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                     <div class="card-body">
-                      <% if shortlist.comments.any?%>
-                        <%shortlist.comments.each do |comment| %>
-                          <p> <%= comment.content %> </p>
-                          <%= link_to "X", comment_path(comment), method: :delete %> -->
-                        <% end %>
-                      <% end %>
+                      <%# unless shortlist.comment.nil? %>
+                         <%#= shortlist.comment.content %>
+                          <%#= link_to "X", comment_path(shortlist.comment), method: :delete %>
+                        <%# end %>
                       <div>
                         <%= simple_form_for [shortlist, comment] do |f| %>
-                          <%= f.input :content, label: "", placeholder: "Make a note about this plot" %>
+                          <%= f.input :content, label: "", input_html: {value: shortlist.comment.content || ''}, placeholder: "Make a note about the plot" %>
                           <%= f.submit "Record note", class: "btn btn-primary" %>
                         <% end %>
                       </div>
