@@ -5,15 +5,38 @@
       <h2>Find Your New <span class="blue">Home</span></h2>
     </div>
 
-    <div class="row">
+   <!-- <div class="row">
       <input class="search-bar" type="search", placeholder="Postal Code Here" >
       <i class="fas fa-map-marker-alt search-icon"></i>
-    </div>
+    </div> -->
+
+    <%= form_tag plots_path, method: :get do %>
+
+      <%= text_field_tag :address,
+        params[:address],
+        class: "form-control search-bar",
+        placeholder: "Input address"
+      %>
+      <%#`= label_tag "search-radius", "Radius" %>
+      <%#= number_field_tag :search_radius,
+      params[:search_radius],
+      label: "Search radius",
+      class: "form-control search-bar",
+      id:"search-radius",
+      min: 5, max: 100, step: "5",
+      value: 50,
+      title:  "Search radius in kilometres"
+      %>
+      <%#= submit_tag "Search for a plot", class: "btn btn-primary" %>
+     <% end %>
 
     <div class="row">
-      <%= link_to plots_path do %>
-      <input class="btn-banner" type="submit", value= "Get Started">
-      <% end %>
+
+       <%#= link_to plots_path do %>
+    <!--    <input class="btn-banner" type="submit", value= "Get Started"> -->
+      <%# end %>
+
+
     </div>
 
   </div>
