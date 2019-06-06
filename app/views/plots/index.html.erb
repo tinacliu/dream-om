@@ -6,17 +6,18 @@
           params[:address],
           class: "form-control filter-search-bar",
 
-          placeholder: "London"
+          placeholder: "Enter the postal code"
         %>
+        <div id = "search_radius">
         <%= number_field_tag :search_radius,
         params[:search_radius],
         label: "Search radius",
         class: "form-control filter-search-bar",
-        id:"search-radius",
         min: 1, max: 100, step: "1",
         value: 2,
         title:  "Search radius in kilometres"
         %>
+      </div>
        <%= submit_tag "Search for a plot", class: "btn btn-primary" %>
       <% end %>
     </div>

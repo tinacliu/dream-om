@@ -59,3 +59,7 @@ border-radius: 0;
   text-decoration: none !important;
   color: $duck-egg-blue;
 }
+
+#search-radius::after {
+  content: 'km';
+}
