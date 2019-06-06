@@ -3,8 +3,7 @@ class PlotsController < ApplicationController
 
   def index
     @plots = policy_scope(Plot).paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
-    @plots = @plots.near(params[:address], 10) if params[:address]
-
+    @plots = @plots.near(params[:address], params[:search_radius] || 10) unless params[:address] == ""
 
 
 
@@ -30,7 +29,7 @@ class PlotsController < ApplicationController
     @markers = [
       {
         lat: @plot.latitude,
-        lng: @plotlongitude,
+        lng: @plot.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot })
       }
     ]
