@@ -9,6 +9,15 @@
   // margin: 8px 24px;
 }
 
+.nav-link-blue {
+  text-decoration: none;
+  color: $duck-egg-blue;
+  &:hover {
+    text-decoration: none;
+    color: $dark-silver;
+  }
+}
+
 .h6 {
   font-size: 16px;
 }
