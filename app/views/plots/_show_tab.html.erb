@@ -9,19 +9,30 @@
 
   <!-- the floorplan tab -->
   <div class="tab-pane fade" id="pills-floorplan" role="tabpanel" aria-labelledby="pills-floorplan-tab">
-  <% if @plot.floor_plan_url.blank? %>
-    <h6 class="pl-5"><span class="highlight-blue">Sorry, no floorplan was uploaded by agent.</span></h6>
-  <% else %>
-    <% @plot.floor_plan_url.each do |floor_url| %>
-      <%= image_tag floor_url, crop: :fill, class: 'card-img-top p-3' %>
-    <% end %>
-  <% end %>
-
+    <div class="scroll-box-tab">
+      <% if @plot.floor_plan_url.blank? %>
+        <h6 class="pl-5"><span class="highlight-blue">Sorry, no floorplan was uploaded by agent.</span></h6>
+      <% else %>
+        <% @plot.floor_plan_url.each do |floor_url| %>
+          <%= image_tag floor_url, crop: :fill, class: 'card-img-top p-3' %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <!-- the map tab -->
   <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-  <%= render 'plots/map' %>
+    <div class="ml-3">
+      <div
+        id="map"
+        style="width: 100% !important;
+        height: 444px !important;
+        top:0;
+        bottom:0;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+    </div>
 
     <!-- <script> jQuery(window).resize(function(){map.resize()});</script> -->
   </div>
