@@ -5,7 +5,7 @@
         <%= text_field_tag :address,
           params[:address],
 
-          class: "form-control filter-search-bar",
+          class: "form-control filter-search-bar bar-search ml-2 mr-2",
 
           placeholder: " London, 8DY, E2 8DY"
         %>
@@ -13,7 +13,7 @@
         <%= number_field_tag :search_radius,
         params[:search_radius],
         label: "Search radius",
-        class: "form-control filter-search-bar",
+        class: "form-control filter-search-bar mr-2",
         min: 1, max: 100, step: "1",
         value: params[:search_radius] || 20 ,
         title:  "Search radius in kilometres"
