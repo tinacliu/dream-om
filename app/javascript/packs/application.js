@@ -7,7 +7,6 @@ initUpdateNavbarOnScroll();
 
 // mapbox stuff
 initMapbox();
-initMapbox2();
 const returnedMap = initMapbox();
 console.log(returnedMap)
 
@@ -17,9 +16,7 @@ document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
   setTimeout(function() {
     returnedMap.resize();
     fitMapToMarkers(returnedMap, JSON.parse(document.getElementById("map").dataset.markers));
-  }, 400);
+  }, 200);
 
 
 })
-
-
