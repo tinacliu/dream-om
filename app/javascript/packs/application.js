@@ -1,5 +1,4 @@
 import "bootstrap";
-// import "plot"
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 import { initUpdateNavbarOnScroll } from '../components/filterbar';
 import { initMapbox, fitMapToMarkers } from '../plugins/init_mapbox';
@@ -18,6 +17,8 @@ document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
     returnedMap.resize();
     fitMapToMarkers(returnedMap, JSON.parse(document.getElementById("map").dataset.markers));
   }, 200);
+
+
 })
 
 

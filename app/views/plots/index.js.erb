@@ -1,9 +1,0 @@
-var container = document.querySelector(".load-more-container");
-
-<% @plots.each do |plot| %>
-  container.insertAdjacentHTML("beforebegin", "<%= j render 'plots/card', plot: plot %>")
-<% end %>
-
-
-
-
