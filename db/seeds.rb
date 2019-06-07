@@ -36,7 +36,7 @@ def land_seeding(file_path)
     plot['short_description'] =~ /apartment/i ||
     plot['image_645_430_url'] == nil ||
     plot['agent_phone'] == "" ||
-    Plot.exists?(listing_id: house['listing_id']) ||
+    Plot.exists?(listing_id: plot['listing_id']) ||
     plot['price'] == 0
   end
 
