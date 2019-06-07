@@ -7,6 +7,7 @@ initUpdateNavbarOnScroll();
 
 // mapbox stuff
 initMapbox();
+initMapbox2();
 const returnedMap = initMapbox();
 console.log(returnedMap)
 
