@@ -21,4 +21,10 @@ document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
 
 })
 
-
+// dismiss alerts after 2 seconds
+const alertDismissBtn = document.querySelector('.alert button');
+if (alertDismissBtn) {
+  setTimeout(() => {
+    alertDismissBtn.click();
+  }, 2000);
+}
