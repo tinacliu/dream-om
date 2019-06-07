@@ -1,7 +1,9 @@
 require 'json'
 start_time = Time.now
 
-puts 'First we are going to add some land seeds...'
+puts 'First we are going to clear data and some land seeds...'
+
+Plot.destroy_all
 
 puts 'Adding new plots... please wait until the operation is completed'
 puts 'This could take some time....'
@@ -34,6 +36,7 @@ def land_seeding(file_path)
     plot['short_description'] =~ /apartment/i ||
     plot['image_645_430_url'] == nil ||
     plot['agent_phone'] == "" ||
+    Plot.exists?(listing_id: house['listing_id']) ||
     plot['price'] == 0
   end
 
@@ -130,6 +133,7 @@ def house_seeding(file_path)
     house['short_description'] =~ /commercial/i ||
     house['image_645_430_url'] == nil ||
     house['agent_phone'] == "" ||
+    Plot.exists?(listing_id: house['listing_id']) ||
     house['price'] == 0
   end
 
@@ -234,6 +238,7 @@ def refurb_house_seeding(file_path)
     house['description'] =~ /has undergone refurbishment/i ||
     house['short_description'] =~ /commercial/i ||
     house['image_645_430_url'] == nil ||
+    Plot.exists?(listing_id: house['listing_id']) ||
     house['agent_phone'] == "" ||
     house['price'] == 0
   end
