@@ -3,10 +3,14 @@ class PlotsController < ApplicationController
 
   def index
 
-    @plots = policy_scope(Plot)#.paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
-    @plots = @plots.near(params[:address] || "London", params[:search_radius] || 2) unless params[:address] == ""
-
-
+      @plots = policy_scope(Plot).near(params[:address] || "London", params[:search_radius] || 20) unless params[:address] == ""
+    if params[:id]
+      @plots = @plots.where('id < ?', params[:id]).limit(30)
+    else
+      @plots = @plots.limit(30)
+    end
+    # binding.pry
+    # @plots = policy_scope(Plot).paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
 
     t_filter = params[:type].blank? ? Plot::TYPE : params[:type]
     min_p = params[:min_p].blank? ? 0 : params[:min_p]
@@ -17,7 +21,6 @@ class PlotsController < ApplicationController
       AND price BETWEEN :min_p AND :max_p \
     "
     @plots = @plots.where(sql_query, t: t_filter, min_p: min_p, max_p: max_p)
-
 
     set_markers
   end

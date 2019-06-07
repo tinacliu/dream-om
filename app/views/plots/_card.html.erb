@@ -1,35 +1,37 @@
-<div class="card card-index shadow-sm">
+<%= link_to plot, class: "card-index-link" do  %>
+  <div class="card card-index shadow-sm" data-id="<%= plot.id %>">
 
-  <% @shortlisted = Shortlist.where(user: current_user, plot: plot).first %>
-  <% if @shortlisted %>
-    <% if plot.image_url.blank? == false %>
-      <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img grayscale' %>
+    <% @shortlisted = Shortlist.where(user: current_user, plot: plot).first %>
+    <% if @shortlisted %>
+      <% if plot.image_url.blank? == false %>
+        <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img grayscale' %>
+      <% end %>
+      <i class="fas fa-bookmark blue-bookmark f-shadow"></i>
+    <% else %>
+      <% if plot.image_url.blank? == false %>
+        <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
+      <% end %>
     <% end %>
-    <i class="fas fa-bookmark blue-bookmark f-shadow"></i>
-  <% else %>
-    <% if plot.image_url.blank? == false %>
-      <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
-    <% end %>
-  <% end %>
 
-  <div class="card-body bg-light d-flex justify-content-between align-items-center py-3 px-2">
-    <div class="card-left">
-      <h6 class="m-0 grey" id="index-card-title">
-        <%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %>
-      </h6>
-      <p class="mb-0 grey h_font s_font">
-        <% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>
-        <%= "#{post_town} #{plot.outcode}" %>
-      </p>
-    </div>
-    <div class="card-right text-right">
-      <h6 class="card-subtitle blue bold s_font">
-        <%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %>
-      </h6>
-      <p class="mb-0 grey bold h_font s_font">
-          <%= number_to_currency(plot.price, unit: "£", precision: 0) %>
-      </p>
+    <div class="card-body bg-light d-flex justify-content-between align-items-center py-3 px-2">
+      <div class="card-left">
+        <h6 class="m-0 grey" id="index-card-title">
+          <%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %>
+        </h6>
+        <p class="mb-0 grey h_font s_font">
+          <% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>
+          <%= "#{post_town} #{plot.outcode}" %>
+        </p>
+      </div>
+      <div class="card-right text-right">
+        <h6 class="card-subtitle blue bold s_font">
+          <%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %>
+        </h6>
+        <p class="mb-0 grey bold h_font s_font">
+            <%= number_to_currency(plot.price, unit: "£", precision: 0) %>
+        </p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
