@@ -20,12 +20,19 @@
 
 }
 
-.nav-link-blue {
-  text-decoration: none;
-  color: $duck-egg-blue;
-  &:hover {
-    text-decoration: none;
-    color: $dark-silver;
-  }
+
+
+.profile-box {
+  border: 1px solid $duck-egg-blue;
+  border-radius: 10px;
+  height: 47px;
+  padding-right: 0px;
+  padding-left: 9px;
 }
+
+
+.navbar-light .navbar-nav .nav-link {
+  color: $duck-egg-blue;
+}
+
 

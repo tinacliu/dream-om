@@ -1,9 +1,10 @@
 <div class="container-lg">
   <div class="d-flex mb-2">
     <div class="col-4 p-0" >
-      <%= form_tag plots_path, method: :get, class: "form-inline" do %>
+      <%= form_tag plots_path, method: :get, class: "form-inline justify-content-center" do %>
         <%= text_field_tag :address,
           params[:address],
+
           class: "form-control filter-search-bar",
 
           placeholder: " London, 8DY, E2 8DY"
@@ -19,6 +20,7 @@
         %>
       </div>
        <%= submit_tag "Search for a plot", class: "btn btn-primary" %>
+
       <% end %>
     </div>
     <div class="col-8 px-2 col-filter-bar">

@@ -46,11 +46,6 @@
   }
 }
 
-.filter-search-bar {
-width: 100%;
-border-radius: 0;
-}
-
 #show-all {
   color: $dark-silver;
 }
@@ -61,5 +56,5 @@ border-radius: 0;
 }
 
 #search-radius::after {
-  content: 'km';
+  content: 'miles';
 }
