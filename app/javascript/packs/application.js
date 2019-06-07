@@ -16,7 +16,7 @@ document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
   setTimeout(function() {
     returnedMap.resize();
     fitMapToMarkers(returnedMap, JSON.parse(document.getElementById("map").dataset.markers));
-  }, 200);
+  }, 400);
 
 
 })
