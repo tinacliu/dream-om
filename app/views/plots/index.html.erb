@@ -45,6 +45,7 @@
     <div class="col-8 px-2">
       <% if @plots.size > 0 %>
         <div class="index-grid">
+          <%#= @plots.to_a.count %>
           <% @plots.each do |plot| %>
             <%= link_to plot_path(plot, address: params[:address], type: params[:type], min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]), class: "card-index-link" do  %>
               <%= render 'plots/card', plot: plot %>
