@@ -14,7 +14,7 @@
         label: "Search radius",
         class: "form-control filter-search-bar",
         min: 1, max: 100, step: "1",
-        value: 2,
+        value: params[:search_radius] || 2 ,
         title:  "Search radius in kilometres"
         %>
       </div>

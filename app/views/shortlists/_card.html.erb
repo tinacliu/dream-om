@@ -92,7 +92,12 @@
                         <%# end %>
                       <div>
                         <%= simple_form_for [shortlist, comment] do |f| %>
-                          <%= f.input :content, label: "", input_html: {value: shortlist.comment.content || ''}, placeholder: "Make a note about the plot" %>
+                          <% if shortlist.comment.nil? %>
+                            <%= f.input :content, label: "", input_html: {value: ''}, placeholder: "Make a note about the plot" %>
+                          <% else %>
+                            <%= f.input :content, label: "", input_html: {value: shortlist.comment.content }, placeholder: "Make a note about the plot" %>
+                          <% end %>
+
                           <%= f.submit "Record note", class: "btn btn-primary" %>
                         <% end %>
                       </div>
