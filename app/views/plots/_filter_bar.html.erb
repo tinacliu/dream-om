@@ -32,7 +32,7 @@
       <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
       <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
       <% Plot::TYPE.each do |type| %>
-        <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]) do  %>
+        <%= link_to plots_path(type: params[:type], address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]) do  %>
           <div class="dropdown-item"><%= type %></div>
         <% end %>
       <% end %>

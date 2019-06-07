@@ -2,6 +2,7 @@ class PlotsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
+
       @plots = policy_scope(Plot).near(params[:address] || "London", params[:search_radius] || 20) unless params[:address] == ""
     if params[:id]
       @plots = @plots.where('id < ?', params[:id]).limit(30)
