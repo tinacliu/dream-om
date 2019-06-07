@@ -27,7 +27,7 @@
   grid-template-columns: 1fr 1fr;
   justify-content:left;
   grid-column-gap: 30px;
-  grid-row-gap: 65px;
+  grid-row-gap: 85px;
   margin-top: 44px;
   font-size: 13px;
   text-align: left;
@@ -75,6 +75,17 @@
   position: absolute;
   top: 25px;
   left: 35px;
+}
+
+textarea.form-control {
+    height: 126px;
+    width: 434px;
+}
+
+
+.note-box {
+  width: 434px
+
 }
 
 

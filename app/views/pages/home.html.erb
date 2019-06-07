@@ -5,18 +5,18 @@
       <h2>Find Your New <span class="blue">Home</span></h2>
     </div>
 
-   <!-- <div class="row">
-      <input class="search-bar" type="search", placeholder="Postal Code Here" >
-      <i class="fas fa-map-marker-alt search-icon"></i>
-    </div> -->
-
+   <div class="row">
+      <!-- <input class="search-bar" type="search", placeholder="Postal Code Here" >
+      <i class="fas fa-map-marker-alt search-icon"></i> -->
     <%= form_tag plots_path, method: :get do %>
-
       <%= text_field_tag :address,
         params[:address],
         class: "form-control search-bar",
-        placeholder: "Input address"
+        placeholder: "e.g. ‘ London’, ‘8DY’, 'E2 8DY’ or ‘Paddington Station'"
       %>
+     <% end %>
+    </div>
+
       <%#`= label_tag "search-radius", "Radius" %>
       <%#= number_field_tag :search_radius,
       params[:search_radius],
@@ -28,13 +28,12 @@
       title:  "Search radius in kilometres"
       %>
       <%#= submit_tag "Search for a plot", class: "btn btn-primary" %>
-     <% end %>
 
     <div class="row">
 
-       <%#= link_to plots_path do %>
-    <!--    <input class="btn-banner" type="submit", value= "Get Started"> -->
-      <%# end %>
+       <%= link_to plots_path do %>
+       <input class="btn-banner" type="submit", value= "Get Started">
+      <% end %>
 
 
     </div>
@@ -44,10 +43,10 @@
 
 
 
-<div class="container">
+<div class="container margin-bottom">
   <div class="feature-card">
     <p><%= "    " %></p>
-    <h6 class="blue mb-0">FEATURED PLOTS</h6>
+    <h5 class="blue mb-0">FEATURED PLOTS</h5>
     <p class="mb-0"><%= link_to "View All", plots_path, class: "nav-link-blue" %></p>
   </div>
 
@@ -62,3 +61,4 @@
       </div>
     </div>
 </div>
+
