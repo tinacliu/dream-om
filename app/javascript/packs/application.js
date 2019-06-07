@@ -20,5 +20,3 @@ document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
 
 
 })
-
-
