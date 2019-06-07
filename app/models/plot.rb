@@ -5,6 +5,7 @@ class Plot < ApplicationRecord
   validates :price, numericality: { only_integer: true }
   validates :address, :agent_name, :agent_phone, :description, presence: true
   validates :description, length: { minimum: 20 }
+  validates :listing_id, uniqueness: true
   # validates :location, :plot_size, presence: true
 
   geocoded_by :address
