@@ -22,13 +22,8 @@
     </div>
     <div class="card-right text-right">
       <h6 class="card-subtitle blue"><%= @plot.property_type %></h6>
-      <% a = @plot.price.to_s.size - 3 %>
       <p class="mb-0 h_font">
-        <% if a >= 4 %>
-        <%= "£ #{@plot.price.to_s[0]},#{@plot.price.to_s[1..3]},#{@plot.price.to_s[4..7]}" %>
-        <% else %>
-        <%= "£ #{@plot.price.to_s[0...a]},#{@plot.price.to_s[a..-1]}" %>
-        <% end %>
+        <%= number_to_currency(@plot.price, unit: "£", precision: 0) %>
       </p>
     </div>
   </div>
@@ -63,9 +58,13 @@
   </div>
   <hr>
 
+
   <!-- third section with publish dates -->
   <div class="d-flex justify-content-between align-items-center mt-4">
-    <div class="card-left">
+    <div class="">
+    <%= link_to "Back to Results", plots_path(type: params[:type], address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]) %>
+    </div>
+    <div class="card-left text-right">
       <% if @plot.first_published_date.blank? == false %>
         <h6 class="mb-0 s_font bold">First Published</h6>
         <p class="mb-0 s_font"><%= @plot.first_published_date.strftime("%Y-%m-%d") %></p>

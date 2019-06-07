@@ -1,12 +1,13 @@
 <div class="container-lg">
   <div class="d-flex mb-2">
     <div class="col-4 p-0" >
-      <%= form_tag plots_path, method: :get, class: "form-inline" do %>
+      <%= form_tag plots_path, method: :get, class: "form-inline justify-content-center" do %>
         <%= text_field_tag :address,
           params[:address],
+
           class: "form-control filter-search-bar",
 
-          placeholder: "Enter the postal code"
+          placeholder: " London, 8DY, E2 8DY"
         %>
         <div id = "search_radius">
         <%= number_field_tag :search_radius,
@@ -14,11 +15,12 @@
         label: "Search radius",
         class: "form-control filter-search-bar",
         min: 1, max: 100, step: "1",
-        value: 2,
+        value: params[:search_radius] || 2 ,
         title:  "Search radius in kilometres"
         %>
       </div>
        <%= submit_tag "Search for a plot", class: "btn btn-primary" %>
+
       <% end %>
     </div>
     <div class="col-8 px-2 col-filter-bar">
@@ -44,7 +46,7 @@
       <% if @plots.size > 0 %>
         <div class="index-grid">
           <% @plots.each do |plot| %>
-            <%= link_to plot, class: "card-index-link" do  %>
+            <%= link_to plot_path(plot, address: params[:address], type: params[:type], min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]), class: "card-index-link" do  %>
               <%= render 'plots/card', plot: plot %>
             <% end %>
           <% end %>

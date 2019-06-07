@@ -1,7 +1,17 @@
 <div class="card card-index shadow-sm">
-  <% if plot.image_url.blank? == false %>
-    <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
+
+  <% @shortlisted = Shortlist.where(user: current_user, plot: plot).first %>
+  <% if @shortlisted %>
+    <% if plot.image_url.blank? == false %>
+      <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img grayscale' %>
+    <% end %>
+    <i class="fas fa-bookmark blue-bookmark f-shadow"></i>
+  <% else %>
+    <% if plot.image_url.blank? == false %>
+      <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
+    <% end %>
   <% end %>
+
   <div class="card-body bg-light d-flex justify-content-between align-items-center py-3 px-2">
     <div class="card-left">
       <h6 class="m-0 grey" id="index-card-title">
@@ -16,13 +26,8 @@
       <h6 class="card-subtitle blue bold s_font">
         <%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %>
       </h6>
-      <% a = plot.price.to_s.size - 3 %>
       <p class="mb-0 grey bold h_font s_font">
-        <% if a >= 4 %>
-          <%= "£ #{plot.price.to_s[0]},#{plot.price.to_s[1..3]},#{plot.price.to_s[4..7]}" %>
-        <% else %>
-          <%= "£ #{plot.price.to_s[0...a]},#{plot.price.to_s[a..-1]}" %>
-        <% end %>
+          <%= number_to_currency(plot.price, unit: "£", precision: 0) %>
       </p>
     </div>
   </div>
