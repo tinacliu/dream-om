@@ -54,9 +54,7 @@
     <div class="col-12 mx-auto">
       <div class="index-grid">
         <% @plots.each do |plot| %>
-          <%= link_to plot, class: "card-index-link" do  %>
             <%= render 'plots/card', plot: plot %>
-          <% end %>
         <% end %>
       </div>
     </div>

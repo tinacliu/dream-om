@@ -1,0 +1,5 @@
+var container = document.querySelector(".index-grid");
+
+<% @plots.each do |plot| %>
+  container.insertAdjacentHTML("beforeend", "<%= j render 'plots/card', plot: plot %>")
+<% end %>

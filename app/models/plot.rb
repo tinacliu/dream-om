@@ -7,6 +7,7 @@ class Plot < ApplicationRecord
   validates :description, length: { minimum: 20 }
   validates :listing_id, uniqueness: true
   # validates :location, :plot_size, presence: true
+  default_scope { order('created_at DESC') }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
