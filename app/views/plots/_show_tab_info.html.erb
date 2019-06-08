@@ -32,7 +32,7 @@
   <div class="d-flex justify-content-between align-items-center mt-4">
     <div class="card-left">
       <% if @plot.plot_size.blank? == false %>
-        <p class="mb-0 bold">Plot Size <span class="mx-1 bold blue"><%= @plot.plot_size %>acres</span></p>
+        <p class="mb-0 bold">Plot Size <span class="mx-1 bold blue"><%= @plot.plot_size %></span></p>
       <% end %>
       <% if @plot.floor_size.blank? == false %>
         <p class="mb-0 bold">Floor Size <span class="mx-1 bold blue"><%= @plot.floor_size.gsub(/,/,"").gsub(/sq_feet/,"sq. ft") %></span></p>

@@ -64,6 +64,14 @@ def land_seeding(file_path)
       nil
     end
 
+    if plot_size = plot['description'].match(/(\d?.?\d+\sacres)/i) ||
+                   plot['description'].match(/(\d?.?\d+\sacre)/i) ||
+                   plot['description'].match(/(\d?.?\d+\ssq\sft)/i)
+    else
+      plot_size = ""
+    end
+
+
     Plot.create!(
       num_floors:  plot['num_floors'],
       num_bedrooms:  plot['num_bedrooms'],
@@ -91,7 +99,8 @@ def land_seeding(file_path)
       plan_granted: plot['description'].match?(/planning consent granted/i)  ||
       plot['description'].match?(/Planning Application Number/i)||
       plot['description'].match?(/Planning Permission granted/i),
-      ownership_type: ownership_type
+      ownership_type: ownership_type,
+      plot_size: plot_size
      )
     plot_counter += 1
     puts "Created #{plot_counter} plot/s "
@@ -152,6 +161,14 @@ def house_seeding(file_path)
       nil
     end
 
+    if plot_size = house['description'].match(/(\d?.?\d+\sacres)/i) ||
+                   house['description'].match(/(\d?.?\d+\sacre)/i) ||
+                   house['description'].match(/(\d?.?\d+\ssq\sft)/i)
+    else
+      plot_size = ""
+    end
+
+
     floor_size = if house['floor_area'].nil? || house['floor_area']['max_floor_area'].nil?
       nil
      else
@@ -188,7 +205,8 @@ def house_seeding(file_path)
       house['description'].match?(/Planning Application Number/i)||
       house['description'].match?(/Planning Permission granted/i),
       ownership_type: ownership_type,
-      floor_size:            floor_size
+      floor_size:            floor_size,
+      plot_size: plot_size
      )
     house_counter += 1
     puts "Created #{house_counter} house/s "
@@ -209,7 +227,7 @@ puts 'Now injecting Refurbishment houses.... please wait.'
 '=' * 30
 
 
-filepaths3 = ['./app/assets/files/houses_london_radius1_refurbishment_page1.json', './app/assets/files/houses_london_radius1_refurbishment_page2.json', './app/assets/files/houses_london_radius1_refurbishment_page3.json']
+filepaths3 = ['./app/assets/files/houses_london_radius1_refurbishment_page1.json', './app/assets/files/houses_london_radius1_refurbishment_page2.json', './app/assets/files/houses_london_radius1_refurbishment_page3.json', './app/assets/files/houses_london_radius1_refurbishment_page5.json', './app/assets/files/houses_london_radius1_refurbishment_page8.json', './app/assets/files/houses_london_radius1_refurbishment_page13.json']
 
 
 def refurb_house_seeding(file_path)
@@ -258,6 +276,13 @@ def refurb_house_seeding(file_path)
       nil
     end
 
+    if plot_size = house['description'].match(/(\d?.?\d+\sacres)/i) ||
+                   house['description'].match(/(\d?.?\d+\sacre)/i) ||
+                   house['description'].match(/(\d?.?\d+\ssq\sft)/i)
+    else
+      plot_size = ""
+    end
+
     floor_size = if house['floor_area'].nil? || house['floor_area']['max_floor_area'].nil?
       nil
      else
@@ -294,7 +319,8 @@ def refurb_house_seeding(file_path)
       house['description'].match?(/Planning Application Number/i)||
       house['description'].match?(/Planning Permission granted/i),
       ownership_type: ownership_type,
-      floor_size:            floor_size
+      floor_size:            floor_size,
+      plot_size: plot_size
      )
     house_counter += 1
     puts "Created #{house_counter} house/s "
