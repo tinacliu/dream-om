@@ -34,12 +34,12 @@
     <div class="col-4 p-0" >
       <div class="bg-white" id="map-container">
         <%= render 'plots/map' %>
-        <div class="digg_pagination">
+       <!--  <div class="digg_pagination">
           <div class="page_info">
             <%#= page_entries_info @plots %>
           </div>
           <%#= will_paginate @plots, :container => false %>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-8 px-2">
@@ -47,28 +47,24 @@
         <div class="index-grid">
           <%#= @plots.to_a.count %>
           <% @plots.each do |plot| %>
-            <%= link_to plot_path(plot, address: params[:address], type: params[:type], min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]), class: "card-index-link" do  %>
               <%= render 'plots/card', plot: plot %>
-            <% end %>
           <% end %>
+        </div>
             <div class="load-more-container">
         <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
               <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif mb-3" %>
               <%= link_to "Load More", plots_path, class: "load-more btn btn-primary mb-3" %>
             </div>
-          </div>
-        </div>
       <% else %>
         <h6 class="pl-4 none-msg"><span class="highlight-blue">Sorry, no plots match your query.</span></h6>
       <% end %>
-    </div>
   </div>
 </div>
 
 <% content_for :after_js do %>
   <script>
     // when the page is ready for manipulation
-    // console.log("inside html js");
+    console.log("inside html js");
 
     <% symbols = [:id, :min_p, :max_p, :type, :address, :search_radius] %>
     <% data_hash = {} %>
@@ -79,7 +75,7 @@
     <% end %>
 
     var dataHash = JSON.parse('<%= raw(data_hash.to_json) %>');
-    // console.log(dataHash)
+    console.log(dataHash)
 
     $(document).ready(function () {
         // when the load more link is clicked
@@ -96,8 +92,8 @@
 
             // get the last id and save it in a variable 'last-id'
             var last_id = $('.card').last().attr('data-id');
-            // console.log("inside of plot.js")
-            // console.log(last_id)
+            console.log("inside of plot.js")
+            console.log(last_id)
             if (last_id) {
               dataHash.id = last_id
             }
