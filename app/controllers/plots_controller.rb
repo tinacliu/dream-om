@@ -20,7 +20,6 @@ class PlotsController < ApplicationController
     "
     @plots = @plots.where(sql_query, t: t_filter, min_p: min_p, max_p: max_p)
 
-
     set_markers
   end
 
@@ -37,7 +36,6 @@ class PlotsController < ApplicationController
       }
     ]
     @shortlisted = Shortlist.where(user: current_user, plot: @plot).first
-
   end
 
   private
