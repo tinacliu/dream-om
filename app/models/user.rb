@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :shortlists
   has_many :projects
+  has_many :appointments, through: :projects
   has_many :comments, through: :shortlists # remove if unnecessary f
 end
