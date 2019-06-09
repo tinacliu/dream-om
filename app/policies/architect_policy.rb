@@ -1,4 +1,4 @@
-class PlotPolicy < ApplicationPolicy
+class ArchitectPolicy < ApplicationPolicy
 
   def index?
     true
