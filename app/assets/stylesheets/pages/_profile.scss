@@ -25,7 +25,7 @@
 .profile-two-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content:left;
+  justify-content:right;
   grid-column-gap: 30px;
   grid-row-gap: 85px;
   margin-top: 44px;
@@ -47,7 +47,7 @@
 }
 
 .tab-bar {
-  margin-left: 415px;
+  margin-left: 350px;
 }
 
 .tab-size {
