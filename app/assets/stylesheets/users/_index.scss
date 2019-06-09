@@ -1,7 +1,7 @@
-.profile-two-grid div:hover{
+.profile-two-grid :hover{
   cursor: grab;
 }
 
-.profile-two-grid div:active {
+.profile-two-grid :active {
   cursor: grabbing;
 }
