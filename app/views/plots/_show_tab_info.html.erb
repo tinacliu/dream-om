@@ -40,10 +40,10 @@
     </div>
     <div class="card-right text-right">
       <% if @plot.ownership_type.blank? == false %>
-        <p class="mb-0 bold"><%= @plot.ownership_type %></p>
+        <p class="mb-0 bold blue"><%= @plot.ownership_type %></p>
       <% end %>
       <% if @plot.plan_granted == true %>
-        <p class="mb-0 bold">Planning Granted</p>
+        <p class="mb-0 bold blue">Planning Granted</p>
       <% end %>
     </div>
   </div>
