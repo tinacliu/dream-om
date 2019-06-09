@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_051612) do
+ActiveRecord::Schema.define(version: 2019_06_09_040055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "project_id"
+    t.bigint "architect_id"
+    t.datetime "appt_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["architect_id"], name: "index_appointments_on_architect_id"
+    t.index ["project_id"], name: "index_appointments_on_project_id"
+  end
+
+  create_table "architects", force: :cascade do |t|
+    t.string "name"
+    t.string "website_url"
+    t.text "bio"
+    t.string "portfolio_url", default: [], array: true
+    t.boolean "available"
+    t.string "speciality"
+    t.integer "min_project_budget"
+    t.datetime "appt_times", default: [], array: true
+    t.integer "appt_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.bigint "shortlist_id"
@@ -59,6 +83,18 @@ ActiveRecord::Schema.define(version: 2019_06_05_051612) do
     t.string "outcode"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.integer "budget"
+    t.text "brief"
+    t.string "plot_postcode"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
   create_table "shortlists", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "plot_id"
@@ -80,7 +116,10 @@ ActiveRecord::Schema.define(version: 2019_06_05_051612) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "architects"
+  add_foreign_key "appointments", "projects"
   add_foreign_key "comments", "shortlists"
+  add_foreign_key "projects", "users"
   add_foreign_key "shortlists", "plots"
   add_foreign_key "shortlists", "users"
 end
