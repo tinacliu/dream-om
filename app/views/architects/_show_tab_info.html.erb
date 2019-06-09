@@ -1,0 +1,39 @@
+<!-- container for all the Architects info -->
+<div class="flex-grow-1 m_font">
+
+  <!-- first section with Architect city,  -->
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <div class="card-left">
+      <h6 class="card-title m-0 l_font">51 Architecture</h6>
+      <p class="mb-0 h_font">LONDON</p>
+    </div>
+    <div class="card-right text-right">
+      <!-- if we decided to add more info -->
+    </div>
+  </div>
+
+  <!-- second section with Architect bio. -->
+  <hr>
+  <div class="scroll-box">
+    <% ps = PragmaticSegmenter::Segmenter.new(text: "Anouska Tamony’s studio is an award-winning London based boutique design studio, known for its playful and adaptable style. Specialising in highly personal residential interior design and architecture, the studio’s philosophy is to provide an outstanding level of service to create distinctive homes that express the originality and personality of their owners. Whether working on a single space refurbishment or a full-scale renovation, clients can expect a completely bespoke service led by Creative Director and Founder Anouska.
+
+      The studio listens intently to interpret each client’s unique vision, with a diverse portfolio of projects fluently speaking the language of each individual. So whether it’s an elegant townhouse, a contemporary loft, or a relaxing country retreat, the studio will bring fresh energy and passion to each project stimulated by a desire to create something truly unique for each client.") %>
+
+   <!--  <% #ps.segment.each_slice(3) do |slice| %>
+      <p><%#= slice.join ' ' %></p>
+    <% #end %> -->
+  </div>
+  <hr>
+
+  <!-- third section list the Architect specialties -->
+  <div class="d-flex justify-content-between align-items-top">
+    <div class="card-left text-right mt-4">
+      <p class="mb-0 s_font">Extension - Industrial Conversions - period
+        Conversions restorations</p>
+    </div>
+  </div>
+</div>
+
+
+
+
