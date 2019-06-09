@@ -1,12 +1,14 @@
 <div class= "d-flex container mr-0 p-0 text-box">
   <div class="card card-index card-comment shadow-sm">
+
     <%= render 'shortlists/card_delete', shortlist: shortlist %>
 
+    <!-- card main body -->
     <div id="collapseOne-<%= shortlist.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-        <% if shortlist.plot.image_url.blank? == false %>
+      <% if shortlist.plot.image_url.blank? == false %>
           <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-index-img' %>
         <% end %>
-      <%= link_to plot_path(shortlist.plot) do%>
+      <%= link_to plot_path(shortlist.plot) do %>
         <div class="card-body bg-light d-flex justify-content-between align-items-center py-3">
           <div class="card-left">
             <h6 class="m-0 grey" id="index-card-title">
@@ -26,32 +28,10 @@
         </div>
       <% end %>
     </div>
-    <div class="">
-    <div class="accordion" id="accordionExample">
-      <div class="comment-container">
-        <div class="comment-card" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link text-light btn-none" type="button" data-toggle="collapse" data-target="#collapseOne-<%= shortlist.id %>" aria-expanded="false" aria-controls="collapseOne">
-              <!-- you can click anywhere to expand -->
-              <i class="fas fa-comment-alt white l_font pb-3"></i>
-            </button>
-          </h2>
-        </div>
 
-        <div id="collapseOne-<%= shortlist.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <%= simple_form_for [shortlist, comment] do |f| %>
-          <% if shortlist.comment.nil? %>
-            <%= f.input :content, label: "", input_html: {value: ''}, placeholder: "Make a note about the plot" %>
-          <% else %>
-            <%= f.input :content, label: "", input_html: {value: shortlist.comment.content }, placeholder: "Make a note about the plot.." %>
-          <% end %>
-          <%= f.submit "Record Note", class: "btn btn-primary ml-4 mb-4" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <!-- card-comment -->
+    <%= render 'shortlists/card_comment', shortlist: shortlist, comment: @comment %>
   </div>
- </div>
 
   <%= render 'shortlists/card_sideinfo', shortlist: shortlist %>
 </div>
