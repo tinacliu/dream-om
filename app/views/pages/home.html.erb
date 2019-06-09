@@ -2,7 +2,7 @@
   <div class="flex-container">
 
     <div class="row">
-      <h2>Find Your New <span class="blue">Home</span></h2>
+      <h2>Build Your New <span class="blue">Home</span></h2>
     </div>
 
    <div class="row">
@@ -15,6 +15,9 @@
         placeholder: "e.g. ‘ London’, ‘8DY’, 'E2 8DY’ or ‘Paddington Station'"
       %>
      <% end %>
+       <%= link_to plots_path do %>
+       <input class="btn-banner" type="submit", value= "Get Started">
+      <% end %>
     </div>
 
       <%#`= label_tag "search-radius", "Radius" %>
@@ -29,14 +32,11 @@
       %>
       <%#= submit_tag "Search for a plot", class: "btn btn-primary" %>
 
-    <div class="row">
-
-       <%= link_to plots_path do %>
-       <input class="btn-banner" type="submit", value= "Get Started">
-      <% end %>
+    <!-- <div class="row"> -->
 
 
-    </div>
+
+    <!-- </div> -->
 
   </div>
 </div>
