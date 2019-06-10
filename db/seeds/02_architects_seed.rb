@@ -1,6 +1,6 @@
-puts 'populating the architects seed'
+puts 'deleting appointments & then architects'
 
-# Appointment.destroy_all
+Appointment.destroy_all
 Architect.destroy_all
 
 date_AM_1 = DateTime.parse ('2019-06-26T11: 00: 00')
