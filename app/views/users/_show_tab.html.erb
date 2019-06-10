@@ -11,7 +11,7 @@
         <div class = "card">
           <div class = "card-body">
         <p>Title: <%= project.title %></p>
-        <p>Description: <%= truncate project.brief, length: 40, separator: /\s/, omission: '' %></p>
+        <p>Description: <%= truncate project.brief, length: 50, separator: /\s/, omission: '' %></p>
         <p>Budget: <%= project.budget %></p>
         <p>Category: <%=project.category %></p>
         <p>Postal Code:<%= project.plot_postcode %> </p>
@@ -27,7 +27,7 @@
       <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>
       <%= f.input :plot_postcode, label: "Postal code of Plot" %>
       <%= f.input :category, collection: Architect::SPECIALITY %>
-      <%= f.input :brief %>
+      <%= f.input :brief  %>
       <%= f.submit "Submit Project", class: "btn btn-primary" %>
     <% end %>
   </div>
