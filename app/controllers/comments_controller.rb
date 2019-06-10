@@ -13,7 +13,13 @@ class CommentsController < ApplicationController
     redirect_to profile_path
   end
 
-
+  # def edit
+  #   if @comment.update(comment_params)
+  #     flash[:success] = "Article updated!"
+  #   else
+  #     flash[:warning] = "Comment could not be updated"
+  #   end
+  # end
 
   def destroy
     @comment = Comment.find(params[:id])
