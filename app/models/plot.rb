@@ -11,4 +11,21 @@ class Plot < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  API_KEY = ENV['GOOGLE_API_KEY']
+
+  def travel_time(destination, mode)
+    url = "https://maps.googleapis.com/maps/api/directions/json?origin=#{latitude},#{longitude}&destination=#{destination}&mode=#{mode}&key=#{API_KEY}"
+    response = open(url)
+
+    json = JSON.parse(response.read)
+    journey_time = json["routes"][0]["legs"][0]["duration"]["text"]
+    travel_dist_miles = (json["routes"][0]["legs"][0]["distance"]["text"].to_f * 0.621371).round(1)
+
+    travel_hash = {
+      dist: travel_dist_miles,
+      time: journey_time
+    }
+    return travel_hash
+  end
 end
