@@ -3,7 +3,7 @@ class PlotsController < ApplicationController
 
   def index
     @plots = policy_scope(Plot)#.paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
-    @plots = @plots.near(params[:address] || "London", params[:search_radius] || 20) unless params[:address].blank?
+    @plots = @plots.near(params[:address] || "London", params[:search_radius] || 10) unless params[:address].blank?
     if params[:id]
       @plots = @plots.where('id < ?', params[:id]).limit(30)
     else
