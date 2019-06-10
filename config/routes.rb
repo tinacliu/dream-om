@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :shortlists, only: [:destroy] do
+    resources :photos, only: [:create]
     resources :comments, only: [:create]
   end
 

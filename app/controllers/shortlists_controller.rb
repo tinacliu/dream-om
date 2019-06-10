@@ -3,7 +3,6 @@ class ShortlistsController < ApplicationController
 
 
   def create
-
     @plot = Plot.find(params[:plot_id])
     @shortlist = Shortlist.new
     authorize @shortlist
@@ -32,11 +31,17 @@ class ShortlistsController < ApplicationController
     end
   end
 
+  # def update
+  #   @photo = Photo.new
+  #   @shortlist = Shortlist.find(params[:id])
+  #   authorize @shortlist
+  #   @shortlist.update(shortlist_params)
+  # end
+
   private
 
   def shortlist_params
     params.require(:shortlist).permit(:plot_id)
   end
-
 
 end
