@@ -1,0 +1,16 @@
+<!-- architect card for index page -->
+<%= link_to architect, class: "card-index-link" do  %>
+  <div class="card card-index-big shadow-sm" data-id="<%= architect.id %>">
+
+    <% if architect.portfolio_url.blank? == false %>
+      <%= image_tag architect.portfolio_url.first, crop: :fill, class: 'card-index-img-big' %>
+    <% end %>
+
+    <div class="card-body bg-light py-3 px-2">
+      <h6 class="m-0 grey m_font" id="index-card-title">
+        <%= architect.name %>
+      </h6>
+      <p class="mb-0 blue h_font"><%= architect.location %></p>
+    </div>
+  </div>
+<% end %>

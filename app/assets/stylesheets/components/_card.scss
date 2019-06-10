@@ -14,6 +14,17 @@
   filter: grayscale(100%);
 }
 
+.card-index-big {
+  border-bottom: 2px solid;
+  height: calc(18rem + 75px);
+}
+
+.card-index-img-big {
+  width: 100%;
+  height: 18rem;
+  object-fit: cover;
+}
+
 
 .blue-bookmark {
   color: $duck-egg-blue;
