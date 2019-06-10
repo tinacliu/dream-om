@@ -3,7 +3,29 @@
 
   <!-- profile tab -->
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <h5>profile form placholder</h5>
+    <% if @user.projects.size == 0 %>
+      <p> No projects to display <p>
+    <% else %>
+      <h3>Current Projects </h3>
+      <% @user.projects.each do |project| %>
+        <p>Title: <%= project.title %></p>
+        <p>Description: <%= truncate project.brief, length: 40, separator: /\s/, omission: '' %></p>
+        <p>Budget: <%= project.budget %></p>
+        <p>Category: <%=project.category %></p>
+        <p>Postal Code:<%= project.plot_postcode %> </p>
+      <% end %>
+    <% end %>
+
+    <h3>Create New Project </h3>
+
+    <%= simple_form_for @project do |f| %>
+      <%= f.input :title, label: "Project name" %>
+      <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>
+      <%= f.input :plot_postcode, label: "Postal code of Plot" %>
+      <%= f.input :category, collection: Architect::SPECIALITY %>
+      <%= f.input :brief %>
+      <%= f.submit "Submit Project", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
   <!-- plots tab -->
