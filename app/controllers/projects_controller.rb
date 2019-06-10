@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 
+
   def index
     @projects = policy_scope(Project)
   end
@@ -11,6 +12,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.user = current_user
     authorize @project
     if @project.save
       flash[:notice] = "Project successfully created"
@@ -18,7 +20,6 @@ class ProjectsController < ApplicationController
       flash[:alert] = "Project could not be saved"
     end
     redirect_to profile_path
-
   end
 
   private
