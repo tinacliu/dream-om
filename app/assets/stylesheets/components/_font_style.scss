@@ -30,6 +30,10 @@
   font-weight: 800;
 }
 
+.normal{
+  font-weight: 600;
+}
+
 .thin {
   font-weight: 300;
 }
@@ -42,10 +46,15 @@
    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, $op-blue 65%);
 }
 
+.highlight-purple {
+   background: linear-gradient(180deg, rgba(255,255,255,0) 65%, $op-purple 65%);
+}
+
+
 .f-shadow {
   text-shadow: 0 0 4px #00000044;
 }
 
 .underline-none {
-  text-decoration: none;
+  text-decoration: none !important;
 }

@@ -46,6 +46,15 @@
   }
 }
 
+.filter-button-arc {
+  margin: 0px 8px;
+  &:hover {
+    color:$purple;
+    cursor: pointer;
+  }
+}
+
+
 #show-all {
   color: $dark-silver;
 }
@@ -53,6 +62,15 @@
 #show-all:hover{
   text-decoration: none !important;
   color: $duck-egg-blue;
+}
+
+#show-all-arc {
+  color: $dark-silver;
+}
+
+#show-all-arc:hover{
+  text-decoration: none !important;
+  color: $purple;
 }
 
 #search-radius::after {
