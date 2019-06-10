@@ -4,7 +4,8 @@
   <!-- profile tab -->
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     <% if @user.projects.size == 0 %>
-      <p> No projects to display <p>
+      <h5 class="left-banner py-3"><span class="highlight-blue">No projects to display</span> </h5>
+      <hr>
     <% else %>
       <h3>Current Projects </h3>
       <% @user.projects.each do |project| %>
@@ -19,19 +20,18 @@
     </div>
       <% end %>
     <% end %>
-
-    <h3>Create New Project </h3>
-
-    <%= simple_form_for @project do |f| %>
-      <%= f.input :title, label: "Project name" %>
-      <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>
-      <%= f.input :plot_postcode, label: "Postal code of Plot" %>
-      <%= f.input :category, collection: Architect::SPECIALITY %>
-      <%= f.input :brief  %>
-      <%= f.submit "Submit Project", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
+    <div class="col-6" >
+      <h3>Create New Project </h3>
+        <%= simple_form_for @project do |f| %>
+          <%= f.input :title, label: "Project name" %>
+          <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>
+          <%= f.input :plot_postcode, label: "Postal code of Plot" %>
+          <%= f.input :category, collection: Architect::SPECIALITY %>
+          <%= f.input :brief  %>
+          <%= f.submit "Submit Project", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
   <!-- plots tab -->
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     <div class="row align-items-center"></div>
