@@ -32,7 +32,8 @@ class PlotsController < ApplicationController
       {
         lat: @plot.latitude,
         lng: @plot.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot })
+        infoWindow: render_to_string(partial: "infowindow", locals: { plot: @plot }),
+        image_url: helpers.asset_url('home-marker.svg')
       }
     ]
     @shortlisted = Shortlist.where(user: current_user, plot: @plot).first
@@ -45,7 +46,8 @@ class PlotsController < ApplicationController
       {
         lat: plot.latitude,
         lng: plot.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { plot: plot })
+        infoWindow: render_to_string(partial: "infowindow", locals: { plot: plot }),
+        image_url: helpers.asset_url('home-marker.svg')
       }
     end
   end
