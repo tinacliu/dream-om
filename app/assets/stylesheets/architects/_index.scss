@@ -1,0 +1,10 @@
+// @import "show";
+
+// Architects index page
+.index-grid-architect{
+  display: grid;
+  padding: 0px 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+}
