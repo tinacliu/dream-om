@@ -6,7 +6,6 @@ import { initMapbox, fitMapToMarkers } from '../plugins/init_mapbox';
 import { initSortable } from '../plugins/init_sortable';
 
 initUpdateNavbarOnScroll();
-loadDynamicBannerText();
 
 // mapbox stuff
 initMapbox();
@@ -15,16 +14,16 @@ const returnedMap = initMapbox();
 console.log(returnedMap)
 
 // returnedMap.resize();
-document.querySelector("#pills-map-tab").addEventListener("click", (event) => {
-  console.log("click tab")
-  setTimeout(function() {
-    returnedMap.resize();
-    fitMapToMarkers(returnedMap, JSON.parse(document.getElementById("map").dataset.markers));
-  }, 200);
-
-
-})
-
+const pills = document.querySelector("#pills-map-tab");
+if (pills) {
+  pills.addEventListener("click", (event) => {
+    console.log("click tab")
+    setTimeout(function() {
+      returnedMap.resize();
+      fitMapToMarkers(returnedMap, JSON.parse(document.getElementById("map").dataset.markers));
+    }, 200);
+  });
+}
 
 // dismiss alerts after 2 seconds
 const alertDismissBtn = document.querySelector('.alert button');
@@ -33,3 +32,5 @@ if (alertDismissBtn) {
     alertDismissBtn.click();
   }, 2000);
 }
+
+loadDynamicBannerText();
