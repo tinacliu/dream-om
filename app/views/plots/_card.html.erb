@@ -14,16 +14,16 @@
       <% end %>
 
     <div class="card-body bg-light d-flex justify-content-between align-items-center py-3 px-2">
-      <div class="card-left">
+      <div class="card-left pl-1">
           <h6 class="m-0 grey" id="index-card-title">
             <%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %>
           </h6>
-          <p class="mb-0 grey h_font s_font">
+          <p class="mb-0 grey h_font s_font bold">
             <% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>
             <%= "#{post_town} #{plot.outcode}" %>
           </p>
       </div>
-        <div class="card-right text-right">
+        <div class="card-right text-right pr-1">
           <h6 class="card-subtitle blue bold s_font">
             <%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %>
           </h6>
