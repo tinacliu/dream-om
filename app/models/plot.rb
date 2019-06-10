@@ -19,9 +19,10 @@ class Plot < ApplicationRecord
     response = open(url)
 
     json = JSON.parse(response.read)
-    journey_time = json["routes"][0]["legs"][0]["duration"]["text"]
-    travel_dist_miles = (json["routes"][0]["legs"][0]["distance"]["text"].to_f * 0.621371).round(1)
-
+    unless json["routes"].blank?
+      journey_time = json["routes"][0]["legs"][0]["duration"]["text"]
+      travel_dist_miles = (json["routes"][0]["legs"][0]["distance"]["text"].to_f * 0.621371).round(1)
+    end
     travel_hash = {
       dist: travel_dist_miles,
       time: journey_time
