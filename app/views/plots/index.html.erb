@@ -1,7 +1,7 @@
 <div class="container-lg">
   <div class="d-flex mb-2">
     <div class="col-4 p-0" >
-      <%= form_tag plots_path, method: :get, class: "form-inline justify-content-center" do %>
+      <%= form_tag plots_path, method: :get, class: "form-inline justify-content-end" do %>
         <%= text_field_tag :address,
           params[:address],
 
@@ -15,11 +15,11 @@
         label: "Search radius",
         class: "form-control filter-search-bar mr-2",
         min: 1, max: 100, step: "1",
-        value: params[:search_radius] || 20 ,
+        value: params[:search_radius] || 20,
         title:  "Search radius in kilometres"
         %>
       </div>
-       <%= submit_tag "Search for a plot", class: "btn btn-primary" %>
+       <%= submit_tag "Search", class: "btn btn-primary mb-2 pr-0" %>
 
       <% end %>
     </div>

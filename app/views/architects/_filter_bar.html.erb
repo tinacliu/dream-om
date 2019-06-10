@@ -1,13 +1,13 @@
 <div class="filter-bar">
 
-  <%= link_to architects_path, id: "show-all" do %>
+  <%= link_to architects_path, id: "show-all-arc" do %>
     <div class="mr-4">Show All</div>
   <% end %>
 
   <div class="div"></div>
 
   <div class="dropdown">
-    <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Location <!-- <span class="selection">All</span><span class="caret"></span> -->
+    <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Location <!-- <span class="selection">All</span><span class="caret"></span> -->
     </div>
     <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
     <% Architect::LOCATION.each do |location| %>
@@ -21,7 +21,7 @@
   <div class="div"></div>
 
   <div class="dropdown">
-    <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Speciality</div>
+    <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Speciality</div>
     <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
       <% Architect::SPECIALITY.each do |speciality| %>
         <%= link_to architects_path(speciality: speciality, location: params[:location]) do  %>
@@ -34,7 +34,7 @@
   <div class="div"></div>
 
   <div class="dropdown">
-    <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Available</div>
+    <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Available</div>
     <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
         <div class="dropdown-item">Yes</div>
         <div class="dropdown-item">No</div>
