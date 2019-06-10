@@ -83,3 +83,19 @@
 .comment-text {
   height: 211px;
 }
+
+// cards in dashboard - appts
+.card-body-appt {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: $headers-font;
+  font-weight: bold;
+  font-size: 14px;
+  color: $dark-gray;
+  margin: auto 0px;
+}
+
+.card-index-appt {
+  border-bottom: 2px solid;
+}
