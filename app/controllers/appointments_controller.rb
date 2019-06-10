@@ -1,10 +1,11 @@
 class AppointmentsController < ApplicationController
+  before_action :set_architect, only: [:create]
+
 
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.architect = Architect.find(params[:architect_id])
     authorize @appointment
- #   @appointment.project = Project.find(params[:project_id])
     if @appointment.save
       flash[:success] = "Appointment successfully created"
     else
