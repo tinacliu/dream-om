@@ -1,0 +1,40 @@
+
+<!-- appointments tab -->
+<div class="tab-pane fade" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
+
+  <% if @user.appointments.size == 0 %>
+    <div class="m_font mb-3">
+      <span class="highlight-blue">No appointments at the moment</span></div>
+  <% else %>
+    <% @user.appointments.each do |appointment| %>
+
+    <%= link_to architect_path(appointment.architect), class: "card-index-link" do  %>
+      <div class="card card-index shadow-sm">
+
+        <% if appointment.architect.portfolio_url.first.blank? == false %>
+          <%= image_tag appointment.architect.portfolio_url.first, crop: :fill, class: 'card-index-img' %>
+        <% end %>
+
+        <div class="card-body bg-light d-flex justify-content-between align-items-center py-3 px-2">
+          <div class="card-left pl-1">
+              <h6 class="m-0 grey" id="index-card-title">
+                <%= appointment.architect.name %>
+              </h6>
+              <p class="mb-0 grey h_font s_font bold">
+                <%= appointment.architect.location %>
+              </p>
+          </div>
+            <div class="card-right text-right pr-1">
+              <h6 class="card-subtitle blue bold s_font">
+              </h6>
+              <p class="mb-0 grey bold h_font s_font">
+              </p>
+            </div>
+        </div>
+      </div>
+    <% end %>
+
+
+    <% end %>
+  <% end %>
+</div>
