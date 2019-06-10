@@ -9,7 +9,7 @@ class AppointmentPolicy < ApplicationPolicy
   end
 
   def create?
-    user_logged_in?
+    true
   end
 
   def new?

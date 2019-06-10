@@ -3,8 +3,8 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.architect = Architect.find(params[:architect_id])
-    @appointment.project = Project.first #Since we don't have a way to get  the project otherwise
     authorize @appointment
+ #   @appointment.project = Project.find(params[:project_id])
     if @appointment.save
       flash[:success] = "Appointment successfully created"
     else
@@ -25,7 +25,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_params
-    params.require(:appointment).permit(:architect_id)
+    params.require(:appointment).permit(:appt_time, :project_id)
   end
 
 
