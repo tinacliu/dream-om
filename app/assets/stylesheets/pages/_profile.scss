@@ -22,9 +22,9 @@
   text-align: left;
 }
 
-.profile-two-grid {
+.profile-one-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content:right;
   grid-column-gap: 30px;
   grid-row-gap: 85px;
@@ -87,7 +87,8 @@ textarea.form-control {
 }
 
 .text-box {
-  width: 545px;
+  // width: 545px;
+  width: 100%;
 }
 
 // .note-box {
