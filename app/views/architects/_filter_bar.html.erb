@@ -7,7 +7,8 @@
   <div class="div"></div>
 
   <div class="dropdown">
-    <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
+    <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Location
+      <!-- <span class="selection">All</span><span class="caret"></span></div> -->
     <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
     <% Architect::LOCATION.each do |location| %>
       <%= link_to architects_path(location: location, speciality: params[:speciality]) do  %>
