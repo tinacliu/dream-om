@@ -1,0 +1,39 @@
+<!-- container for all the Architects info -->
+<div class="flex-grow-1 m_font">
+
+  <!-- first section with Architect city,  -->
+  <div class="d-flex justify-content-between align-items-center mt-4">
+    <div class="card-left">
+      <h6 class="card-title m-0 l_font"><%= @architect.name %></h6>
+
+      <p class="mb-0 h_font bold"><%= @architect.location %></p>
+    </div>
+    <div class="card-right text-right">
+      <!-- if we decided to add more info -->
+    </div>
+  </div>
+
+  <!-- second section with Architect bio. -->
+  <hr class="mr-5">
+  <div class="scroll-box mr-5">
+    <% @architect.appt_times.each do |appt_time| %>
+      <p><%= appt_time %> </p>
+    <% end %>
+  </div>
+  <hr class="mr-5">
+
+  <%= simple_form_for [@architect, @appointment] do |f| %>
+    <%= f.association :project %>
+    <%= f.input :appt_time, collection: @architect.appt_times %>
+    <%= f.submit "Request appointment" %>
+  <% end %>
+
+  <!-- third section list the Architect specialties -->
+  <div class="d-flex justify-content-between align-items-top">
+    <div class="card-left text-right mt-3">
+      <!-- <h6 class="m_font purple thin">SPECIALITY_ </h6> -->
+      <h6 class="mb-0 m_font purple bold"><%= Architect::SPECIALITY.sample(3).split(",").join(' - ')%></h6>
+
+    </div>
+  </div>
+</div>

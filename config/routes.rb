@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   # we are showing projects in profile tab
-  # resources :projects, only: [:show]
+   resources :projects, only: [:create]
 
   get 'profile', to: 'users#show', as: 'profile'
 end

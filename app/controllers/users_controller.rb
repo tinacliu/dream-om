@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @comment = Comment.new
     @architects = policy_scope(Architect)
     @photo = Photo.new
+    @project = Project.new
    # authorize @comment
   end
 end
