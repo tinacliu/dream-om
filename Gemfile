@@ -21,6 +21,8 @@ gem 'webpacker'
 gem 'will_paginate', '~> 3.1.0'
 
 gem 'pragmatic_segmenter'
+gem 'cloudinary'
+gem 'carrierwave'
 
 
 group :development do
