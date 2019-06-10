@@ -28,7 +28,7 @@
       <div class="m_font mb-3"><span class="highlight-blue">No architects matched your search</span></div>
     <% else %>
       <% @architects.each do |architect| %>
-        <%= render 'architects/card', architect: architect %>
+
       <% end %>
     <% end %>
 
@@ -42,7 +42,7 @@
       <div class="m_font mb-3"><span class="highlight-blue">No appointments at the moment</span></div>
     <% else %>
       <% @user.appointments.each do |appointment| %>
-        <%= render 'appointments/card', appointment: appointment %>
+
       <% end %>
     <% end %>
   </div>
