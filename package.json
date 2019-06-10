@@ -7,7 +7,8 @@
     "jquery": "^3.4.1",
     "mapbox-gl": "^1.0.0",
     "popper.js": "^1.15.0",
-    "sortablejs": "^1.10.0-rc2"
+    "sortablejs": "^1.10.0-rc2",
+    "typed.js": "^2.0.10"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.5.1"

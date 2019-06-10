@@ -1,10 +1,12 @@
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
+import { loadDynamicBannerText } from '../components/typed_banner';
 import { initUpdateNavbarOnScroll } from '../components/filterbar';
 import { initMapbox, fitMapToMarkers } from '../plugins/init_mapbox';
 import { initSortable } from '../plugins/init_sortable';
 
 initUpdateNavbarOnScroll();
+loadDynamicBannerText();
 
 // mapbox stuff
 initMapbox();
@@ -31,4 +33,3 @@ if (alertDismissBtn) {
     alertDismissBtn.click();
   }, 2000);
 }
-
