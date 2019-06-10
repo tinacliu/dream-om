@@ -20,6 +20,7 @@ class ArchitectsController < ApplicationController
 
   def show
     @architect = Architect.find(params[:id])
+    @appointment = Appointment.new
     authorize @architect
   end
 end
