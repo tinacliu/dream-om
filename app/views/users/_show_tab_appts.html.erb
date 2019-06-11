@@ -1,6 +1,6 @@
 
 <!-- appointments tab -->
-<div class="tab-pane fade" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
+<div class="tab-pane fade <%= 'show active' if params[:tab] == 'appt' %>" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
 
   <% if @user.appointments.size == 0 %>
     <div class="m_font py-3 pl-5">

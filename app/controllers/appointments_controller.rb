@@ -7,11 +7,12 @@ class AppointmentsController < ApplicationController
     @appointment.architect = Architect.find(params[:architect_id])
     authorize @appointment
     if @appointment.save
-      flash[:success] = "Appointment successfully created"
+      flash[:notice] = "Appointment request received"
+      redirect_to profile_path(tab: :appt)
     else
-      flash[:warning] = "Appointment could not be created"
+      flash[:alert] = "Error with the appointment request"
+      redirect_to architect_path(@appointment.architect)
     end
-    redirect_to profile_path
   end
 
   def destroy
