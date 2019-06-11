@@ -36,7 +36,7 @@ Architect.create!(
   speciality: "Extension",
   min_project_budget: 200000,
   appt_times: appts,
-  appt_rate: 250
+  appt_rate: 350
   )
 
 
@@ -119,6 +119,174 @@ Architect.create!(
   speciality: "New Build: Eco-Home",
   min_project_budget: 200000,
   appt_times: appts,
-  appt_rate: 175
+  appt_rate: 200
+  )
+
+puts 'creating Architect 5...'
+appts = []
+12.times do
+  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "Robert Dye Architects",
+  website_url: "http://www.robertdye.com/",
+  location: "London - North",
+  bio: "Robert Dye Architects was formed in 1990 and soon afterwards was selected by the Architecture Foundation \
+  as one of Britain´s best young architecture practices. Two decades on, RDA has secured its reputation as outstanding \
+  residential architects; having won several design awards including the RIBA Manser Medal (for the best new one-off \
+  house), the CEDIA award (in the press known as the Oscars of the home technology awards) and winner of Best Residential \
+  Design in the 2014 Daily Telegraph H&R awards.",
+  portfolio_url: [
+    "http://www.robertdye.com/media/uploads/2010/10/1718/main-150-rda-hamilton-terrace11.jpg",
+    "http://www.robertdye.com/media/uploads/2013/02/1997/main-1e.jpg",
+    "http://www.robertdye.com/media/uploads/2010/10/1732/main-166-rda-luptonst2.jpg"
+  ],
+  available: true,
+  speciality: "Conversion",
+  min_project_budget: 200000,
+  appt_times: appts,
+  appt_rate: 225
+  )
+
+puts 'creating Architect 6...'
+appts = []
+10.times do
+  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "Red Deer",
+  website_url: "https://www.reddeer.co.uk/",
+  location: "London - East",
+  bio: "We are herd of Architects, friends and designers – founded by Lionel Real de Azúa, \
+  Ciarán O’Brien and Lucas Che Tizard in an attempt to better engage with the world around \
+  them. Love for the unexpected forms a starting point in our design work, studio ethos \
+  and adventures in travel.",
+  portfolio_url: [
+    "https://www.reddeer.co.uk/assets/_landscape2000/EnglefieldRd_09.jpg",
+    "https://www.reddeer.co.uk/assets/_landscape2000/EnglefieldRd_33.jpg",
+    "https://www.reddeer.co.uk/assets/_landscape2000/RegalClose44.jpg",
+    "https://www.reddeer.co.uk/assets/_landscape2000/SloaneCourtWest1stFloor_MariellHansen9.jpg"
+     ],
+  available: true,
+  speciality: "Renovation",
+  min_project_budget: 250000,
+  appt_times: appts,
+  appt_rate: 225
+  )
+
+puts 'creating Architect 7...'
+appts = []
+10.times do
+  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "McLean Quinlan",
+  website_url: "https://mcleanquinlan.com/works/",
+  location: "London - West",
+  bio: "McLean Quinlan are housemakers, creating distinct, beautifully crafted architecture, in the town, \
+  the countryside, in the UK and overseas. They love what they do; delighting in the detail, the use of light \
+    and materials, the sensory, the tactile, and the making of spaces that age with grace. They themselves are\
+     a family, and are mindful that creating a home is a journey, a life experience. The studio are always \
+     careful to understand the way you live and what you enjoy. This is the key to designing a home that \
+     is truly yours.",
+  portfolio_url: [
+    "https://mcleanquinlan.com/img/works/polzeath-house/mclean-quinlan-polzeath-house-4@2x.1547812778.jpg",
+    "https://mcleanquinlan.com/img/works/polzeath-house/mclean-quinlan-polzeath-house-10@2x.1547812784.jpg",
+    "https://mcleanquinlan.com/img/works/chiltern-barns/mclean-quinlan-chiltern-barns-2@2x.1547812633.jpg",
+    "https://mcleanquinlan.com/img/works/kent-downs-house/mclean-quinlan-kent-downs-house-2@2x.1547812740.jpg" ],
+  available: true,
+  speciality: "New Build: Country Home",
+  min_project_budget: 500000,
+  appt_times: appts,
+  appt_rate: 200
+  )
+
+puts 'creating Architect 8...'
+appts = []
+10.times do
+  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "Archmongers",
+  website_url: "http://archmongers.com/portfolio_page",
+  location: "London - East",
+  bio: "Archmongers is an award-winning London-based architectural studio founded by \
+  Margaret Bursa and Johan Hybschmann. We provide the complete design of buildings from \
+  feasibility to final details, before overseeing on-site construction to practical completion. \
+  We offer a fully integrated interior design service that complements the overarching \
+  architectural concept, delivering new builds through to fit-outs to a high level of quality and detail.",
+  portfolio_url: [
+    "http://archmongers.com/wp-content/uploads/2016/11/20170706-DSC_6805-LO-RES-1024x684.jpg",
+    "http://archmongers.com/wp-content/uploads/2016/11/DSC_6227.jpg",
+    "http://archmongers.com/wp-content/uploads/2016/11/THE_RYDE-7374.jpg"
+    ],
+  available: true,
+  speciality: "Extension",
+  min_project_budget: 200000,
+  appt_times: appts,
+  appt_rate: 200
+  )
+
+puts 'creating Architect 9...'
+appts = []
+10.times do
+  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "31/44 Architects",
+  website_url: "http://www.3144architects.com/projects",
+  location: "London - East",
+  bio: "31/44 Architects is a London-based architectural practice headed by Will Burges and Stephen Davies.\
+   31/44 refers to the practice’s two studio locations in the Netherlands (Amsterdam) and the UK (London) \
+ when founded in 2010. Now based solely in London, near Brick Lane, the practice currently comprises a \
+  team of nine architects and architectural assistants.
+
+Projects range in scale from strategic masterplanning through to smaller-scale residential work. Completed \
+projects include a family home in the Netherlands, a mixed-use retail and hotel building in Shoreditch, and \
+a number of one-off individual homes around London. The practice has also recently caught the attention of \
+the architectural press, garnering nominations and awards for No. 49 and Red House.",
+  portfolio_url: [
+    "http://www.3144architects.com/wp-content/uploads/2013/05/44_0815_kitchen2.jpg",
+    "http://www.3144architects.com/wp-content/uploads/2013/01/0815_RWG_Rear-View-In.jpg",
+    "http://www.3144architects.com/wp-content/uploads/2013/01/0815_RWG_Rear-View-Out.jpg"
+  ],
+  available: true,
+  speciality: "Extension",
+  min_project_budget: 250000,
+  appt_times: appts,
+  appt_rate: 200
+  )
+
+
+puts 'creating Architect 10...'
+appts = []
+10.times do
+  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "Conform Architects",
+  website_url: "https://www.conformarchitects.com/",
+  location: "London - South",
+  bio: "The ethos behind our architecture is underpinned by a rigorous design process which always explores \
+  both context and form. We believe context is not just the physical surroundings but also the social, cultural \
+  and historical uniqueness of place. We strive to investigate these contextual facets through the development \
+  of relevant forms, with concepts and designs that challenge our clients, their brief and ambitions. Our \
+  architecture embraces light and investigates materiality; engendering an innate detail and craft in our built form.",
+  portfolio_url: [
+    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5ab1233f03ce640c3c525030/1521560051263/levels_ten%2Beleven-con_form_architects_02.jpg?format=1500w",
+    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c56ff9f7817f790cc089ea9/1549234041878/repoussoir-con_form_architects_02.jpg?format=1500w",
+    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c57747415fcc09e6fcb856f/1549235324881/dormore-con_form_architects_06.jpg?format=1500w"
+  ],
+  available: true,
+  speciality: "Extension",
+  min_project_budget: 250000,
+  appt_times: appts,
+  appt_rate: 225
   )
 
