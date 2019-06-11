@@ -30,7 +30,7 @@
       <h6 class="mb-0 m_font purple bold">
         <% spec = @architect.speciality %>
         <%= spec %>  |
-        <%=(Architect::SPECIALITY - [spec]).sample(2).split(",").join('  |  ')%></h6>
+        <%=(Architect::SPECIALITY - [spec]).sample(2).split(",").join(" | ")%></h6>
 
     </div>
   </div>
