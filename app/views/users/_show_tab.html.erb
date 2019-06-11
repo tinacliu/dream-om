@@ -1,37 +1,8 @@
 <!-- tab body  -->
 <div class="tab-content" id="pills-tabContent">
 
-  <!-- profile tab -->
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <% if @user.projects.size == 0 %>
-      <h5 class="left-banner py-3"><span class="highlight-blue">No projects to display</span> </h5>
-      <hr>
-    <% else %>
-      <h3>Current Projects </h3>
-      <% @user.projects.each do |project| %>
-        <div class = "card">
-          <div class = "card-body">
-        <p>Title: <%= project.title %></p>
-        <p>Description: <%= truncate project.brief, length: 50, separator: /\s/, omission: '' %></p>
-        <p>Budget: <%= project.budget %></p>
-        <p>Category: <%=project.category %></p>
-        <p>Postal Code:<%= project.plot_postcode %> </p>
-      </div>
-    </div>
-      <% end %>
-    <% end %>
-    <div class="col-6" >
-      <h3>Create New Project </h3>
-        <%= simple_form_for @project do |f| %>
-          <%= f.input :title, label: "Project name" %>
-          <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>
-          <%= f.input :plot_postcode, label: "Postal code of Plot" %>
-          <%= f.input :category, collection: Architect::SPECIALITY %>
-          <%= f.input :brief  %>
-          <%= f.submit "Submit Project", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
+  <%= render 'users/show_tab_projects' %>
+
   <!-- plots tab -->
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     <div class="row align-items-center"></div>
@@ -57,28 +28,5 @@
     </div>
   </div>
 
-  <!-- architects tab -->
-  <div class="tab-pane fade" id="pills-architects" role="tabpanel" aria-labelledby="pills-architects-tab">
-    <% if @architects.size == 0 %>
-      <div class="m_font mb-3"><span class="highlight-blue">No architects matched your search</span></div>
-    <% else %>
-      <% @architects.each do |architect| %>
-
-      <% end %>
-    <% end %>
-
-    <h5>architects placeholder</h5>
-  </div>
-
-  <!-- appointments tab -->
-  <div class="tab-pane fade" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
-    <h5>appts placeholder</h5>
-    <% if @user.appointments.size == 0 %>
-      <div class="m_font mb-3"><span class="highlight-blue">No appointments at the moment</span></div>
-    <% else %>
-      <% @user.appointments.each do |appointment| %>
-
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'users/show_tab_appts' %>
 </div>

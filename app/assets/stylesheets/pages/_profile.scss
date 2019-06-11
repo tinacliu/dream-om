@@ -93,9 +93,17 @@ textarea.form-control {
 
 // .note-box {
 //   width: 431.181px
-
 // }
 
+
+// Appts TAB
+.index-grid-appt{
+  display: grid;
+  padding: 24px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+}
 
 
 
