@@ -1,39 +1,48 @@
 <!-- container for all the Architects info -->
-<div class="flex-grow-1 m_font">
+<!-- <div class="flex-grow-1 m_font"> -->
 
-  <!-- first section with Architect city,  -->
-  <div class="d-flex justify-content-between align-items-center mt-4">
-    <div class="card-left">
-      <h6 class="card-title m-0 l_font"><%= @architect.name %></h6>
 
-      <p class="mb-0 h_font bold"><%= @architect.location %></p>
-    </div>
-    <div class="card-right text-right">
-      <!-- if we decided to add more info -->
-    </div>
+<div class="card-appt">
+  <div class="card-date">
+    <h6 class="white-bg-appt">Date</h6>
+    <h6 class="white-bg-appt">Time</h6>
   </div>
-
-  <!-- second section with Architect bio. -->
-  <hr class="mr-5">
-  <div class="scroll-box mr-5">
-    <% @architect.appt_times.each do |appt_time| %>
-      <p><%= appt_time %> </p>
-    <% end %>
-  </div>
-  <hr class="mr-5">
-
-  <%= simple_form_for [@architect, @appointment] do |f| %>
-    <%= f.association :project %>
-    <%= f.input :appt_time, collection: @architect.appt_times %>
-    <%= f.submit "Request appointment" %>
-  <% end %>
-
-  <!-- third section list the Architect specialties -->
-  <div class="d-flex justify-content-between align-items-top">
-    <div class="card-left text-right mt-3">
-      <!-- <h6 class="m_font purple thin">SPECIALITY_ </h6> -->
-      <h6 class="mb-0 m_font purple bold"><%= Architect::SPECIALITY.sample(3).split(",").join(' - ')%></h6>
-
+  <div class="card-show-appt">
+    <div class="row">
+      <div class="my-3 pl-4 text-left pb-4">
+        <% @architect.appt_times.each do |appt_time| %>
+        <h5 class="mb-0 blue"><%= appt_time.strftime("%d")%></h5>
+        <p class="mb-0 h_font bold mb-2 border-bottom"><%= appt_time.strftime("%B")[0..2]%></p>
+        <% end %>
+      </div>
+      <div class="my-3 pl-5 text-center">
+        <% @architect.appt_times.each do |appt_time| %>
+          <h5 class="mb-0 blue"><%= "#{appt_time.hour >= 12 ? appt_time.hour - 12 : appt_time.hour}:00" %></h5>
+          <p class="mb-0 h_font bold mb-2 border-bottom"><%= appt_time.hour >= 12 ? "PM" : "AM" %></p>
+         <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+  <!-- second section with Architect bio. -->
+  <!-- <hr class="mr-5 mt-4"> -->
+  <!-- <div class="mr-5 mt-5">
+    <%# @architect.appt_times.each do |appt_time| %>
+      <p><%#= appt_time %> </p>
+    <%# end %>
+  </div>
+  <%#= simple_form_for [@architect, @appointment] do |f| %>
+    <%#= f.association :project %>
+    <%#= f.input :appt_time, collection: @architect.appt_times %>
+    <%#= f.submit "Request appointment" %>
+  <%# end %>
+
+  <hr class="mr-5"> -->
+<!-- </div> -->

@@ -4,14 +4,14 @@
       <%= form_tag plots_path, method: :get, class: "form-inline justify-content-end" do %>
         <%= text_field_tag :address,
           params[:address],
-          class: "form-control filter-search-bar bar-search ml-2 mr-2",
+          class: "form-control filter-search-bar bar-search ml-2 mr-4 align-search-bar pb-0 ",
           placeholder: " London, 8DY, E2 8DY"
         %>
         <div id = "search_radius">
         <%= number_field_tag :search_radius,
         params[:search_radius],
         label: "Search radius",
-        class: "form-control filter-search-bar mr-2",
+        class: "form-control filter-search-bar mr-2 align-search-bar pb-0 ",
         min: 1, max: 100, step: "1",
         value: params[:search_radius] || 10,
         title:  "Search radius in miles"

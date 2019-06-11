@@ -38,6 +38,18 @@
 }
 
 
+.nav-pills .nav-link-arc-purple.active {
+  text-decoration: none;
+  background-color: $purple;
+  color: white;
+  }
+
+  .nav-pills .nav-link-arc-purple {
+  text-decoration: none;
+  color: $purple
+  }
+
+
 
 .h6 {
   font-size: 16px;
@@ -58,7 +70,7 @@
 }
 
 .bar-search {
-  width: 240px !important;
+  width: 280px !important;
 }
 
 
@@ -120,3 +132,72 @@ select.form-control:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
+
+// this section for the home page search button
+
+// input[type="text"],
+// select.form-control-default {
+//   color: $gray;
+//   border-radius: 5px 0px 0px 5px;
+//   width: 23em;
+//   height: 52px;
+//   text-align: center;
+//   font-weight: 300;
+//   background: white;
+//   border: none;
+//   -webkit-box-shadow: none;
+//   box-shadow: none;
+//   border-radius: 0;
+
+// }
+
+// input[type="text"]:focus,
+// select.form-control-default:focus {
+//   -webkit-box-shadow: none;
+//   box-shadow: none;
+// }
+
+
+
+// input[type="number"],
+// select.form-control-default {
+//   background: transparent;
+//   border: none;
+//   border-bottom: 1px solid #818181;
+//   -webkit-box-shadow: none;
+//   box-shadow: none;
+//   border-radius: 0;
+
+// }
+
+// input[type="number"]:focus,
+// select.form-control-default:focus {
+//   -webkit-box-shadow: none;
+//   box-shadow: none;
+//   padding-bottom: 20px
+// }
+
+
+// input[type="submit"],
+// select.form-control-default {
+//   border-radius: 0px 5px 5px 0px;
+//   color: white;
+//   background-color: $duck-egg-blue;
+//   margin: 0px, 0px, 50px, 0px;
+//   width: 6em;
+//   height: 52px;
+//   text-align: center;
+//   font-weight: 400;
+//   border: none;
+//   -webkit-box-shadow: none;
+//   box-shadow: none;
+
+// }
+
+// input[type="submit"]:hover,
+// select.form-control-default:hover {
+//   background-color: $duck-egg-blue;
+//   color: #1cafa4;
+//   -webkit-box-shadow: none;
+//   box-shadow: none;
+// }
