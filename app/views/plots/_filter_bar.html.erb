@@ -37,16 +37,16 @@
 
   <div class="user-filtered">
     <% if params[:type].present? %>
-       <strong>Filtered by:</strong> <%= params[:type] %>
+       Filtered by: <em><%= params[:type] %></em> |
     <% else %>
     <% end %>
 
     <% if params[:min_p].present? && params[:max_p].present? %>
-      <strong>Price Between £</strong><%= params[:min_p] %> <strong>to</strong> £<%= params[:max_p] %>
+    Price Between <em>£<%= params[:min_p] %></em> to <em>£<%= params[:max_p] %></em>
     <% elsif params[:max_p].present?  %>
-      <strong>Max Price £</strong><%= params[:max_p] %>
+    Max Price <em>£<%= params[:max_p] %></em>
     <% elsif params[:min_p].present?  %>
-      <strong>From: £</strong><%= params[:min_p] %>
+    From: <em>£<%= params[:min_p] %></em>
     <% else %>
     <% end %>
   </div>
