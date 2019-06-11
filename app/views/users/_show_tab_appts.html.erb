@@ -13,19 +13,25 @@
           <div class="card-header bg-white">
 
             <h6 class="mb-0 blue text-center"><%= appt.project.plot_postcode %></h6>
-          <% if @user.shortlists.size != 0 %>
-            <div class="dropdown text-right">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Add a shortlisted plot
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          <% end %>
+          <div class = "d-flex justify-content-center mt-2">
+            <% if @user.shortlists.size != 0 %>
+              <div class="dropdown text-right">
+                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Send info plot
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
+                  <ul>
+                    <% @user.shortlists.each do |shortlist| %>
+                      <li id = "sweet-alert-demo"> <%= shortlist.plot.address  %> </li>
+
+                    <% end %>
+
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+          </div>
           </div>
             <% if appt.architect.portfolio_url.first.blank? == false %>
               <%= image_tag appt.architect.portfolio_url.first, crop: :fill, class: 'card-index-img' %>

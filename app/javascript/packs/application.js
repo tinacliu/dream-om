@@ -4,6 +4,7 @@ import { loadDynamicBannerText } from '../components/typed_banner';
 import { initUpdateNavbarOnScroll } from '../components/filterbar';
 import { initMapbox, fitMapToMarkers } from '../plugins/init_mapbox';
 import { initSortable } from '../plugins/init_sortable';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 initUpdateNavbarOnScroll();
 loadDynamicBannerText();
@@ -31,3 +32,14 @@ if (alertDismissBtn) {
     alertDismissBtn.click();
   }, 2000);
 }
+
+initSweetalert('#sweet-alert-demo', {
+  title: "Submission successful!",
+  text: "Property information will be sent to the architect",
+  icon: "success"
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('#delete-link');
+    link.click();
+  }
+});
