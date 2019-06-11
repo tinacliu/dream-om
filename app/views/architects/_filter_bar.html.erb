@@ -1,44 +1,65 @@
-<div class="filter-bar">
-
-  <%= link_to architects_path, id: "show-all-arc" do %>
-    <div class="mr-4">Show All</div>
-  <% end %>
-
-  <div class="div"></div>
-
-  <div class="dropdown">
-    <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Location <!-- <span class="selection">All</span><span class="caret"></span> -->
-    </div>
-    <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-    <% Architect::LOCATION.each do |location| %>
-      <%= link_to architects_path(location: location, speciality: params[:speciality]) do  %>
-        <div class="dropdown-item"><%= location %></div>
-      <% end %>
+<div class="filter-bar d-flex justify-content-between">
+  <div class="div d-flex justify-content-between">
+    <%= link_to architects_path, id: "show-all-arc" do %>
+      <div class="mr-4">Show All</div>
     <% end %>
-    </div>
-  </div>
 
-  <div class="div"></div>
-
-  <div class="dropdown">
-    <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Speciality</div>
-    <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-      <% Architect::SPECIALITY.each do |speciality| %>
-        <%= link_to architects_path(speciality: speciality, location: params[:location]) do  %>
-          <div class="dropdown-item"><%= speciality %></div>
+    <div class="dropdown">
+      <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Location <!-- <span class="selection">All</span><span class="caret"></span> -->
+      </div>
+      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+      <% Architect::LOCATION.each do |location| %>
+        <%= link_to architects_path(location: location, speciality: params[:speciality]) do  %>
+          <div class="dropdown-item"><%= location %></div>
         <% end %>
       <% end %>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Speciality</div>
+      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+        <% Architect::SPECIALITY.each do |speciality| %>
+          <%= link_to architects_path(speciality: speciality, location: params[:location]) do  %>
+            <div class="dropdown-item"><%= speciality %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Available</div>
+      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+          <div class="dropdown-item">Yes</div>
+          <div class="dropdown-item">No</div>
+      </div>
     </div>
   </div>
+    <div class="user-filtered">
 
-  <div class="div"></div>
+    <% if params[:location].present? && params[:speciality].present? == false %>
+      Location: <em><%= params[:location] %></em>
+    <% elsif params[:speciality].present? && params[:location].present? == false  %>
+      Speciality: <em><%= params[:speciality] %></em>
+      <% else %>
+    <% end %>
 
-  <div class="dropdown">
-    <div class="filter-button-arc mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Available</div>
-    <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-        <div class="dropdown-item">Yes</div>
-        <div class="dropdown-item">No</div>
-    </div>
+
+    <% if params[:location].present? && params[:speciality].present? %>
+      Filtering location: <em><%= params[:location] %></em> | Speciality: <em><%= params[:speciality] %></em>
+    <% elsif params[:speciality].present? && params[:location].present? %>
+    Speciality: <em><%= params[:speciality] %></em> | Filtering location: <em><%= params[:location] %></em>
+    <% else %>
+    <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 
