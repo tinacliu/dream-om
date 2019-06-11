@@ -2,9 +2,9 @@
   <div class="row">
 
     <div class="col-xs-12 col-lg-6 p-0">
-<!--       <div class="image-show" style='background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url("<%= @plot.image_url %>")'>
+<!--       <div class="image-show" style='background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url("<%= @plot.image_urls.first %>")'>
       </div> -->
-      <%= image_tag @plot.image_url, crop: :fill, class: 'image-show' %>
+      <%= image_tag @plot.image_urls.first, crop: :fill, class: 'image-show' %>
       <div class="d-flex justify-content-around align-items-center mx-4 mt-3">
         <div class="card-body">
           <h6 class="mb-0 mt-1"><%= "- #{@plot.agent_name}" %></h6>

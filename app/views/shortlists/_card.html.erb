@@ -5,8 +5,8 @@
 
     <!-- card main body -->
     <div id="collapseOne-<%= shortlist.id %>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <% if shortlist.plot.image_url.blank? == false %>
-          <%= image_tag shortlist.plot.image_url, crop: :fill, class: 'card-index-img' %>
+      <% if shortlist.plot.image_urls.blank? == false %>
+          <%= image_tag shortlist.plot.image_urls.first, crop: :fill, class: 'card-index-img' %>
         <% end %>
       <%= link_to plot_path(shortlist.plot) do %>
         <div class="card-body bg-light d-flex justify-content-between align-items-center py-3">
