@@ -1,32 +1,27 @@
+<div class="filter-bar d-flex justify-content-between">
+  <div class="div d-flex justify-content-between">
+  <%= link_to plots_path(address: params[:address], search_radius: params[:search_radius]), id: "show-all" do %>
+    <div class="mr-4">Show All</div>
+  <% end %>
 
-  <div class="filter-bar">
-
-    <%= link_to plots_path(address: params[:address], search_radius: params[:search_radius]), id: "show-all" do %>
-      <div class="mr-4">Show All</div>
-    <% end %>
-
-    <div class="div"></div>
-
-    <div class="dropdown">
-      <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Price</div>
-      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-        <form action="/plots" method="get" class="mx-4 my-2">
-          <div class="form-group">
-            <input type="text" class="form-control" name="min_p" value="0" placeholder="Min Price">
-            <input type="hidden" name="location" value="<%= params[:location] %>">
-            <input type="hidden" name="type" value="<%= params[:type] %>">
-            <input type="hidden" name="address" value="<%= params[:address] %>">
-            <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="max_p" placeholder="Max Price">
-          </div>
-          <button type="submit" class="btn btn-outline-primary">Search</button>
-        </form>
-      </div>
+  <div class="dropdown">
+    <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Price</div>
+    <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+      <form action="/plots" method="get" class="mx-4 my-2">
+        <div class="form-group">
+          <input type="text" class="form-control" name="min_p" value="0" placeholder="Min Price">
+          <input type="hidden" name="location" value="<%= params[:location] %>">
+          <input type="hidden" name="type" value="<%= params[:type] %>">
+          <input type="hidden" name="address" value="<%= params[:address] %>">
+          <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="max_p" placeholder="Max Price">
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+      </form>
     </div>
-
-    <div class="div"></div>
+  </div>
 
     <div class="dropdown">
       <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
@@ -39,4 +34,21 @@
       </div>
     </div>
   </div>
+
+  <div class="user-filtered">
+    <% if params[:type].present? %>
+       <strong>Filtered by:</strong> <%= params[:type] %>
+    <% else %>
+    <% end %>
+
+    <% if params[:min_p].present? && params[:max_p].present? %>
+      <strong>Price Between £</strong><%= params[:min_p] %> <strong>to</strong> £<%= params[:max_p] %>
+    <% elsif params[:max_p].present?  %>
+      <strong>Max Price £</strong><%= params[:max_p] %>
+    <% elsif params[:min_p].present?  %>
+      <strong>From: £</strong><%= params[:min_p] %>
+    <% else %>
+    <% end %>
+  </div>
+</div>
 
