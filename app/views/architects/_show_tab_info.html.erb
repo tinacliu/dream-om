@@ -27,7 +27,10 @@
   <div class="d-flex justify-content-between align-items-top">
     <div class="card-left text-right mt-3">
       <!-- <h6 class="m_font purple thin">SPECIALITY_ </h6> -->
-      <h6 class="mb-0 m_font purple bold"><%= Architect::SPECIALITY.sample(3).split(",").join(' - ')%></h6>
+      <h6 class="mb-0 m_font purple bold">
+        <% spec = @architect.speciality %>
+        <%= spec %>  |
+        <%=(Architect::SPECIALITY - [spec]).sample(2).split(",").join(" | ")%></h6>
 
     </div>
   </div>

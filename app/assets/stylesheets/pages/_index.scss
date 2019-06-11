@@ -118,7 +118,7 @@ input[type="submit"],
 select.form-control {
   background: none;
   border: none;
-  color: $duck-egg-blue;
+  color: $dark-silver;
   // border-bottom: 1px solid #818181;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -201,3 +201,20 @@ select.form-control:hover {
 //   -webkit-box-shadow: none;
 //   box-shadow: none;
 // }
+
+#typed-searched {
+  color: $gray ;
+  background-color: white;
+  // border-radius: 5px;
+  // margin: 0px 12px 15px 0px;
+  border-radius: 5px 0px 0px 5px;
+  width: 23em;
+  // height: 3em;
+  height: 52px;
+  font-weight: 300;
+  // font-size: 30px;
+  border: none;
+  // position: relative;
+  // vertical-align: top;
+
+}

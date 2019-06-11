@@ -12,12 +12,12 @@
     <%= form_tag plots_path, method: :get do %>
       <%= text_field_tag :address,
         params[:address],
-        class: "form-control form-control search-bar",
+        class: "form-control form-control home-search-bar",
           id: "typed-searched"
       %>
      <% end %>
        <%= link_to plots_path do %>
-       <input class="btn-banner" type="submit", value= "SEARCH">
+       <input id="btn-banner" type="submit", value= "SEARCH">
       <% end %>
     </div>
 
