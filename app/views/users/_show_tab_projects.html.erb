@@ -12,14 +12,14 @@
       <p>Description: <%= truncate project.brief, length: 50, separator: /\s/, omission: '' %></p>
       <p>Budget: <%= project.budget %></p>
       <p>Category: <%=project.category %></p>
-      <p>Postal Code:<%= project.plot_postcode %> </p>
+      <p>Site Address:<%= project.plot_postcode %> </p>
     </div>
   </div>
     <% end %>
   <% end %>
 
   <div class="col-6 py-4" >
-    <h5>Create New Project </h5>
+    <h5>Create a New Project </h5>
       <%= simple_form_for @project do |f| %>
         <%= f.input :title, label: "Project name" %>
         <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>

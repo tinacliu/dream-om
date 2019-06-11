@@ -3,13 +3,13 @@
 
       <% @shortlisted = Shortlist.where(user: current_user, plot: plot).first %>
       <% if @shortlisted %>
-        <% if plot.image_url.blank? == false %>
-          <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img grayscale' %>
+        <% if plot.image_urls.blank? == false %>
+          <%= image_tag plot.image_urls.first, crop: :fill, class: 'card-index-img grayscale' %>
         <% end %>
         <i class="fas fa-bookmark blue-bookmark f-shadow"></i>
       <% else %>
-        <% if plot.image_url.blank? == false %>
-          <%= image_tag plot.image_url, crop: :fill, class: 'card-index-img' %>
+        <% if plot.image_urls.blank? == false %>
+          <%= image_tag plot.image_urls.first, crop: :fill, class: 'card-index-img' %>
         <% end %>
       <% end %>
 

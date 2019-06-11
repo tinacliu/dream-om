@@ -1,6 +1,6 @@
 
 <!-- appointments tab -->
-<div class="tab-pane fade" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
+<div class="tab-pane fade <%= 'show active' if params[:tab] == 'appt' %>" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
 
   <% if @user.appointments.size == 0 %>
     <div class="m_font py-3 pl-5">
@@ -9,12 +9,30 @@
     <div class="index-grid-appt">
       <% @user.appointments.each do |appt| %>
 
-        <%= link_to architect_path(appt.architect), class: "card-index-link" do  %>
-          <div class="card card-index-appt shadow-sm">
-            <div class="card-header bg-white">
-              <h6 class="mb-0 text-center"><%= appt.project.plot_postcode %></h6>
-            </div>
+        <div class="card card-index-appt shadow-sm">
+          <div class="card-header bg-white">
 
+            <h6 class="mb-0 blue text-center"><%= appt.project.plot_postcode %></h6>
+          <div class = "d-flex justify-content-center mt-2">
+            <% if @user.shortlists.size != 0 %>
+              <div class="dropdown text-right">
+                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Send info plot
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                  <ul>
+                    <% @user.shortlists.each do |shortlist| %>
+                      <li id = "sweet-alert-demo"> <%= shortlist.plot.address  %> </li>
+
+                    <% end %>
+
+                  </ul>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          </div>
             <% if appt.architect.portfolio_url.first.blank? == false %>
               <%= image_tag appt.architect.portfolio_url.first, crop: :fill, class: 'card-index-img' %>
             <% end %>
@@ -33,7 +51,7 @@
               </div>
             </div>
           </div>
-        <% end %>
+
       <% end %>
     </div>
   <% end %>

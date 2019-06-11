@@ -8,6 +8,7 @@
           placeholder: " London, 8DY, E2 8DY"
         %>
         <div id = "search_radius">
+
         <%= number_field_tag :search_radius,
         params[:search_radius],
         label: "Search radius",
@@ -18,7 +19,6 @@
         %>
       </div>
        <%= submit_tag "Search", class: "btn btn-primary mb-2 pr-0" %>
-
       <% end %>
     </div>
     <div class="col-8 px-2 col-filter-bar">
@@ -72,7 +72,6 @@
     <% end %>
 
     var dataHash = JSON.parse('<%= raw(data_hash.to_json) %>');
-    console.log(dataHash)
 
     $(document).ready(function () {
         // when the load more link is clicked
