@@ -31,7 +31,7 @@
 
   <div class="bold">
     <%= simple_form_for [@architect, @appointment] do |f| %>
-      <%= f.association :project, prompt: 'choose a project' %>
+      <%= f.association :project, collection: current_user.projects, prompt: 'choose a project' %>
       <%= f.input :appt_time, collection: @architect.appt_times, prompt: '2019-06-25 13:00:00'%>
       <%= f.submit "Request appointment", class: "mb-4", id: "req-appt-btn" %>
     <% end %>
