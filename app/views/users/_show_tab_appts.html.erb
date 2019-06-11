@@ -9,12 +9,24 @@
     <div class="index-grid-appt">
       <% @user.appointments.each do |appt| %>
 
-        <%= link_to architect_path(appt.architect), class: "card-index-link" do  %>
-          <div class="card card-index-appt shadow-sm">
-            <div class="card-header bg-white">
-              <h6 class="mb-0 text-center"><%= appt.project.plot_postcode %></h6>
-            </div>
+        <div class="card card-index-appt shadow-sm">
+          <div class="card-header bg-white">
 
+            <h6 class="mb-0 blue text-center"><%= appt.project.plot_postcode %></h6>
+          <% if @user.shortlists.size != 0 %>
+            <div class="dropdown text-right">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add a shortlisted plot
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          <% end %>
+
+          </div>
             <% if appt.architect.portfolio_url.first.blank? == false %>
               <%= image_tag appt.architect.portfolio_url.first, crop: :fill, class: 'card-index-img' %>
             <% end %>
@@ -33,7 +45,7 @@
               </div>
             </div>
           </div>
-        <% end %>
+
       <% end %>
     </div>
   <% end %>
