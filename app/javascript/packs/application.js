@@ -24,10 +24,10 @@ if (pills) {
   });
 }
 
-// dismiss alerts after 2 seconds
+// dismiss alerts after 3 seconds
 const alertDismissBtn = document.querySelector('.alert button');
 if (alertDismissBtn) {
   setTimeout(() => {
     alertDismissBtn.click();
-  }, 2000);
+  }, 3000);
 }
