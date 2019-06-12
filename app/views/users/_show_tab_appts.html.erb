@@ -1,15 +1,13 @@
 <!-- appointments tab -->
 
 <div class="tab-pane fade <%= 'show active' if params[:tab] == 'appt' %>" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
-
   <div class="container mt-5">
       <% if @user.appointments.size == 0 %>
       <div class="m_font py-3 pl-5">
           <span class="highlight-blue">No appointments found</span></div>
       <% else %>
-      <div class="index-grid-appt">
+      <div class="index-grid-appt-2">
         <% @user.appointments.each do |appt| %>
-        <!-- <div> -->
           <div class="card-date-dash mt-5">
             <h6 class="grey-bg-appt bold pr-3 lt-grey">Architect</h6>
             <h6 class="grey-bg-appt bold ml-2 lt-grey">Plot location</h6>
@@ -36,7 +34,9 @@
             </div>
           </div>
         <% end %>
-        <!-- </div> -->
+        <%= link_to architects_path do %>
+          <i class="fas fa-plus-circle purple l_font mt-4 pt-5 pl-3"></i>
+        <% end %>
       </div>
   </div>
 <% end %>
