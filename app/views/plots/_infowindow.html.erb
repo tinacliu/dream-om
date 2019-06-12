@@ -21,7 +21,7 @@
     </div>
   </div>
   <!-- This contains the card's information. -->
-    <div class="info-card-body bg-light">
+    <div class="info-card-body">
       <ul class="info-window-list">
         <li class="m-0 grey" id="info-card-street"><%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %></li>
         <li class="mb-0 grey h_font s_font bold"><% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>  <%= "#{post_town} #{plot.outcode}" %></li>
