@@ -42,13 +42,12 @@ const modalTitle = document.querySelector("#modelTitle");
 if (buttonToProject) {
   buttonToProject.addEventListener("click", (event) => {
     console.log("this is showing");
-    // modalBody.innerHTML = "<h3>testing... contents goes here</h3>";
-    modalBody.innerHTML = "<%= j render('projects/new_to_architects', project: @project) %>";
-
     modalTitle.innerText = "Tell us a little about your project..."
+    modalBody.innerHTML = "<%= j render('projects/new_to_architects', project: @project) %>";
     modalFooter.insertAdjacentHTML('afterbegin','<button type="button" class="btn btn-primary" id="modal-to-architect">Find Architect</button>');
     buttonToProject.parentNode.removeChild(buttonToProject);
 
+    // once we click find architect, form is submitted
     const buttonToArchitects = document.querySelector("#modal-to-architect");
     buttonToArchitects.addEventListener("click", (event) => {
       const modalProjectForm = document.querySelector(".modal-body #new_project");

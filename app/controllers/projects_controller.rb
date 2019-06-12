@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
   def architects
     create_project
-    redirect_to architects_path(speciality: @project.category)
+    redirect_to architects_path(speciality: @project.category, budget: @project.budget)
   end
 
   private
