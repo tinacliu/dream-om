@@ -14,6 +14,7 @@
           <input type="hidden" name="type" value="<%= params[:type] %>">
           <input type="hidden" name="address" value="<%= params[:address] %>">
           <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
+          <input type="hidden" name="destination" value = "<%= params[:destination] %>">
         </div>
         <div class="form-group">
           <input type="text" class="form-control" name="max_p" placeholder="Max Price">
@@ -24,16 +25,34 @@
   </div>
 
     <div class="dropdown">
+      <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Commute </div>
+      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+        <form action="/plots" method="get" class="mx-4 my-2">
+          <div class="form-group">
+            <input type="text" class="form-control" name="destination" value="" placeholder="Location">
+            <input type="hidden" name="location" value="<%= params[:location] %>">
+            <input type="hidden" name="type" value="<%= params[:type] %>">
+            <input type="hidden" name="address" value="<%= params[:address] %>">
+            <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
+
+          </div>
+        <button type="submit" class="btn btn-outline-primary">Search</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dropdown">
       <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
       <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
       <% Plot::TYPE.each do |type| %>
-        <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], search_radius: params[:search_radius]) do  %>
+        <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], destination: params[:destination], search_radius: params[:search_radius]) do  %>
           <div class="dropdown-item"><%= type %></div>
         <% end %>
       <% end %>
       </div>
     </div>
   </div>
+
 
   <div class="user-filtered">
     <% if params[:type].present? %>
