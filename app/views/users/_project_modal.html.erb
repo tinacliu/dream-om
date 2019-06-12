@@ -1,5 +1,5 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#exampleModalCenter">click me</button>
+<!-- placeholder to trigger the modal -->
+<p class="" data-toggle="modal" data-target="#exampleModalCenter" id="clickForModal"></p>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -36,6 +36,8 @@ const buttonToProject = document.querySelector("#modal-to-project");
 const modalBody = document.querySelector(".modal-body");
 const modalFooter = document.querySelector(".modal-footer");
 const modalTitle = document.querySelector("#modelTitle");
+
+const findArchitectModal = document.querySelector("#clickForModal");
 
 if (buttonToProject) {
   buttonToProject.addEventListener("click", (event) => {
