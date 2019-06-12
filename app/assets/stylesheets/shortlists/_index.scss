@@ -45,3 +45,51 @@
   text-decoration: none !important;
   color: darken($purple, 20%);
 }
+
+
+.nav-pills .pills-link-blue {
+  text-decoration: none !important;
+  color: $dark-silver;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.nav-pills .pills-link-blue.active {
+  text-decoration: none !important;
+  color: $duck-egg-blue;
+  border-bottom: 1.5px solid $duck-egg-blue;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.nav-pills .pills-link-blue.active:hover {
+  text-decoration: none !important;
+  color: darken($duck-egg-blue, 20%);
+}
+
+
+#btn-sumbit-project {
+  color: white;
+  background-color: $purple;
+  border-radius: 5px;
+  margin: 0px, 0px, 50px, 0px;
+  width: 9em;
+  height: 44px;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  margin-top: 10px;
+}
+
+#save-note-btn {
+  color: white;
+  background-color: $duck-egg-blue;
+  border-radius: 5px;
+  // margin: 0px, 0px, 50px, 0px;
+  width: 7em;
+  height: 44px;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  margin-top: 10px;
+}
