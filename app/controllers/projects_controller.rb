@@ -11,15 +11,13 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
-    @project.user = current_user
-    authorize @project
-    if @project.save
-      flash[:notice] = "Project successfully created"
-    else
-      flash[:alert] = "Project could not be saved"
-    end
+    create_project
     redirect_to profile_path
+  end
+
+  def architects
+    create_project
+    redirect_to architects_path(speciality: @project.category, budget: @project.budget)
   end
 
   private
@@ -28,5 +26,14 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:brief, :title, :budget, :category, :plot_postcode)
   end
 
-
+  def create_project
+    @project = Project.new(project_params)
+    @project.user = current_user
+    authorize @project
+    if @project.save
+      flash[:notice] = "Project successfully created"
+    else
+      flash[:alert] = "Project could not be saved"
+    end
+  end
 end

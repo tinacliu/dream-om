@@ -11,7 +11,7 @@ loadDynamicBannerText();
 
 // mapbox stuff
 initMapbox();
-initSortable();
+// initSortable();
 const returnedMap = initMapbox();
 
 // returnedMap.resize();
@@ -43,3 +43,5 @@ initSweetalert('#sweet-alert-demo', {
     link.click();
   }
 });
+
+

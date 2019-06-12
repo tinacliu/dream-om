@@ -6,7 +6,7 @@
     <% if shortlist.plot.plot_size.blank?%>
       <h6>--</h6>
     <% else %>
-      <%= shortlist.plot.plot_size%>m&sup2;
+      <h6 class= "card-title thin m-0"><%= shortlist.plot.plot_size %></h6>
     <% end %>
   </div>
   <div class="border-bottom"></div>
@@ -17,7 +17,8 @@
     <% if shortlist.plot.floor_size.blank?%>
       <h6>--</h6>
     <% elsif shortlist.plot.floor_size%>
-      <h6><%= shortlist.plot.floor_size.split(',').first%> sq.ft</h6>
+      <h6 class= "card-title thin m-0">
+        <%= shortlist.plot.floor_size.split(',').first%> sq.ft</h6>
     <% end %>
   </div>
   <div class="border-bottom"></div>

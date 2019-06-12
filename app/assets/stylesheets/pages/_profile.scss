@@ -22,9 +22,9 @@
   text-align: left;
 }
 
-.profile-one-grid {
+.profile-two-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content:right;
   grid-column-gap: 30px;
   grid-row-gap: 85px;
@@ -68,7 +68,7 @@
     border-top: 1px solid rgba(0, 0, 0, 0.125);
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 2px;
-    width: 160px;
+    width: 120px;
 }
 
 .plot-note {
@@ -79,11 +79,11 @@
 
 textarea.form-control {
     height: 126px;
-    width: 431.181px;
+    width: 430px;
 }
 
 .card-comment {
-  width:614px;
+  width:432px;
 }
 
 .text-box {
