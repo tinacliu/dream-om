@@ -1,10 +1,12 @@
-<div class="col-6 py-2" >
-  <%= simple_form_for project do |f| %>
-    <%= f.input :title, label: "Project name" %>
-    <%= f.input :budget, label: "Budget (£)", input_html: { min: '0', step: "10000"} %>
-    <%= f.input :plot_postcode, label: "Site Address" %>
-    <%= f.input :category, collection: Architect::SPECIALITY %>
-    <%#= f.input :brief  %>
-    <%= f.submit "Submit Project", class: "btn btn-primary" %>
-  <% end %>
+<div class="col-6 py-4" >
+  <p class="hin h_font m_font mb-4 purple">Create a New Project </p>
+    <%= simple_form_for @project do |f| %>
+      <%= f.input :title, label: "Project name" %>
+      <%= f.input :budget, label: "Budget", input_html: { min: '0', step: "500"} %>
+      <%= f.input :plot_postcode, label: "Postal code of Plot" %>
+      <%= f.input :category, collection: Architect::SPECIALITY, prompt: 'Select a Category' %>
+      <%= f.input :brief  %>
+      <%= f.submit "Submit Project", class: "btn btn-primary", id:"btn-sumbit-project" %>
+    <% end %>
+  </div>
 </div>
