@@ -56,8 +56,28 @@
     justify-content: space-between;
 }
 
+.card-date-dash {
+    width: 521px;
+    color: #b8b8b8;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: 119px;
+    margin-bottom: 0px;
+    position: absolute;
+    top: 18px;
+    left: 0;
+    justify-content: space-between;
+  }
+
 .white-bg-appt {
   background-color: white;
+  padding: 0 6px;
+  margin: 0 -7px;
+}
+
+.grey-bg-appt {
+  background-color: #f8f9fa;
   padding: 0 6px;
   margin: 0 -7px;
 }
