@@ -120,6 +120,7 @@
 
 .info-window-link {
     color: #00d2c9;
+    position: relative;
   &:hover {
     color: #008681;
     margin-color: $duck-egg-blue;
@@ -128,4 +129,10 @@
       text-decoration: none;
     }
   }
+}
+
+.info-window-link-cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }

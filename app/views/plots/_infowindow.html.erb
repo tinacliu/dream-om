@@ -1,33 +1,14 @@
-<div class="card card-index info-window-link " style="width: 14rem;">
-  <!-- carousel code for the image -->
-  <div id="carouselExampleControls" class="carousel slide carousel" data-ride="carousel">
-    <div class="carousel-inner" data-interval="10000">
-      <% plot.image_urls.each_with_index do |photo, index| %>
-      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-
-        <img class="image-show-arc" src="<%= photo %>" alt="First slide">
-        <div class="image-show-arc" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo %>)">
-        </div>
+<div class="card card-index info-window-link" style="width: 14rem;">
+    <!-- carousel code for the image -->
+    <%= render 'plots/info_window_carousel', plot: plot %>
+    <!-- This contains the card's information. -->
+      <div class="info-card-body">
+        <ul class="info-window-list">
+          <li class="m-0 grey" id="info-card-street"><%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %></li>
+          <li class="mb-0 grey h_font s_font bold"><% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>  <%= "#{post_town} #{plot.outcode}" %></li>
+          <li class="card-subtitle blue bold s_font"><%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %></li>
+          <li class="mb-0 grey bold h_font s_font"><%= number_to_currency(plot.price, unit: "£", precision: 0) %></li>
+        </ul>
       </div>
-      <% end %>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon " aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-    </div>
-  </div>
-  <!-- This contains the card's information. -->
-    <div class="info-card-body">
-      <ul class="info-window-list">
-        <li class="m-0 grey" id="info-card-street"><%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %></li>
-        <li class="mb-0 grey h_font s_font bold"><% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>  <%= "#{post_town} #{plot.outcode}" %></li>
-        <li class="card-subtitle blue bold s_font"><%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %></li>
-        <li class="mb-0 grey bold h_font s_font"><%= number_to_currency(plot.price, unit: "£", precision: 0) %></li>
-      </ul>
-    </div>
+    <%= link_to "", plot_path(plot), class: 'info-window-link-cover' %>
 </div>
-
