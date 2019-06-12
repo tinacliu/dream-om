@@ -12,10 +12,11 @@
 
     <div id="collapseOne-<%= shortlist.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <%= simple_form_for [shortlist, comment] do |f| %>
-        <% if shortlist.comment.nil? %>
-          <%= f.input :content, label: "", input_html: {value: ''}, placeholder: "Make a note about the plot" %>
+        <% if shortlist.comments.any? %>
+          <%= f.input :content, label: "", input_html: {value: shortlist.comments.last.content }, placeholder: "Make a note about the plot.." %>
+
         <% else %>
-          <%= f.input :content, label: "", input_html: {value: shortlist.comment.content }, placeholder: "Make a note about the plot.." %>
+          <%= f.input :content, label: "", input_html: {value: ''}, placeholder: "Make a note about the plot" %>
         <% end %>
         <%= f.submit "Save Note", class: "btn btn-primary ml-4 mb-4" %>
       <% end %>
