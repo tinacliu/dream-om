@@ -4,8 +4,9 @@
   <%= render 'users/show_tab_projects' %>
 
   <!-- plots tab -->
-  <div class="tab-pane fade <%= 'show active' if params[:tab] != 'appt' %>" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+  <div class="tab-pane fade <%= 'show active' if params[:tab] != 'appt' %>" id="pills-plots" role="tabpanel" aria-labelledby="pills-plots-tab">
     <div class="row align-items-center"></div>
+
 <!--     <div class="mt-4">
       <form class="form-inline">
         <p class="mb-1 h_font bold">Commute time to: </p>
@@ -17,6 +18,7 @@
     </div> -->
 
     <%= render 'users/project_modal' %>
+
 
     <!-- grid to contain cards -->
     <div class="profile-two-grid">
