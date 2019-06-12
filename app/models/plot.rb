@@ -15,18 +15,22 @@ class Plot < ApplicationRecord
   API_KEY = ENV['GOOGLE_API_KEY']
 
   def travel_time(destination, mode)
-    url = "https://maps.googleapis.com/maps/api/directions/json?origin=#{latitude},#{longitude}&destination=#{destination}&mode=#{mode}&key=#{API_KEY}"
-    response = open(url)
+    travel_hash = Rails.cache.fetch("plot-#{id}-#{destination}-#{mode}") do
+      url = "https://maps.googleapis.com/maps/api/directions/json?origin=#{latitude},#{longitude}&destination=#{destination}&mode=#{mode}&key=#{API_KEY}"
+      response = open(url)
 
-    json = JSON.parse(response.read)
-    unless json["routes"].blank?
-      journey_time = json["routes"][0]["legs"][0]["duration"]["text"]
-      travel_dist_miles = (json["routes"][0]["legs"][0]["distance"]["text"].to_f * 0.621371).round(1)
+      json = JSON.parse(response.read)
+      unless json["routes"].blank?
+        journey_time = json["routes"][0]["legs"][0]["duration"]["text"]
+        travel_dist_miles = (json["routes"][0]["legs"][0]["distance"]["text"].to_f * 0.621371).round(1)
+      end
+
+      {
+        dist: travel_dist_miles,
+        time: journey_time
+      }
     end
-    travel_hash = {
-      dist: travel_dist_miles,
-      time: journey_time
-    }
+
     return travel_hash
   end
 end

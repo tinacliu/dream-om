@@ -25,11 +25,11 @@
   </div>
 
     <div class="dropdown">
-      <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Commute </div>
+      <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Travel Time </div>
       <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
         <form action="/plots" method="get" class="mx-4 my-2">
           <div class="form-group">
-            <input type="text" class="form-control" name="destination" value="" placeholder="Location">
+            <input type="text" class="form-control" name="destination" value="" placeholder="Starting at">
             <input type="hidden" name="location" value="<%= params[:location] %>">
             <input type="hidden" name="type" value="<%= params[:type] %>">
             <input type="hidden" name="address" value="<%= params[:address] %>">
