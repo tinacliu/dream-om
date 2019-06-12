@@ -5,3 +5,43 @@
   position: relative;
 }
 
+.nav-pills .pills-link-purple {
+  text-decoration: none !important;
+  color: $dark-silver;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.nav-pills .pills-link-purple.active {
+  text-decoration: none !important;
+  color: $purple;
+  border-bottom: 1.5px solid $purple;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.nav-pills .pills-link-purple.active:hover {
+  text-decoration: none !important;
+  color: darken($purple, 20%);
+}
+
+
+.nav-pills .pills-link-gray {
+  text-decoration: none !important;
+  color: $dark-silver;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.nav-pills .pills-link-gray.active {
+  text-decoration: none !important;
+  color: $purple;
+  border-bottom: 1.5px solid $purple;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+}
+
+.nav-pills .pills-link-gray.active:hover {
+  text-decoration: none !important;
+  color: darken($purple, 20%);
+}

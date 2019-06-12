@@ -1,44 +1,55 @@
 <!-- container for all the Architects info -->
 <!-- <div class="flex-grow-1 m_font"> -->
 
-
-<div class="card-appt margin-bottom">
-  <div class="">
-    <div class="card-date">
-      <h6 class="white-bg-appt bold">Date</h6>
-      <h6 class="white-bg-appt bold">Time</h6>
-    </div>
-    <div class="card-show-appt">
-      <div class="row">
-        <div class="my-3 pl-4 text-left pb-4">
-          <% @architect.appt_times.first(5).each do |appt_time| %>
-          <h5 class="mb-0 purple bold"><%= appt_time.strftime("%d")%></h5>
-          <p class="mb-0 h_font bold mb-2"><%= appt_time.strftime("%B")[0..2]%></p>
-          <hr>
-          <% end %>
+<div class="container">
+  <div class="row">
+    <div class="card-appt margin-bottom">
+      <div class="">
+        <div class="card-date">
+          <h6 class="white-bg-appt bold">Date</h6>
+          <h6 class="white-bg-appt bold">Time</h6>
         </div>
-        <div class="my-3 pl-5 text-center">
-          <% @architect.appt_times.first(5).each do |appt_time| %>
-            <h5 class="mb-0 purple bold"><%= "#{appt_time.hour >= 12 ? appt_time.hour - 12 : appt_time.hour}:00" %></h5>
-            <p class="mb-0 h_font bold mb-2"><%= appt_time.hour >= 12 ? "PM" : "AM" %></p>
-           <hr>
-           <% end %>
-        </div>
+        <div class="card-show-appt">
+          <div class="row">
+            <div class="my-3 pl-4 text-left pb-4">
+              <% taken_times = [] %>
+              <% @architect.appt_times.sort.first(5).each do |appt_time| %>
+                  <h5 class="mb-0 purple bold <%= 'invisible' if taken_times.include?(appt_time.strftime("%d")) %>"><%= appt_time.strftime("%d") %>    </h5>
+                  <p class="mb-0 h_font bold mb-2 <%= 'invisible' if taken_times.include?(appt_time.strftime("%d")) %>"><%= appt_time.strftime("%B")[0..2]  %></p>
+                  <% taken_times << appt_time.strftime("%d") %>
+                <hr>
+              <% end %>
+            </div>
+            <div class="my-3 pl-5 text-center">
+              <% @architect.appt_times.first(5).each do |appt_time| %>
+                <h5 class="mb-0 purple bold"><%= "#{appt_time.hour >= 12 ? appt_time.hour - 12 : appt_time.hour}:00" %></h5>
+                <p class="mb-0 h_font bold mb-2"><%= appt_time.hour >= 12 ? "PM" : "AM" %></p>
+               <hr>
+               <% end %>
+            </div>
 
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="bold">
-    <%= simple_form_for [@architect, @appointment] do |f| %>
-      <%= f.association :project, collection: current_user.projects, prompt: 'select a project' %>
-      <%= f.input :appt_time, collection: @architect.appt_times, prompt: 'select a date'%>
-      <%= f.submit "Request appointment", class: "mb-4", id: "req-appt-btn" %>
-    <% end %>
+      <div class="card-appt-info margin-bottom">
+       <h6 class="gray">Fee</h6>
+       <h5 class="bold purple">£ <%=  @architect.appt_rate %></h5>
+
+       <h5 class="gray bold s_font border-bottom pb-4 mb-4">- The initial consultation fee will be <br>refunded after the contract is signed</h5>
+        <%= simple_form_for [@architect, @appointment] do |f| %>
+          <%= f.association :project,
+            collection: current_user.projects,
+            prompt: 'select a project'
+
+          %>
+          <%= f.input :appt_time, collection: @architect.appt_times.map {|date| [date.strftime('%d %b %Y %H:%M:%S'), date]}, prompt: 'select a date'%>
+          <%= f.submit "Request appointment", class: "mb-4", id: "req-appt-btn" %>
+        <% end %>
+      </div>
   </div>
 </div>
-
-
 
   <!-- second section with Architect bio. -->
   <!-- <hr class="mr-5 mt-4"> -->

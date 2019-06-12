@@ -1,0 +1,14 @@
+<% if @user.shortlists.size != 0 %>
+  <div class="dropdown text-right">
+    <button class="btn btn-outline-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Send plot info
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <ul>
+        <% @user.shortlists.each do |shortlist| %>
+          <li id = "sweet-alert-demo"> <%= shortlist.plot.address  %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

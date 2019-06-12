@@ -1,58 +1,44 @@
 
-<!-- appointments tab -->
 <div class="tab-pane fade <%= 'show active' if params[:tab] == 'appt' %>" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
 
   <% if @user.appointments.size == 0 %>
     <div class="m_font py-3 pl-5">
       <span class="highlight-blue">No appointments found</span></div>
   <% else %>
-    <div class="index-grid-appt">
-      <% @user.appointments.each do |appt| %>
 
-        <div class="card card-index-appt shadow-sm">
-          <div class="card-header bg-white">
+  <div class="index-grid-appt-2">
+    <% @user.appointments.each do |appt| %>
+  <div class="card-appt margin-bottom">
 
-            <h6 class="mb-0 blue text-center"><%= appt.project.plot_postcode %></h6>
-          <div class = "d-flex justify-content-center mt-2">
-            <% if @user.shortlists.size != 0 %>
-              <div class="dropdown text-right">
-                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Send plot info
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                  <ul>
-                    <% @user.shortlists.each do |shortlist| %>
-                      <li id = "sweet-alert-demo"> <%= shortlist.plot.address  %> </li>
-
-                    <% end %>
-
-                  </ul>
-                </div>
-              </div>
+    <div class="">
+      <div class="card-date">
+        <h6 class="white-bg-appt bold">Architect</h6>
+        <h6 class="white-bg-appt bold">Plot location</h6>
+        <h6 class="white-bg-appt bold">Date</h6>
+        <h6 class="white-bg-appt bold">Time</h6>
+      </div>
+      <div class="card-show-appt">
+        <div class="row">
+          <div class="my-3 pl-4 text-left pb-4">
+            <h5 class="mb-0 purple bold"><%= appt.architect.name%></h5>
+          </div>
+          <div class="my-3 pl-4 text-left pb-4">
+            <h6 class="mb-0 gray text-center"><%= appt.project.plot_postcode %></h6>
+          </div>
             <% end %>
+          <div class="my-3 pl-4 text-left pb-4">
+            <%= appt.appt_time.strftime("%d") %>
+            <p class="mb-0"><%= appt.appt_time.strftime("%B")[0..2] %></p>
           </div>
+          <div class="my-3 pl-5 text-center">
+            <h5 class="mb-0 blue"><%= "#{appt.appt_time.hour >= 12 ? appt.appt_time.hour - 12 : appt.appt_time.hour}:00" %></h5>
+            <p class="mb-0"><%= appt.appt_time.hour >= 12 ? "PM" : "AM" %></p>
           </div>
-            <% if appt.architect.portfolio_url.first.blank? == false %>
-              <%= image_tag appt.architect.portfolio_url.first, crop: :fill, class: 'card-index-img' %>
-            <% end %>
+        </div>
+      </div>
 
-            <div class="card-body-appt">
-              <div class="">
-                <h6 class="mb-0"><%= appt.architect.name %></h6>
-              </div>
-              <div class="border-left my-3 pl-4 text-center">
-                <h5 class="mb-0 blue"><%= appt.appt_time.strftime("%d") %></h5>
-                <p class="mb-0"><%= appt.appt_time.strftime("%B")[0..2] %></p>
-              </div>
-              <div class="border-left my-3 pl-3 text-center">
-                <h5 class="mb-0 blue"><%= "#{appt.appt_time.hour >= 12 ? appt.appt_time.hour - 12 : appt.appt_time.hour}:00" %></h5>
-                <p class="mb-0"><%= appt.appt_time.hour >= 12 ? "PM" : "AM" %></p>
-              </div>
-            </div>
-          </div>
-
-      <% end %>
     </div>
-  <% end %>
+    <% end %>
+    </div>
+  <%# end %>
 </div>
