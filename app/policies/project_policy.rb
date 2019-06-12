@@ -12,6 +12,10 @@ class ProjectPolicy < ApplicationPolicy
     true
   end
 
+  def architects?
+    create?
+  end
+
   def new?
     create?
   end

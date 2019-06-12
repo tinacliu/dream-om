@@ -6,7 +6,7 @@
   <!-- plots tab -->
   <div class="tab-pane fade <%= 'show active' if params[:tab] != 'appt' %>" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     <div class="row align-items-center"></div>
-    <div class="mt-4">
+<!--     <div class="mt-4">
       <form class="form-inline">
         <p class="mb-1 h_font bold">Commute time to: </p>
         <div class="form-group mx-sm-3 mb-2">
@@ -14,7 +14,9 @@
         </div>
         <button type="submit" class="btn btn-outline-secondary mb-2 h_font bold">Calculate</button>
       </form>
-    </div>
+    </div> -->
+
+    <%= render 'users/project_modal' %>
 
     <!-- grid to contain cards -->
     <div class="profile-two-grid">
