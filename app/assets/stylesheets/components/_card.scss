@@ -99,3 +99,40 @@
 .card-index-appt {
   border-bottom: 2px solid;
 }
+
+
+.info-card-body {
+  background-color: white;
+
+}
+.info-window-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0px;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#info-card-street {
+  font-size: 18px;
+}
+
+.info-window-link {
+    color: #00d2c9;
+    position: relative;
+  &:hover {
+    color: #008681;
+    margin-color: $duck-egg-blue;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
+.info-window-link-cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
