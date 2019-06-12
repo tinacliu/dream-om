@@ -2,7 +2,7 @@
   <% if params[:destination].blank? %>
     <h6 class="mb-0 mx-2"><i class="fas fa-subway mr-2"></i></h6>
     <h6 class="mb-0 mx-2"><i class="fas fa-car mr-2"></i></h6>
-    <h6 class="mb-0 mx-2"><i class="fas fa-bicycle mr-2"></i></h6>
+  <!--  <h6 class="mb-0 mx-2"><i class="fas fa-bicycle mr-2"></i></h6> -->
   <% else %>
     <h6 class="mb-0"><%= shortlist.plot.travel_time(params[:destination],'transit')[:dist] %> miles</h6>
 
@@ -10,7 +10,7 @@
       <i class="fas fa-subway mr-2"></i><%= shortlist.plot.travel_time(params[:destination],'transit')[:time] %></h6>
     <h6 class="mb-0 mx-2">
       <i class="fas fa-car mr-2"></i><%= shortlist.plot.travel_time(params[:destination],'driving')[:time] %></h6>
-    <h6 class="mb-0 mx-2">
-      <i class="fas fa-bicycle mr-2"></i><%= shortlist.plot.travel_time(params[:destination],'bicycling')[:time] %></h6>
+    <!-- <h6 class="mb-0 mx-2">
+      <i class="fas fa-bicycle mr-2"></i><%= shortlist.plot.travel_time(params[:destination],'bicycling')[:time] %></h6> -->
   <% end %>
 </div>

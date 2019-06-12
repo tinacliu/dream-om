@@ -5,9 +5,9 @@ class PlotsController < ApplicationController
     @plots = policy_scope(Plot)#.paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
     @plots = @plots.near(params[:address] || "New Barnet", params[:search_radius] || 20) unless params[:address].blank?
     if params[:id]
-      @plots = @plots.where('id < ?', params[:id]).limit(30)
+      @plots = @plots.where('id < ?', params[:id]).limit(10)
     else
-      @plots = @plots.limit(30)
+      @plots = @plots.limit(10)
     end
 
     t_filter = params[:type].blank? ? Plot::TYPE : params[:type]
