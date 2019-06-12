@@ -1,2 +1,10 @@
-alert('testing for now');
+// alert('testing for now');
 
+<% if @comment.content.match?(/booked/i)  %>
+  console.log("appt booking found");
+  let findArchitectModal = document.querySelector("#clickForModal");
+  findArchitectModal.click()
+  // $('#exampleModalCenter').modal('show');
+<% else %>
+  console.log("comments does not contain booking info");
+<% end %>
