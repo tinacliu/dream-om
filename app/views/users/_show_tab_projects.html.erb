@@ -1,12 +1,12 @@
 <!-- project tab -->
 <div class="tab-pane fade" id="pills-project" role="tabpanel" aria-labelledby="pills-project-tab">
   <% if @user.projects.size == 0 %>
-    <h5 class="left-banner py-3"><span class="highlight-blue">No projects to display</span> </h5>
+    <h5 class="left-banner py-3"><span class="highlight-purple">No projects to display</span> </h5>
     <hr>
   <% else %>
-    <h5 class="py-3">Current Projects </h5>
+    <p class="ml-3 pt-5 thin h_font m_font purple">Current Projects </p>
     <% @user.projects.each do |project| %>
-      <div class = "card">
+      <div class = "card border-0">
         <div class = "card-body">
       <p>Title: <%= project.title %></p>
       <p>Description: <%= truncate project.brief, length: 50, separator: /\s/, omission: '' %></p>
@@ -20,5 +20,3 @@
 
   <%= render 'projects/new', project: @project %>
 </div>
-
-

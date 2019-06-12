@@ -2,8 +2,8 @@
   <div class="carousel-inner">
     <% @architect.portfolio_url.each_with_index do |photo, index| %>
       <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-        <img class="image-show-arc" src="<%= photo%>" alt="First slide">
-        <div class="image-show-arc" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo%>)">
+        <img id="img-arct" class="image-show-arc" src="<%= photo%>" alt="First slide">
+        <div id="img-arct" class="image-show-arc" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= photo%>)">
         </div>
       </div>
     <% end %>
