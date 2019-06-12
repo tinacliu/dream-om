@@ -11,7 +11,7 @@
     </div>
 
     <div id="collapseOne-<%= shortlist.id %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <%= simple_form_for [shortlist, comment] do |f| %>
+      <%= simple_form_for [shortlist, comment], remote: true do |f| %>
         <% if shortlist.comments.any? %>
           <%= f.input :content, label: "", input_html: {value: shortlist.comments.last.content }, placeholder: "Make a note about the plot.." %>
 
@@ -23,3 +23,4 @@
     </div>
   </div>
 </div>
+

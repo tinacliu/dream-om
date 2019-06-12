@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   # we are showing projects in profile tab
    resources :projects, only: [:create]
 
+  post 'project_architects', to: 'projects#architects', as: 'project_architects'
+
   get 'profile', to: 'users#show', as: 'profile'
 end

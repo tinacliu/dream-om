@@ -1,9 +1,14 @@
-<div class="card" style="width: 10rem;">
-<% if plot.image_urls.blank? == false %>
-  <%= image_tag plot.image_urls.first, crop: :fill, class: 'card-img-top' %>
-<% end %>
-  <div class="card-body p-2">
-    <h6><%=plot.street_name %></h6>
-    <h6 class="blue"><%= plot.property_type %></h6>
-  </div>
+<div class="card card-index info-window-link" style="width: 14rem;">
+    <!-- carousel code for the image -->
+    <%= render 'plots/info_window_carousel', plot: plot %>
+    <!-- This contains the card's information. -->
+      <div class="info-card-body">
+        <ul class="info-window-list">
+          <li class="m-0 grey" id="info-card-street"><%= truncate plot.street_name, length: 20, separator: /\s/, omission: '' %></li>
+          <li class="mb-0 grey h_font s_font bold"><% post_town = truncate plot.post_town, length: 10, separator: /\s/, omission: '' %>  <%= "#{post_town} #{plot.outcode}" %></li>
+          <li class="card-subtitle blue bold s_font"><%= truncate plot.property_type, length: 15, separator: /\s/, omission: '' %></li>
+          <li class="mb-0 grey bold h_font s_font"><%= number_to_currency(plot.price, unit: "£", precision: 0) %></li>
+        </ul>
+      </div>
+    <%= link_to "", plot_path(plot), class: 'info-window-link-cover' %>
 </div>

@@ -1,3 +1,4 @@
+// import "jquery";
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 import { loadDynamicBannerText } from '../components/typed_banner';
@@ -11,7 +12,7 @@ loadDynamicBannerText();
 
 // mapbox stuff
 initMapbox();
-initSortable();
+// initSortable();
 const returnedMap = initMapbox();
 
 // returnedMap.resize();
@@ -43,3 +44,5 @@ initSweetalert('#sweet-alert-demo', {
     link.click();
   }
 });
+
+

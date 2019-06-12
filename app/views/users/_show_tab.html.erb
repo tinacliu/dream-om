@@ -6,18 +6,22 @@
   <!-- plots tab -->
   <div class="tab-pane fade <%= 'show active' if params[:tab] != 'appt' %>" id="pills-plots" role="tabpanel" aria-labelledby="pills-plots-tab">
     <div class="row align-items-center"></div>
-    <div class="mt-4">
-      <!-- <form class="form-inline">
+
+<!--     <div class="mt-4">
+      <form class="form-inline">
         <p class="mb-1 h_font bold">Commute time to: </p>
         <div class="form-group mx-sm-3 mb-2">
           <input type="text" class="form-control h_font bold" placeholder="your work address?" name="destination">
         </div>
         <button type="submit" class="btn btn-outline-secondary mb-2 h_font bold">Calculate</button>
-      </form> -->
-    </div>
+      </form>
+    </div> -->
+
+    <%= render 'users/project_modal' %>
+
 
     <!-- grid to contain cards -->
-    <div class="profile-one-grid">
+    <div class="profile-two-grid">
       <% if @user.shortlists.size == 0 %>
         <div class="m_font mb-3"><span class="highlight-blue">None found</span></div>
       <% else %>

@@ -10,7 +10,11 @@ class CommentsController < ApplicationController
     else
       flash[:warning] = "Comment could not be saved"
     end
-    redirect_to profile_path
+
+    respond_to do |format|
+      format.html { redirect_to profile_path }
+      format.js
+    end
   end
 
   # def edit

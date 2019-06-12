@@ -33,8 +33,8 @@ Architect.create!(
     "https://deroseesa.com/wp-content/uploads/deroseesa-project-stradella-road-005.jpg"
   ],
   available: true,
-  speciality: "Extension",
-  min_project_budget: 200000,
+  speciality: "New Build: City Home",
+  min_project_budget: 200_000,
   appt_times: appts,
   appt_rate: 350
   )
@@ -61,8 +61,8 @@ Architect.create!(
     "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/186.jpg"
   ],
   available: true,
-  speciality: "Extension",
-  min_project_budget: 100000,
+  speciality: "New Build: Country Home",
+  min_project_budget: 100_000,
   appt_times: appts,
   appt_rate: 175
   )
@@ -89,7 +89,7 @@ Architect.create!(
         ],
   available: true,
   speciality: "Conversion",
-  min_project_budget: 150000,
+  min_project_budget: 150_000,
   appt_times: appts,
   appt_rate: 200
   )
@@ -117,7 +117,7 @@ Architect.create!(
   ],
   available: true,
   speciality: "New Build: Eco-Home",
-  min_project_budget: 200000,
+  min_project_budget: 200_000,
   appt_times: appts,
   appt_rate: 200
   )
@@ -144,7 +144,7 @@ Architect.create!(
   ],
   available: true,
   speciality: "Conversion",
-  min_project_budget: 200000,
+  min_project_budget: 200_000,
   appt_times: appts,
   appt_rate: 225
   )
@@ -171,7 +171,7 @@ Architect.create!(
      ],
   available: true,
   speciality: "Renovation",
-  min_project_budget: 250000,
+  min_project_budget: 250_000,
   appt_times: appts,
   appt_rate: 225
   )
@@ -199,7 +199,7 @@ Architect.create!(
     "https://mcleanquinlan.com/img/works/kent-downs-house/mclean-quinlan-kent-downs-house-2@2x.1547812740.jpg" ],
   available: true,
   speciality: "New Build: Country Home",
-  min_project_budget: 500000,
+  min_project_budget: 500_000,
   appt_times: appts,
   appt_rate: 200
   )
@@ -225,8 +225,8 @@ Architect.create!(
     "http://archmongers.com/wp-content/uploads/2016/11/THE_RYDE-7374.jpg"
     ],
   available: true,
-  speciality: "Extension",
-  min_project_budget: 200000,
+  speciality: "New Build: Country Home",
+  min_project_budget: 200_000,
   appt_times: appts,
   appt_rate: 200
   )
@@ -256,8 +256,8 @@ the architectural press, garnering nominations and awards for No. 49 and Red Hou
     "http://www.3144architects.com/wp-content/uploads/2013/01/0815_RWG_Rear-View-Out.jpg"
   ],
   available: true,
-  speciality: "Extension",
-  min_project_budget: 250000,
+  speciality: "New Build: Country Home",
+  min_project_budget: 250_000,
   appt_times: appts,
   appt_rate: 200
   )
@@ -284,8 +284,8 @@ Architect.create!(
     "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c57747415fcc09e6fcb856f/1549235324881/dormore-con_form_architects_06.jpg?format=1500w"
   ],
   available: true,
-  speciality: "Extension",
-  min_project_budget: 250000,
+  speciality: "Renovation",
+  min_project_budget: 250_000,
   appt_times: appts,
   appt_rate: 225
   )

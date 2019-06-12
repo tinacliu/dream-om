@@ -35,25 +35,30 @@
       </div>
     </div>
   </div>
-    <div class="user-filtered">
+
+  <div class="user-filtered">
 
     <% if params[:location].present? && params[:speciality].present? == false %>
-      Location: <em><%= params[:location] %></em>
-    <% elsif params[:speciality].present? && params[:location].present? == false  %>
-      Speciality: <em><%= params[:speciality] %></em>
-      <% else %>
+      <div class="mr-2 p-2 border text-muted bold s_font"><%= params[:location] %></div>
+    <% elsif params[:speciality].present? && params[:location].present? == false && params[:budget].present? == false  %>
+      <div class="mr-2 p-2 border text-muted bold s_font"><%= params[:speciality] %></div>
+    <% else %>
     <% end %>
 
 
     <% if params[:location].present? && params[:speciality].present? %>
-      Filtering location: <em><%= params[:location] %></em> | Speciality: <em><%= params[:speciality] %></em>
-    <% elsif params[:speciality].present? && params[:location].present? %>
-    Speciality: <em><%= params[:speciality] %></em> | Filtering location: <em><%= params[:location] %></em>
-    <% else %>
+      <span class="mr-2 p-2 border text-muted bold s_font">
+        <%= params[:location] %></span>
+      <span class="mr-2 p-2 border text-muted bold s_font">
+        <%= params[:speciality] %></span>
+    <% elsif params[:speciality].present? && params[:budget].present? %>
+      <span class="mr-2 p-2 border text-muted bold s_font">
+        <%= params[:speciality] %></span>
+      <span class="mr-2 p-2 border text-muted bold s_font">
+        <%= number_to_currency(params[:budget], unit: "£", precision: 0) %></span>
     <% end %>
   </div>
 </div>
-
 
 
 
