@@ -38,13 +38,17 @@
        <h5 class="bold purple border-bottom pb-4">£ <%=  @architect.appt_rate %></h5>
 
        <h5 class="lt-grey bold s_font border-bottom pb-3 mb-4">The initial consultation usually lasts between 1 to 2 hours. Consultation fee will be refunded after the contract is signed<br> if project goes ahead.</h5>
+       <% if current_user.nil? == false && current_user.projects.nil? == false %>
         <%= simple_form_for [@architect, @appointment] do |f| %>
           <%= f.association :project,
             collection: current_user.projects,
             prompt: 'select a project'
           %>
-          <%= f.input :appt_time, collection: @architect.appt_times.sort.map {|date| [date.strftime('%d %b %Y %H:%M'), date]}, prompt: 'Select a date'%>
-          <%= f.submit "Request Appointment", class: "mb-4", id: "req-appt-btn" %>
+            <%= f.input :appt_time, collection: @architect.appt_times.sort.map {|date| [date.strftime('%d %b %Y %H:%M'), date]}, prompt: 'Select a date'%>
+            <%= f.submit "Request Appointment", class: "mb-4", id: "req-appt-btn" %>
+          <% end %>
+          <% else %>
+            <h6><span class="highlight-purple">Sorry, </span>you must be logged in and have a project to make an appointment.</h6>
         <% end %>
       </div>
   </div>
