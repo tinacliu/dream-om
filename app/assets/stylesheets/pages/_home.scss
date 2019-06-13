@@ -24,6 +24,7 @@
   margin-bottom: 40px
 }
 
+
 #footer-email-sign {
   width: 310px !important;
 }
@@ -53,3 +54,54 @@
       font-size: 12px;
     }
   }
+
+
+.steps-card {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  margin: 48px auto;
+  padding: 0px 24px;
+  width: 300px;
+  // text-align:left
+
+  h3 {
+    margin: 50px;
+    font-size: 25px;
+    color: $dark-silver;
+  }
+
+  h4 {
+    margin: 15px 0px;
+    font-size: 20px;
+    font-weight: 400;
+
+  }
+
+  p {
+    // margin: 0px 0px 0px 55px;
+  }
+
+}
+
+
+.home-grid{
+  display: grid;
+  padding: 0px 32px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 32px;
+  grid-row-gap: 32px;
+}
+
+
+.steps-title {
+  color: $dark-silver;
+  font-size: 25px;
+  text-align: center;
+  margin: 40px 0px 60px 0px;
+  font-weight:800;
+  // border-bottom: 1px solid $dark-silver;
+  // padding-bottom: 20px;
+}
+

@@ -2,27 +2,39 @@
   <% if params[:destination].blank? %>
 
   <% else %>
-    <% travel_hash = plot.travel_time(params[:destination],'transit') %>
-    <div class="text-center ml-2">
-      <h6 class="mb-0 "><%= travel_hash[:dist] %></h6>
-      <h6 class="mb-0 grey bold">miles</h6>
-    </div>
+    <% travel_hash = plot.travel_time(params[:destination],'driving') %>
+    <% if travel_hash[:dist].blank? == false %>
+      <div class="text-center ml-2">
+        <h6 class="mb-0 "><%= travel_hash[:dist] %></h6>
+        <h6 class="mb-0 grey bold">miles</h6>
+      </div>
+    <% end %>
+
+    <% train_time = plot.travel_time(params[:destination],'transit')[:time] %>
+    <% if train_time.blank? == false %>
     <div class="text-center mx-2">
       <h6 class="mb-0 "><i class="fas fa-subway"></i></h6>
       <h6 class="mb-0 grey bold">
-        <% if travel_hash[:time].blank? == false %>
-          <%= travel_hash[:time].gsub(/hours?/,"h").gsub(/mins?/,"m") %>
-        <% end %>
+        <%# train_time = plot.travel_time(params[:destination],'transit')[:time] %>
+        <%# if train_time.blank? == false %>
+          <%= train_time.gsub(/hours?/,"h").gsub(/mins?/,"m") %>
+        <%# end %>
       </h6>
     </div>
+    <% end %>
+
+    <% if travel_hash[:time].blank? == false %>
     <div class="text-center mx-2">
       <h6 class="mb-0 "><i class="fas fa-car"></i></h6>
       <h6 class="mb-0 grey bold">
-        <% drive_time = plot.travel_time(params[:destination],'driving')[:time] %>
-        <% if drive_time.blank? == false %>
-          <%= drive_time.gsub(/hours?/,"h").gsub(/mins?/,"m") %>
-        <% end %>
+
+        <%# if travel_hash[:time].blank? == false %>
+          <%= travel_hash[:time].gsub(/hours?/,"h").gsub(/mins?/,"m") %>
+        <%# end %>
       </h6>
     </div>
+    <% end %>
+
   <% end %>
+
 </div>
