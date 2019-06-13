@@ -15,12 +15,12 @@
       <%= text_field_tag :address,
         params[:address],
         class: "form-control form-control text-secondary",
-          placeholder: 'where do you want to live?',
+          placeholder: 'London',
           id: "typed-searched"
       %>
      <% end %>
        <%= link_to plots_path do %>
-       <input id="btn-banner" type="submit", value= "SEARCH">
+       <input id="btn-banner" type="submit", value= "EXPLORE">
       <% end %>
     </div>
 
@@ -45,7 +45,27 @@
   </div>
 </div>
 
-
+<div class="container">
+  <div class="card border-0 my-5">
+    <!-- <h2 class="steps-title">How it works</h2> -->
+    <h3 class="steps-title">always dreamed of your perfect family home<br>but put off by the complex process?<br><span class="thin mt-2">we help you to make it a simple process</span> </h3>
+  </div>
+  <div class="home-grid">
+    <div class="steps-card">
+      <div class="row">
+        <%= image_tag "dream-om-plot.svg", class:'text-left' %>
+        <h4 class="blue">Locate a Plot</h4>
+        <p class="text-left h_font">we have filtered through major property websites to bring you only sites that have major development potential.</p>
+      </div>
+    </div>
+    <div class="steps-card">
+      <div class="row">
+        <%= image_tag "dream-om-arc.svg"%>
+        <h4 class="purple">Find an Architect</h4>
+        <p class="text-left h_font"><span class="thin">easily search</span> for an experienced architect to accompany you on an viewing before you make that important purchase.</p>
+      </div>
+    </div>
+  </div>
 
 <div class="container margin-bottom">
   <div class="feature-card">
