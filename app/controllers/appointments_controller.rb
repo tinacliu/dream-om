@@ -6,7 +6,7 @@ class AppointmentsController < ApplicationController
     @appointment.architect = Architect.find(params[:architect_id])
     authorize @appointment
     if @appointment.save
-      flash[:notice] = "Appointment request received"
+      flash[:notice] = "Appointment confirmed!"
       redirect_to profile_path(tab: :appt)
     else
       flash[:alert] = "Error with the appointment request"
