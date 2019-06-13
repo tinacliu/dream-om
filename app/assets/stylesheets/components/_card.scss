@@ -35,6 +35,20 @@
   font-size: 22px;
 }
 
+.card-travel-banner {
+  position: absolute;
+  top: 0;
+  background-color: rgba(20, 70, 70, 0.7);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  z-index: 500;
+  color: white;
+
+}
+
 .card-index-link {
   &:hover {
     text-decoration: none;
@@ -106,6 +120,7 @@
 }
 
 
+// for the info window card
 .info-card-body {
   background-color: white;
 
