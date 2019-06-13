@@ -101,3 +101,17 @@
   min-height: 450px;
   max-height: 450px;
 }
+
+
+@media (max-width: 768px) {
+  .index-grid-architect {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .index-grid-architect {
+    grid-template-columns: 1fr;
+  }
+}
+

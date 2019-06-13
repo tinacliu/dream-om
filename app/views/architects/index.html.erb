@@ -4,9 +4,9 @@
   </div>
 
   <div class= "d-flex mt-3">
-    <div class="col-12 px-2">
+    <div class="col-sm-12">
       <% if @architects.size > 0 %>
-        <div class="index-grid-architect">
+        <div class="index-grid-architect col-12 px-2">
           <% @architects.each do |architect| %>
               <%= render 'architects/card', architect: architect %>
           <% end %>
