@@ -48,7 +48,7 @@
               <%= render 'plots/card', plot: plot %>
           <% end %>
         </div>
-            <div class="load-more-container">
+            <div class="load-more-container col-12 col-sm-12 justify-content-sm-center px-2">
         <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
               <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif mb-3" %>
               <%= link_to "Load More", plots_path, class: "load-more btn mt-5 mb-5" %>

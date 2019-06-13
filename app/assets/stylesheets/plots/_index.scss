@@ -83,14 +83,17 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
   .filter-bar {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 @media (max-width: 768px) {
   .index-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  .footer-email-sign {
+    max-width: 242px;
   }
 }
 
@@ -98,30 +101,8 @@
   .form-inline {
     display: none;
   }
-}
-
-@media (max-width: 767.98px) {
-.footer-dream {
-    padding-left: 0;
-    padding-right: 0;
-    }
-    #footer-email-sign {
-    position: absolute;
-    }
-    .bold{
-      font-size: 12px;
+  .index-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 576px) {
-  .footer-dream {
-    padding-left: 0;
-    padding-right: 0;
-    }
-    #footer-email-sign {
-    position: absolute;
-    }
-    .bold{
-      font-size: 12px;
-    }
-  }
