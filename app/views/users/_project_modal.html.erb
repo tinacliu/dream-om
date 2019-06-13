@@ -5,21 +5,30 @@
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title mt-3" id="modelTitle">We see you have made a plot viewing appointment...</h5>
+      <div class="modal-header text-center mx-auto">
+        <h5 class="modal-title mt-2" id="modelTitle"><span class="">We see you have made a plot viewing appointment...</span></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <h6 class="m_font my-2">Why not book an architect for a on-site initial consultation about your self-build project?</h6>
-        <p class="m_font mt-3 mb-1">An architect can advice you on</p>
-        <ul>
-          <li>the feasibility of your project</li>
-          <li>if your budget is realistic</li>
-          <li>timeline of the building process</li>
-        </ul>
-        <h6><span class="highlight-blue">saving you valuable time on plot searching and project planning</span></h6>
+        <h6 class="m_font my-1 text-center">Why not book an architect for a on-site initial consultation about your self-build project?</h6>
+        <h6 class="l_font grey mx-1 text-center">An architect can advice you on</h6>
+        <div class="d-flex align-items-center justify-content-around">
+          <div class="modal-icons">
+            <%= image_tag "budget3.png", alt: "feasibility check" %>
+            <h6 class="text-center blue bold">the feasibility <br>of your project</h6>
+          </div>
+          <div class="modal-icons">
+            <%= image_tag "fees3.png", alt: "budget check" %>
+            <h6 class="text-center blue bold">if your budget <br>is realistic</h6>
+          </div>
+          <div class="modal-icons">
+            <%= image_tag "timeline3.png", alt: "timeline check" %>
+            <h6 class="text-center blue bold">timeline of the <br>building process</h6>
+          </div>
+        </div>
+        <h6 class="text-center"><span class="highlight-blue grey">saving you valuable time on plot searching and project planning</span></h6>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="modal-to-project">Continue</button>
