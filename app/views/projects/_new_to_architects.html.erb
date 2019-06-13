@@ -3,7 +3,7 @@
     <%= f.input :title, label: "Project name" %>
     <%= f.input :budget, label: "Budget exc. plot (£)", input_html: { min: '0', step: "10000"} %>
     <%= f.input :plot_postcode, label: "Site address" %>
-    <%= f.input :category, collection: Architect::SPECIALITY %>
+    <%= f.input :category, collection: Architect::SPECIALITY, prompt: "What type is your project?" %>
     <%= f.submit "Submit Project", class: "btn btn-primary", style: "display: none" %>
   <% end %>
 </div>
