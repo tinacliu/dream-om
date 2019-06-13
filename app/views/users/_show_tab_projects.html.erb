@@ -4,6 +4,8 @@
     <h5 class="left-banner py-3"><span class="highlight-purple">No projects to display</span> </h5>
     <hr>
   <% else %>
+
+  <%= render 'projects/new', project: @project %>
     <p class="ml-3 pt-5 thin h_font m_font purple">Current Projects </p>
     <% @user.projects.each do |project| %>
       <div class = "card border-0">
@@ -17,8 +19,6 @@
   </div>
     <% end %>
   <% end %>
-
-  <%= render 'projects/new', project: @project %>
 </div>
 
 

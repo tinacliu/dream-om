@@ -1,42 +1,44 @@
 <!-- appointments tab -->
+
 <div class="tab-pane fade <%= 'show active' if params[:tab] == 'appt' %>" id="pills-appts" role="tabpanel" aria-labelledby="pills-appts-tab">
-
-  <% if @user.appointments.size == 0 %>
-    <div class="m_font py-3 pl-5">
-      <span class="highlight-blue">No appointments found</span></div>
-  <% else %>
-    <div class="index-grid-appt">
-      <% @user.appointments.each do |appt| %>
-
-        <div class="card card-index-appt shadow-sm">
-          <div class="card-header bg-white">
-
-            <h6 class="mb-0 blue text-center"><%= appt.project.plot_postcode %></h6>
-          <div class = "d-flex justify-content-center mt-2">
-
-
+  <div class="container mt-5">
+      <% if @user.appointments.size == 0 %>
+      <div class="m_font py-3 pl-5">
+          <span class="highlight-blue">No appointments found</span></div>
+      <% else %>
+      <div class="index-grid-appt-2">
+        <% @user.appointments.each do |appt| %>
+          <div class="card-date-dash mt-5">
+            <h6 class="grey-bg-appt bold pr-3 lt-grey">Architect</h6>
+            <h6 class="grey-bg-appt bold ml-2 lt-grey">Plot location</h6>
+            <h6 class="grey-bg-appt bold ml-1 lt-grey">Date</h6>
+            <h6 class="grey-bg-appt bold lt-grey">Time</h6>
           </div>
-          </div>
-            <% if appt.architect.portfolio_url.first.blank? == false %>
-              <%= image_tag appt.architect.portfolio_url.first, crop: :fill, class: 'card-index-img' %>
-            <% end %>
-
-            <div class="card-body-appt">
-              <div class="">
-                <h6 class="mb-0"><%= appt.architect.name %></h6>
-              </div>
-              <div class="border-left my-3 pl-4 text-center">
-                <h5 class="mb-0 blue"><%= appt.appt_time.strftime("%d") %></h5>
-                <p class="mb-0"><%= appt.appt_time.strftime("%B")[0..2] %></p>
-              </div>
-              <div class="border-left my-3 pl-3 text-center">
-                <h5 class="mb-0 blue"><%= "#{appt.appt_time.hour >= 12 ? appt.appt_time.hour - 12 : appt.appt_time.hour}:00" %></h5>
-                <p class="mb-0"><%= appt.appt_time.hour >= 12 ? "PM" : "AM" %></p>
-              </div>
+          <div class="card-body-appt mt-5">
+            <div class="">
+              <h6 class="mb-0"><%= appt.architect.name %></h6>
+            </div>
+              <h6 class="lt-grey ">|</h6>
+            <div class="my-3 text-center">
+              <p class="mb-0 h_font thin m_font">London <%= appt.project.plot_postcode %></p>
+            </div>
+            <h6 class="lt-grey ">|</h6>
+            <div class="my-3 text-center">
+              <p class="mb-0 h_font thin m_font purple"><%= appt.appt_time.strftime("%d") %></p>
+              <p class="mb-0 thin"><%= appt.appt_time.strftime("%B")[0..2] %></p>
+            </div>
+            <h6 class="lt-grey ">|</h6>
+            <div class="my-3 text-center">
+              <p class="mb-0 h_font thin m_font purple"><%= "#{appt.appt_time.hour >= 12 ? appt.appt_time.hour - 12 : appt.appt_time.hour}:00" %></p>
+              <p class="mb-0 thin"><%= appt.appt_time.hour >= 12 ? "PM" : "AM" %></p>
             </div>
           </div>
-
-      <% end %>
-    </div>
-  <% end %>
+        <% end %>
+        <%= link_to architects_path do %>
+          <i class="fas fa-plus-circle purple l_font mt-4 pt-5 pl-3"></i>
+        <% end %>
+      </div>
+  </div>
+<% end %>
 </div>
+
