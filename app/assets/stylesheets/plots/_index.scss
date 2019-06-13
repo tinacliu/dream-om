@@ -80,3 +80,48 @@
 .align-search-bar {
   transform: translateY(-19px);
 }
+
+
+
+@media (max-width: 768px) {
+  .filter-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .index-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-inline {
+    display: none;
+  }
+}
+
+@media (max-width: 767.98px) {
+.footer-dream {
+    padding-left: 0;
+    padding-right: 0;
+    }
+    #footer-email-sign {
+    position: absolute;
+    }
+    .bold{
+      font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-dream {
+    padding-left: 0;
+    padding-right: 0;
+    }
+    #footer-email-sign {
+    position: absolute;
+    }
+    .bold{
+      font-size: 12px;
+    }
+  }

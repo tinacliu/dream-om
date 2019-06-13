@@ -1,6 +1,6 @@
 <div class="container-lg">
   <div class="d-flex mb-2">
-    <div class="col-4 p-0" >
+    <div class="col-4 p-0 d-none d-sm-block" >
       <%= form_tag plots_path, method: :get, class: "form-inline justify-content-end" do %>
         <%= text_field_tag :address,
           params[:address],
@@ -29,8 +29,8 @@
 
 <div class = "container-lg">
   <div class= "d-flex">
-    <div class="col-4 p-0" >
-      <div class="bg-white" id="map-container">
+    <div class="col-4 p-0 d-none d-sm-block" >
+      <div class="bg-white " id="map-container">
         <%= render 'plots/map' %>
        <!--  <div class="digg_pagination">
           <div class="page_info">
@@ -40,7 +40,7 @@
         </div> -->
       </div>
     </div>
-    <div class="col-8 px-2">
+    <div class="col-12 col-sm-8 justify-content-sm-center px-2">
       <% if @plots.size > 0 %>
         <div class="index-grid">
           <%#= @plots.to_a.count %>
