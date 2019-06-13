@@ -1,14 +1,15 @@
 // import "jquery";
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
-import { loadDynamicBannerText } from '../components/typed_banner';
+import { loadDynamicBannerText, loadDynamicBannerTagline } from '../components/typed_banner';
 import { initUpdateNavbarOnScroll } from '../components/filterbar';
 import { initMapbox, fitMapToMarkers } from '../plugins/init_mapbox';
 import { initSortable } from '../plugins/init_sortable';
 import { initSweetalert } from '../plugins/init_sweetalert';
 
 initUpdateNavbarOnScroll();
-loadDynamicBannerText();
+// loadDynamicBannerText();
+loadDynamicBannerTagline();
 
 // mapbox stuff
 initMapbox();

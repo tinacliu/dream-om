@@ -2,8 +2,10 @@
   <div class="flex-container">
 
     <div class="row">
-      <h2 class="f-shadow">Build Your<br><span class="blue
-        "> DREAM HOME</span></h2>
+      <h2 class="f-shadow thin">Turn <span class="blue "id="typed-tagline"></span> <br>into your <span class="">Dream Home</span></h2>
+    </div>
+    <div class="row">
+      <p class="bold">Find your <span class="thin">plot</span> and <span class="thin">architect</span> in just a few clicks</p>
     </div>
 
    <div class="row">
@@ -12,7 +14,8 @@
     <%= form_tag plots_path, method: :get do %>
       <%= text_field_tag :address,
         params[:address],
-        class: "form-control form-control home-search-bar",
+        class: "form-control form-control text-secondary",
+          placeholder: 'where do you want to live?',
           id: "typed-searched"
       %>
      <% end %>
