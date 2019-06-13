@@ -210,7 +210,7 @@ the architectural press, garnering nominations and awards for No. 49 and Red Hou
   ],
   available: true,
   speciality: "New Build: Country Home",
-  min_project_budget: 250_000,
+  min_project_budget: 200_000,
   appt_times: appts,
   appt_rate: 200
   )

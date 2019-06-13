@@ -8,11 +8,12 @@
       <% if @architects.size > 0 %>
         <div class="index-grid-architect col-12 px-2">
           <% @architects.each do |architect| %>
-              <%= render 'architects/card', architect: architect %>
+            <%= render 'architects/card', architect: architect %>
           <% end %>
         </div>
       <% else %>
         <h6 class="pl-4 none-msg"><span class="highlight-purple">Sorry, no architects match your query.</span></h6>
       <% end %>
+    </div>
   </div>
 </div>
