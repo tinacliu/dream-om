@@ -3,15 +3,19 @@ puts 'deleting appointments & then architects'
 Appointment.destroy_all
 Architect.destroy_all
 
-date_AM_1 = DateTime.parse ('2019-06-26T11: 00: 00')
-date_AM_2 = DateTime.parse ('2019-06-22T09: 00: 00')
-date_PM_1 = DateTime.parse ('2019-06-24T13: 00: 00')
-date_PM_2 = DateTime.parse ('2019-06-28T17: 00: 00')
+regular_dates = [
+DateTime.parse('2019-06-26T11: 00: 00'),
+DateTime.parse('2019-06-22T09: 00: 00'),
+DateTime.parse('2019-06-24T13: 00: 00'),
+DateTime.parse('2019-06-28T17: 00: 00')
+]
+
+pitch_date = DateTime.parse ('2019-06-21T17: 00: 00')
 
 puts 'creating Architect 1...'
 appts = []
-8.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..7)
+6.times do
+  appts << regular_dates.sample + rand(0..7)
 end
 
 Architect.create!(
@@ -40,37 +44,11 @@ Architect.create!(
   )
 
 
+
 puts 'creating Architect 2...'
 appts = []
-10.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..7)
-end
-
-Architect.create!(
-  name: "Emil Eve Architects",
-  website_url: "https://www.emileve.co.uk/",
-  location: "London - North",
-  bio: "Emil Eve Architects was founded by Emma and Ross Perkin in 2010 and is based in Hackney.\
-   Past projects include housing, retail spaces, galleries and work studios where \
-   they provide architectural and interior design services. Emil Eve Architects specialise in \
-   working with historic and listed buildings and enjoy the challenge of introducing contemporary \
-   interventions into complex contexts.",
-  portfolio_url: [
-    "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/1a.jpg",
-    "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/Ext-small2.jpg",
-    "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/186.jpg"
-  ],
-  available: true,
-  speciality: "New Build: Country Home",
-  min_project_budget: 100_000,
-  appt_times: appts,
-  appt_rate: 175
-  )
-
-puts 'creating Architect 3...'
-appts = []
-12.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..7)
+6.times do
+  appts << regular_dates.sample + rand(0..7)
 end
 
 Architect.create!(
@@ -94,10 +72,10 @@ Architect.create!(
   appt_rate: 200
   )
 
-puts 'creating Architect 4...'
+puts 'creating Architect 3...'
 appts = []
-12.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..7)
+6.times do
+  appts << regular_dates.sample + rand(0..7)
 end
 
 Architect.create!(
@@ -122,10 +100,10 @@ Architect.create!(
   appt_rate: 200
   )
 
-puts 'creating Architect 5...'
+puts 'creating Architect 4...'
 appts = []
-12.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+6.times do
+  appts << regular_dates.sample + rand(0..5)
 end
 
 Architect.create!(
@@ -149,10 +127,10 @@ Architect.create!(
   appt_rate: 225
   )
 
-puts 'creating Architect 6...'
+puts 'creating Architect 5...'
 appts = []
-10.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+6.times do
+  appts << regular_dates.sample + rand(0..5)
 end
 
 Architect.create!(
@@ -176,65 +154,40 @@ Architect.create!(
   appt_rate: 225
   )
 
-puts 'creating Architect 7...'
+puts 'creating Architect 6...'
 appts = []
-10.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+6.times do
+  appts << regular_dates.sample + rand(0..5)
 end
 
 Architect.create!(
-  name: "McLean Quinlan",
-  website_url: "https://mcleanquinlan.com/works/",
-  location: "London - West",
-  bio: "McLean Quinlan are housemakers, creating distinct, beautifully crafted architecture, in the town, \
-  the countryside, in the UK and overseas. They love what they do; delighting in the detail, the use of light \
-    and materials, the sensory, the tactile, and the making of spaces that age with grace. They themselves are\
-     a family, and are mindful that creating a home is a journey, a life experience. The studio are always \
-     careful to understand the way you live and what you enjoy. This is the key to designing a home that \
-     is truly yours.",
+  name: "Conform Architects",
+  website_url: "https://www.conformarchitects.com/",
+  location: "London - South",
+  bio: "The ethos behind our architecture is underpinned by a rigorous design process which always explores \
+  both context and form. We believe context is not just the physical surroundings but also the social, cultural \
+  and historical uniqueness of place. We strive to investigate these contextual facets through the development \
+  of relevant forms, with concepts and designs that challenge our clients, their brief and ambitions. Our \
+  architecture embraces light and investigates materiality; engendering an innate detail and craft in our built form.",
   portfolio_url: [
-    "https://mcleanquinlan.com/img/works/polzeath-house/mclean-quinlan-polzeath-house-4@2x.1547812778.jpg",
-    "https://mcleanquinlan.com/img/works/polzeath-house/mclean-quinlan-polzeath-house-10@2x.1547812784.jpg",
-    "https://mcleanquinlan.com/img/works/chiltern-barns/mclean-quinlan-chiltern-barns-2@2x.1547812633.jpg",
-    "https://mcleanquinlan.com/img/works/kent-downs-house/mclean-quinlan-kent-downs-house-2@2x.1547812740.jpg" ],
+    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5ab1233f03ce640c3c525030/1521560051263/levels_ten%2Beleven-con_form_architects_02.jpg?format=1500w",
+    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c56ff9f7817f790cc089ea9/1549234041878/repoussoir-con_form_architects_02.jpg?format=1500w",
+    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c57747415fcc09e6fcb856f/1549235324881/dormore-con_form_architects_06.jpg?format=1500w"
+  ],
   available: true,
-  speciality: "New Build: Country Home",
-  min_project_budget: 500_000,
+  speciality: "Renovation",
+  min_project_budget: 250_000,
   appt_times: appts,
-  appt_rate: 200
+  appt_rate: 225
   )
 
-puts 'creating Architect 8...'
-appts = []
-10.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
-end
+puts "Creating Country Home Architects"
 
-Architect.create!(
-  name: "Archmongers",
-  website_url: "http://archmongers.com/portfolio_page",
-  location: "London - East",
-  bio: "Archmongers is an award-winning London-based architectural studio founded by \
-  Margaret Bursa and Johan Hybschmann. We provide the complete design of buildings from \
-  feasibility to final details, before overseeing on-site construction to practical completion. \
-  We offer a fully integrated interior design service that complements the overarching \
-  architectural concept, delivering new builds through to fit-outs to a high level of quality and detail.",
-  portfolio_url: [
-    "http://archmongers.com/wp-content/uploads/2016/11/20170706-DSC_6805-LO-RES-1024x684.jpg",
-    "http://archmongers.com/wp-content/uploads/2016/11/DSC_6227.jpg",
-    "http://archmongers.com/wp-content/uploads/2016/11/THE_RYDE-7374.jpg"
-    ],
-  available: true,
-  speciality: "New Build: Country Home",
-  min_project_budget: 200_000,
-  appt_times: appts,
-  appt_rate: 200
-  )
-
-puts 'creating Architect 9...'
+puts 'creating Architect 1...'
 appts = []
-10.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+appts << pitch_date
+6.times do
+  appts << regular_dates.sample + rand(0..5)
 end
 
 Architect.create!(
@@ -262,31 +215,87 @@ the architectural press, garnering nominations and awards for No. 49 and Red Hou
   appt_rate: 200
   )
 
-
-puts 'creating Architect 10...'
+puts 'creating Architect 8...'
 appts = []
-10.times do
-  appts << [date_AM_1, date_AM_2, date_PM_1, date_PM_2].sample + rand(0..5)
+  appts << pitch_date
+6.times do
+  appts << regular_dates.sample + rand(0..5)
 end
 
 Architect.create!(
-  name: "Conform Architects",
-  website_url: "https://www.conformarchitects.com/",
-  location: "London - South",
-  bio: "The ethos behind our architecture is underpinned by a rigorous design process which always explores \
-  both context and form. We believe context is not just the physical surroundings but also the social, cultural \
-  and historical uniqueness of place. We strive to investigate these contextual facets through the development \
-  of relevant forms, with concepts and designs that challenge our clients, their brief and ambitions. Our \
-  architecture embraces light and investigates materiality; engendering an innate detail and craft in our built form.",
+  name: "Archmongers",
+  website_url: "http://archmongers.com/portfolio_page",
+  location: "London - East",
+  bio: "Archmongers is an award-winning London-based architectural studio founded by \
+  Margaret Bursa and Johan Hybschmann. We provide the complete design of buildings from \
+  feasibility to final details, before overseeing on-site construction to practical completion. \
+  We offer a fully integrated interior design service that complements the overarching \
+  architectural concept, delivering new builds through to fit-outs to a high level of quality and detail.",
   portfolio_url: [
-    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5ab1233f03ce640c3c525030/1521560051263/levels_ten%2Beleven-con_form_architects_02.jpg?format=1500w",
-    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c56ff9f7817f790cc089ea9/1549234041878/repoussoir-con_form_architects_02.jpg?format=1500w",
-    "https://static1.squarespace.com/static/5807e9b9d482e9d2da1eff2e/t/5c57747415fcc09e6fcb856f/1549235324881/dormore-con_form_architects_06.jpg?format=1500w"
-  ],
+    "http://archmongers.com/wp-content/uploads/2016/11/20170706-DSC_6805-LO-RES-1024x684.jpg",
+    "http://archmongers.com/wp-content/uploads/2016/11/DSC_6227.jpg",
+    "http://archmongers.com/wp-content/uploads/2016/11/THE_RYDE-7374.jpg"
+    ],
   available: true,
-  speciality: "Renovation",
-  min_project_budget: 250_000,
+  speciality: "New Build: Country Home",
+  min_project_budget: 200_000,
   appt_times: appts,
-  appt_rate: 225
+  appt_rate: 200
   )
 
+puts 'creating Architect 2...'
+appts = []
+  appts << pitch_date
+6.times do
+  appts << regular_dates.sample + rand(0..5)
+end
+
+Architect.create!(
+  name: "McLean Quinlan",
+  website_url: "https://mcleanquinlan.com/works/",
+  location: "London - West",
+  bio: "McLean Quinlan are housemakers, creating distinct, beautifully crafted architecture, in the town, \
+  the countryside, in the UK and overseas. They love what they do; delighting in the detail, the use of light \
+    and materials, the sensory, the tactile, and the making of spaces that age with grace. They themselves are\
+     a family, and are mindful that creating a home is a journey, a life experience. The studio are always \
+     careful to understand the way you live and what you enjoy. This is the key to designing a home that \
+     is truly yours.",
+  portfolio_url: [
+    "https://mcleanquinlan.com/img/works/polzeath-house/mclean-quinlan-polzeath-house-4@2x.1547812778.jpg",
+    "https://mcleanquinlan.com/img/works/polzeath-house/mclean-quinlan-polzeath-house-10@2x.1547812784.jpg",
+    "https://mcleanquinlan.com/img/works/chiltern-barns/mclean-quinlan-chiltern-barns-2@2x.1547812633.jpg",
+    "https://mcleanquinlan.com/img/works/kent-downs-house/mclean-quinlan-kent-downs-house-2@2x.1547812740.jpg" ],
+  available: true,
+  speciality: "New Build: Country Home",
+  min_project_budget: 500_000,
+  appt_times: appts,
+  appt_rate: 200
+  )
+
+puts 'creating Architect 3...'
+appts = []
+appts << pitch_date
+6.times do
+  appts << regular_dates.sample + rand(0..7)
+end
+
+Architect.create!(
+  name: "Emil Eve Architects",
+  website_url: "https://www.emileve.co.uk/",
+  location: "London - North",
+  bio: "Emil Eve Architects was founded by Emma and Ross Perkin in 2010 and is based in Hackney.\
+   Past projects include housing, retail spaces, galleries and work studios where \
+   they provide architectural and interior design services. Emil Eve Architects specialise in \
+   working with historic and listed buildings and enjoy the challenge of introducing contemporary \
+   interventions into complex contexts.",
+  portfolio_url: [
+    "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/1a.jpg",
+    "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/Ext-small2.jpg",
+    "https://www.emileve.co.uk/assets/Uploads/_resampled/ScaleWidthWyIxNTg0Il0/186.jpg"
+  ],
+  available: true,
+  speciality: "New Build: Country Home",
+  min_project_budget: 100_000,
+  appt_times: appts,
+  appt_rate: 175
+  )
