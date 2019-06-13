@@ -23,7 +23,7 @@
     // border: 1px solid rgba(0, 0, 0, 0.125);
     border: 1px solid #8e8e8e;
     border-radius: 8px;
-    margin: 75px 36px 90px 26px;
+    margin: 58px 36px 90px 26px;
     padding: 8px 75px;
 }
 
@@ -37,7 +37,7 @@
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    margin: 162px 0px;
+    margin: 138px 0px;
     padding: 8px 50px;
 }
 
@@ -96,6 +96,8 @@
 }
 
 #img-arct {
-  min-width: 600px;
-  max-height: 600px;
+  min-width: 700px;
+  max-width: 700px;
+  min-height: 450px;
+  max-height: 450px;
 }
