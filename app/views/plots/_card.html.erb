@@ -1,6 +1,8 @@
 <%= link_to plot, class: "card-index-link" do  %>
   <div class="card card-index shadow-sm" data-id="<%= plot.id %>">
-      <%= render 'plots/card_travel', plot: plot %>
+      <% if params[:destination].blank? == false %>
+        <%= render 'plots/card_travel', plot: plot %>
+      <% end %>
       <% @shortlisted = Shortlist.where(user: current_user, plot: plot).first %>
       <% if @shortlisted %>
         <% if plot.image_urls.blank? == false %>

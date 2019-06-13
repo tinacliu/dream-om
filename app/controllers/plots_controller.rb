@@ -5,13 +5,13 @@ class PlotsController < ApplicationController
     @plots = policy_scope(Plot)#.paginate(page: params[:page], per_page: 30)#.where.not(latitude: nil, longitude: nil)
     @plots = @plots.near(params[:address] || "New Barnet", params[:search_radius] || 20) unless params[:address].blank?
     if params[:id]
-      @plots = @plots.where('id < ?', params[:id]).limit(10)
+      @plots = @plots.where('id < ?', params[:id]).limit(6)
     else
-      @plots = @plots.limit(10)
+      @plots = @plots.limit(6)
     end
 
     t_filter = params[:type].blank? ? Plot::TYPE : params[:type]
-    min_p = params[:min_p].blank? ? 0 : params[:min_p]
+    min_p = params[:min_p].blank? ? 400_000 : params[:min_p]
     max_p = params[:max_p].blank? ? 1_000_000 : params[:max_p]
 
     sql_query = " \

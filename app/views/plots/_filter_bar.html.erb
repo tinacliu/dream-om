@@ -10,7 +10,6 @@
       <form action="/plots" method="get" class="mx-4 my-2">
         <div class="form-group">
           <input type="text" class="form-control" name="min_p" value="0" placeholder="Min Price">
-          <input type="hidden" name="location" value="<%= params[:location] %>">
           <input type="hidden" name="type" value="<%= params[:type] %>">
           <input type="hidden" name="address" value="<%= params[:address] %>">
           <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
@@ -24,68 +23,62 @@
     </div>
   </div>
 
-    <div class="dropdown">
-      <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Travel Time </div>
-      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-        <form action="/plots" method="get" class="mx-4 my-2">
-          <div class="form-group">
-            <input type="text" class="form-control" name="destination" value="" placeholder="Starting at">
-            <input type="hidden" name="location" value="<%= params[:location] %>">
-            <input type="hidden" name="type" value="<%= params[:type] %>">
-            <input type="hidden" name="address" value="<%= params[:address] %>">
-            <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
-
-          </div>
-        <button type="submit" class="btn btn-outline-primary">Search</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="dropdown">
-      <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
-      <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
-      <% Plot::TYPE.each do |type| %>
-        <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], destination: params[:destination], search_radius: params[:search_radius]) do  %>
-          <div class="dropdown-item"><%= type %></div>
-        <% end %>
+  <div class="dropdown">
+    <div class="filter-button mx-4" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Type</div>
+    <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+    <% Plot::TYPE.each do |type| %>
+      <%= link_to plots_path(type: type, address: params[:address], location: params[:location],min_p: params[:min_p], max_p: params[:max_p], destination: params[:destination], search_radius: params[:search_radius]) do  %>
+        <div class="dropdown-item"><%= type %></div>
       <% end %>
-      </div>
+    <% end %>
     </div>
   </div>
 
-
-  <div class="user-filtered">
-    <% if params[:type].present? %>
-      <span class="mr-2 p-2 border text-muted bold s_font"> <%= params[:type] %></span>
-    <% else %>
-    <% end %>
-
-    <%if params[:destination].present? %>
-      <span class="mr-2 p-2 border text-muted bold s_font"> Travel Time</span>
-    <% end %>
-
-
-    <% if params[:min_p].present? && params[:max_p].present? %>
-    <span class="mr-2 p-2 border text-muted bold s_font">£<%= params[:min_p] %> to £<%= params[:max_p] %></span>
-    <% elsif params[:max_p].present?  %>
-    <span class="mr-2 p-2 border text-muted bold s_font"> Max Price £<%= params[:max_p] %></span >
-    <% elsif params[:min_p].present?  %>
-    <span class="mr-2 p-2 border text-muted bold s_font">From: £<%= params[:min_p] %></span>
-    <% else %>
-    <% end %>
+  <div class="dropdown">
+    <div class="filter-button mx-3" id="dropdownMenuCategory" data-toggle="dropdown" aria-expanded="false">Travel Time </div>
+    <div class="dropdown-menu border-none" aria-labelledby="dropdownMenuCategory">
+      <form action="/plots" method="get" class="mx-4 my-2">
+        <div class="form-group">
+          <input type="text" class="form-control" name="destination" value="" placeholder="to work?">
+          <input type="hidden" name="min_p" value="<%= params[:min_p] %>">
+          <input type="hidden" name="max_p" value="<%= params[:max_p] %>">
+          <input type="hidden" name="type" value="<%= params[:type] %>">
+          <input type="hidden" name="address" value="<%= params[:address] %>">
+          <input type="hidden" name="search_radius" value="<%= params[:search_radius] %>">
+        </div>
+      <button type="submit" class="btn btn-outline-primary">Calculate</button>
+      </form>
+    </div>
   </div>
 </div>
 
-<!--
-    <% if params[:location].present? && params[:speciality].present? %>
-      <span class="mr-2 p-2 border text-muted bold s_font">
-        <%= params[:location] %></span>
-      <span class="mr-2 p-2 border text-muted bold s_font">
-        <%= params[:speciality] %></span>
-    <% elsif params[:speciality].present? && params[:budget].present? %>
-      <span class="mr-2 p-2 border text-muted bold s_font">
-        <%= params[:speciality] %></span>
-      <span class="mr-2 p-2 border text-muted bold s_font">
-        <%= number_to_currency(params[:budget], unit: "£", precision: 0) %></span>
-    <% end %>
--->
+
+<div class="user-filtered">
+  <% if params[:type].present? %>
+    <span class="mr-2 p-2 border text-muted bold s_font">
+      <%= params[:type] %></span>
+  <% else %>
+  <% end %>
+
+  <%if params[:destination].present? %>
+    <span class="mr-2 p-2 border text-muted bold s_font">
+      Destination: <%= params[:destination] %></span>
+  <% end %>
+
+
+  <% if params[:min_p].present? && params[:max_p].present? %>
+  <span class="mr-2 p-2 border text-muted bold s_font">
+    <%= number_to_currency(params[:min_p], unit: "£", precision: 0)%> to
+    <%= number_to_currency(params[:max_p], unit: "£", precision: 0)%></span>
+  <% elsif params[:max_p].present?  %>
+  <span class="mr-2 p-2 border text-muted bold s_font">
+    Max Price <%= number_to_currency(params[:max_p], unit: "£", precision: 0)%></span >
+  <% elsif params[:min_p].present?  %>
+    <span class="mr-2 p-2 border text-muted bold s_font">
+      From: <%= number_to_currency(params[:min_p], unit: "£", precision: 0)%>
+    </span>
+  <% else %>
+  <% end %>
+</div>
+
+
