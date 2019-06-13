@@ -1,8 +1,8 @@
-<div class="col-6 py-2" >
+<div class="col-6 py-2 mx-auto" >
   <%= simple_form_for project, url: project_architects_path do |f| %>
     <%= f.input :title, label: "Project name" %>
-    <%= f.input :budget, label: "Budget (£)", input_html: { min: '0', step: "10000"} %>
-    <%= f.input :plot_postcode, label: "Site Address" %>
+    <%= f.input :budget, label: "Budget exc. plot (£)", input_html: { min: '0', step: "10000"} %>
+    <%= f.input :plot_postcode, label: "Site address" %>
     <%= f.input :category, collection: Architect::SPECIALITY %>
     <%= f.submit "Submit Project", class: "btn btn-primary", style: "display: none" %>
   <% end %>
